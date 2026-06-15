@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://techne-co-op.github.io/digital-post/sitemap.xml

@@ -1,0 +1,19 @@
+{
+  "name": "The Digital Post",
+  "short_name": "Digital Post",
+  "description": "A cooperatively governed network for reliable digital communication and verified service delivery — a civic institution owned by the communities it serves.",
+  "start_url": "/digital-post/",
+  "scope": "/digital-post/",
+  "display": "standalone",
+  "background_color": "#0f0f0f",
+  "theme_color": "#c4956a",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
