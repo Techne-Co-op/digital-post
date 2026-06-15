@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Digital Post</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0f0f0f;
+    --surface: #1a1a1a;
+    --border: #333333;
+    --terra: #c4956a;
+    --terraDim: rgba(196,149,106,0.15);
+    --terraGlow: rgba(196,149,106,0.06);
+    --terraBorder: rgba(196,149,106,0.2);
+    --white: #e8e0d8;
+    --text: #d4d4d4;
+    --muted: #999999;
+    --faint: #666666;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15.5px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 24px 64px;
+  }
+
+  /* Labels and Rules */
+  .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terra);
+    opacity: 0.8;
+  }
+
+  .rule {
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--terra), transparent);
+    margin: 32px 0;
+  }
+
+  .section { margin-bottom: 64px; }
+
+  /* Typography */
+  h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(32px, 6vw, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .subhead {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(16px, 2.5vw, 19px);
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 600px;
+  }
+
+  p { margin-bottom: 20px; }
+
+  .italic { font-style: italic; }
+
+  /* Feature panel */
+  .feature {
+    background: linear-gradient(135deg, var(--surface), var(--terraGlow));
+    border: 1px solid var(--terraBorder);
+    border-radius: 16px;
+    padding: 36px 32px;
+    margin: 32px 0;
+  }
+
+  .feature p:last-child { margin-bottom: 0; }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    transition: border-color 0.3s ease;
+  }
+
+  .card:hover { border-color: rgba(196,149,106,0.35); }
+
+  .card-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .card-body {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  /* Mapping table */
+  .mapping {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+  }
+
+  .mapping th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terra);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    opacity: 0.8;
+  }
+
+  .mapping td {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(51,51,51,0.5);
+    color: var(--text);
+    vertical-align: top;
+  }
+
+  .mapping tr:last-child td { border-bottom: none; }
+
+  .mapping td:first-child {
+    color: var(--muted);
+    font-style: italic;
+    width: 40%;
+  }
+
+  /* Network diagram */
+  .network-frame {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 32px 0;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Layer stack */
+  .layer-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 32px 0;
+  }
+
+  .layer {
+    display: flex;
+    align-items: stretch;
+    min-height: 64px;
+  }
+
+  .layer-label {
+    width: 140px;
+    min-width: 140px;
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--terra);
+    opacity: 0.8;
+  }
+
+  .layer-content {
+    flex: 1;
+    padding: 16px 20px;
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .layer-content .title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .layer-content .desc {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .layer-divider {
+    height: 1px;
+    background: var(--border);
+    margin-left: 140px;
+  }
+
+  /* Applications grid */
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  .app-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: border-color 0.3s ease;
+  }
+
+  .app-card:hover { border-color: rgba(196,149,106,0.35); }
+
+  .app-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--terra);
+    opacity: 0.6;
+    margin-bottom: 8px;
+  }
+
+  .app-name {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .app-desc {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    line-height: 1.55;
+    color: var(--faint);
+  }
+
+  /* Timeline markers */
+  .timeline {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 32px 0;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--border);
+    z-index: 0;
+  }
+
+  .t-node {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    flex: 1;
+  }
+
+  .t-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--terra);
+    margin: 0 auto 10px;
+  }
+
+  .t-dot.hollow {
+    background: transparent;
+    border: 1px solid var(--terra);
+  }
+
+  .t-year {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--terra);
+    opacity: 0.8;
+  }
+
+  .t-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--faint);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: var(--faint);
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Constitutional article */
+  .article-block {
+    border-left: 2px solid rgba(196,149,106,0.3);
+    padding: 16px 24px;
+    margin: 24px 0;
+  }
+
+  .article-block .article-ref {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--terra);
+    opacity: 0.7;
+    margin-bottom: 8px;
+    letter-spacing: 0.08em;
+  }
+
+  .article-block .article-text {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .layer { flex-direction: column; }
+    .layer-label { width: 100%; min-width: unset; padding: 10px 16px 4px; }
+    .layer-content { border-left: none; border-top: 1px solid rgba(51,51,51,0.4); padding: 12px 16px; }
+    .layer-divider { margin-left: 0; }
+    .app-grid { grid-template-columns: 1fr; }
+    .timeline { flex-wrap: wrap; gap: 16px; }
+    .timeline::before { display: none; }
+    .mapping td:first-child { width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="section">
+    <span class="label">Concept</span>
+    <div class="rule"></div>
+    <h1>The Digital Post</h1>
+    <p class="subhead">
+      A civic institution for reliable communication, operated locally as cooperatives, connected globally through protocol, grounded in the human right to seek, receive, and impart information.
+    </p>
+  </div>
+
+  <!-- INSTITUTIONAL PRECEDENT -->
+  <div class="section">
+    <span class="label">Precedent</span>
+    <div class="rule"></div>
+    <p>
+      The postal service is not a delivery company. It is one of the oldest civic institutions in modern democracy. Before telephones, before telegraph in most places, the post was the infrastructure that made self-governance possible at distance. The Universal Postal Union, founded in 1874, solved a coordination problem that looked impossible: how do sovereign nations, with different currencies and different interests, agree to carry each other's mail?
+    </p>
+    <p>
+      The answer was not a shared currency or a central authority. It was a <span class="italic">protocol</span>. Published rate cards, bilateral clearing, and a constitutional commitment to universal service.
+    </p>
+    <p>
+      No equivalent institution exists for the digital world. Cloud providers are not common carriers. Social platforms are not public utilities. ISPs are not post offices. The institution described here fills that vacancy.
+    </p>
+
+    <div class="timeline">
+      <div class="t-node">
+        <div class="t-dot"></div>
+        <div class="t-year">1840</div>
+        <div class="t-name">Penny Post</div>
+      </div>
+      <div class="t-node">
+        <div class="t-dot"></div>
+        <div class="t-year">1874</div>
+        <div class="t-name">Universal<br/>Postal Union</div>
+      </div>
+      <div class="t-node">
+        <div class="t-dot"></div>
+        <div class="t-year">1948</div>
+        <div class="t-name">UDHR<br/>Article 19</div>
+      </div>
+      <div class="t-node">
+        <div class="t-dot"></div>
+        <div class="t-year">1969</div>
+        <div class="t-name">ARPANET</div>
+      </div>
+      <div class="t-node">
+        <div class="t-dot hollow"></div>
+        <div class="t-year">2026</div>
+        <div class="t-name">The<br/>Digital Post</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONSTITUTIONAL FOUNDATION -->
+  <div class="section">
+    <span class="label">Foundation</span>
+    <div class="rule"></div>
+
+    <div class="article-block">
+      <div class="article-ref">Universal Declaration of Human Rights, Article 19</div>
+      <div class="article-text">
+        Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers.
+      </div>
+    </div>
+
+    <p>
+      The postal service was the institutional expression of this right in the physical world. The Digital Post is its expression in the digital world. Not dependent on any single state, but legible to all of them. Not adversarial to jurisdiction, but independent of it.
+    </p>
+  </div>
+
+  <!-- STRUCTURAL TRANSLATION -->
+  <div class="section">
+    <span class="label">Translation</span>
+    <div class="rule"></div>
+
+    <p>
+      The postal service runs on physical infrastructure: sorting facilities, trucks, mailboxes, post offices. The Digital Post runs on four equivalent primitives.
+    </p>
+
+    <table class="mapping">
+      <thead>
+        <tr>
+          <th>Postal Infrastructure</th>
+          <th>Digital Primitive</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sorting and processing</td>
+          <td>Compute. The work of transforming, routing, and responding.</td>
+        </tr>
+        <tr>
+          <td>Trucks, routes, carriers</td>
+          <td>Transfer. Moving data between points.</td>
+        </tr>
+        <tr>
+          <td>PO Boxes, holding counters</td>
+          <td>Short-term memory. Fast-access state for active use.</td>
+        </tr>
+        <tr>
+          <td>Archives, dead letter office</td>
+          <td>Long-term memory. Durable storage across time.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="feature">
+      <p>
+        The <span class="italic">stamp</span> is the unit of prepaid access. You buy it before you need the service. Its value is tied to the work it buys, not to speculation. When you are ready to send, you use it. The Digital Post generalizes this into a <span class="italic">service credit</span>: a prepaid claim on a defined quantity of compute, transfer, or memory, issued by a cooperative, redeemable whenever you are ready.
+      </p>
+      <p>
+        Stable value comes from stable utility.
+      </p>
+    </div>
+  </div>
+
+  <!-- ARCHITECTURE -->
+  <div class="section">
+    <span class="label">Architecture</span>
+    <div class="rule"></div>
+
+    <p>
+      The critical design move: the <span class="italic">function</span> the postal service performs (reliable, universal, affordable communication) does not require the <span class="italic">form</span> of a state agency. A cooperative of cooperatives, each operating local infrastructure, connected through a shared protocol, governed by a constitution grounded in human rights, can perform the same function.
+    </p>
+
+    <div class="layer-stack">
+      <div class="layer">
+        <div class="layer-label">Constitution</div>
+        <div class="layer-content">
+          <div class="title">Human Rights Charter</div>
+          <div class="desc">Grounded in UDHR Article 19. Universal service obligation. Data sovereignty. Democratic governance. Not a terms of service, a constitutional commitment.</div>
+        </div>
+      </div>
+      <div class="layer-divider"></div>
+      <div class="layer">
+        <div class="layer-label">Protocol</div>
+        <div class="layer-content">
+          <div class="title">The Clearing Interface</div>
+          <div class="desc">Published rate cards per primitive. Bilateral clearing between nodes. No shared token, no central authority. The UPU model, digitized. Any conforming node can stand alone; the value scales with the network.</div>
+        </div>
+      </div>
+      <div class="layer-divider"></div>
+      <div class="layer">
+        <div class="layer-label">Attestation</div>
+        <div class="layer-content">
+          <div class="title">Proof of Capacity</div>
+          <div class="desc">Monthly attestations: outstanding credit supply, reserve ratios, operational capacity. Published to an open ledger. The guarantee is backed by capacity to deliver, not by held assets.</div>
+        </div>
+      </div>
+      <div class="layer-divider"></div>
+      <div class="layer">
+        <div class="layer-label">Nodes</div>
+        <div class="layer-content">
+          <div class="title">Local Cooperatives</div>
+          <div class="desc">Each node is a member-governed cooperative operating physical infrastructure in its community. Servers, network connections, storage. Locally owned, locally maintained. The building committed for 100 years.</div>
+        </div>
+      </div>
+      <div class="layer-divider"></div>
+      <div class="layer">
+        <div class="layer-label">Credit</div>
+        <div class="layer-content">
+          <div class="title">The Stamp</div>
+          <div class="desc">Prepaid service credits issued by each node. Redeemable for compute, transfer, and memory at published rates. Transferable between members. Not a security, not a currency. A promise that work will be done.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLICATIONS / VERIFIABLE CITIES -->
+  <div class="section">
+    <span class="label">Applications</span>
+    <div class="rule"></div>
+
+    <p>
+      Every application a city, a cooperative, or a community needs to run is a composition of the same four primitives in varying proportions. The Ethereum Foundation's Verifiable Cities program identifies six. Each one runs on this infrastructure.
+    </p>
+
+    <div class="app-grid">
+      <div class="app-card">
+        <div class="app-num">01</div>
+        <div class="app-name">Programmable Policy</div>
+        <div class="app-desc">Policy logic as structured, testable rules. Compute for execution, memory for state, transfer for notification.</div>
+      </div>
+      <div class="app-card">
+        <div class="app-num">02</div>
+        <div class="app-name">Outcomes-Based Contracts</div>
+        <div class="app-desc">Milestone verification and payment routing. The attestation layer provides the audit trail.</div>
+      </div>
+      <div class="app-card">
+        <div class="app-num">03</div>
+        <div class="app-name">Privacy-Preserving IDs</div>
+        <div class="app-desc">Selective disclosure credentials. Compute for zero-knowledge proofs, memory for credential state.</div>
+      </div>
+      <div class="app-card">
+        <div class="app-num">04</div>
+        <div class="app-name">Cross-Agency Verification</div>
+        <div class="app-desc">Confirm facts across boundaries without transferring data. The clearing interface, applied to governance.</div>
+      </div>
+      <div class="app-card">
+        <div class="app-num">05</div>
+        <div class="app-name">Verifiable Credentials</div>
+        <div class="app-desc">Permits and licenses with live revocation. Long-term memory for the registry, compute for verification.</div>
+      </div>
+      <div class="app-card">
+        <div class="app-num">06</div>
+        <div class="app-name">Public Works Visibility</div>
+        <div class="app-desc">The invisible labor of maintenance, made legible. Every action timestamped, auditable, defensible.</div>
+      </div>
+    </div>
+
+    <p style="color: var(--muted); font-size: 14px;">
+      A municipality that joins the network as a node, or partners with a local cooperative node, gets access to all six capabilities as composed services, priced in credits, auditable through the attestation layer, governed by a constitution rather than a vendor contract.
+    </p>
+  </div>
+
+  <!-- WHAT EXISTS -->
+  <div class="section">
+    <span class="label">Existing Infrastructure</span>
+    <div class="rule"></div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title">Physical Node</div>
+        <div class="card-body">Contributed servers, 1080 Ti GPUs, Coolify deployment layer, 5 Gbps symmetrical connectivity. Boulder, Colorado.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Legal Entity</div>
+        <div class="card-body">Colorado Limited Cooperative Association and Public Benefit entity. Filed February 6, 2026. Member-governed.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Protocol Spec</div>
+        <div class="card-body">Four-primitive service credit specification. Rate cards, consumption functions, clearing interface. Open for adoption.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Application Layer</div>
+        <div class="card-body">Treasury, People, Agreements. The composable tools that make organizational activity visible.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="section">
+    <span class="label">Orientation</span>
+    <div class="rule"></div>
+
+    <div class="feature">
+      <p>
+        There is an information right alongside the housing right. The first century of computing was shaped by corporate co-option of tools originally conceived for collective coordination. The Digital Post recovers the older pattern: infrastructure operated by the community it serves, connected to a global network through protocol rather than platform, grounded in constitutional commitments that outlast any single operator.
+      </p>
+      <p>
+        The first node exists. The protocol is specified. The applications are identified. What remains is the network.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    co-op.us / Techne / RegenHub, LCA / Boulder, Colorado / 2026
+  </div>
+
+</div>
+
+</body>
+</html>
