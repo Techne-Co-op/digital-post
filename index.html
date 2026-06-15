@@ -623,108 +623,6 @@ blockquote cite {
   line-height: 1.6;
 }
 
-/* ─── FLOOR STACK ───────────────────────────────────────────────── */
-.floor-stack {
-  margin: 22px 0;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-}
-.floor-row {
-  display: grid;
-  grid-template-columns: 90px 1fr;
-  border-bottom: 1px solid var(--hairline);
-}
-.floor-row:last-child { border-bottom: none; }
-.floor-level {
-  padding: 16px;
-  background: var(--surface2);
-  border-right: 1px solid var(--hairline);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.fl-code {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: var(--terra-text);
-  text-transform: uppercase;
-}
-.fl-name {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--white);
-  margin-top: 3px;
-  line-height: 1.2;
-}
-.floor-body { padding: 16px 20px; }
-.floor-body .fb-title {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 4px;
-}
-.floor-body .fb-desc {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11.5px;
-  color: var(--muted);
-  line-height: 1.55;
-}
-
-/* ─── GROWTH ARC ────────────────────────────────────────────────── */
-.growth-arc { margin: 22px 0; }
-.arc-phase {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 4px;
-}
-.arc-marker {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-  width: 32px;
-}
-.arc-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: var(--terra);
-  border: 2px solid var(--bg);
-  outline: 1px solid var(--terra);
-  margin-top: 5px;
-}
-.arc-line {
-  width: 1px;
-  flex: 1;
-  background: var(--border);
-  margin-top: 2px;
-}
-.arc-phase:last-child .arc-line { display: none; }
-.arc-content { padding-bottom: 24px; flex: 1; }
-.arc-period {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: var(--terra-text);
-  text-transform: uppercase;
-  margin-bottom: 3px;
-}
-.arc-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 4px;
-}
-.arc-desc {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
 /* ─── STATUS ────────────────────────────────────────────────────── */
 .status-item {
   display: flex;
@@ -835,14 +733,10 @@ blockquote cite {
     </button>
     <button class="nav-item" onclick="show('v04',this)">
       <span class="num">04</span>
-      <div><div class="nm">The Building</div><span class="sub">Where it meets the ground</span></div>
+      <div><div class="nm">Applications</div><span class="sub">What runs on the network</span></div>
     </button>
     <button class="nav-item" onclick="show('v05',this)">
       <span class="num">05</span>
-      <div><div class="nm">Applications</div><span class="sub">What runs on the network</span></div>
-    </button>
-    <button class="nav-item" onclick="show('v06',this)">
-      <span class="num">06</span>
       <div><div class="nm">Status</div><span class="sub">What exists now</span></div>
     </button>
   </nav>
@@ -1127,109 +1021,9 @@ blockquote cite {
     </section>
 
 
-    <!-- ══ 04 THE BUILDING ═══════════════════════════════════════════ -->
+    <!-- ══ 04 APPLICATIONS ════════════════════════════════════════════ -->
     <section class="view" id="v04">
-      <div class="label">04 · The Building</div>
-      <div class="rule"></div>
-      <h2 class="view-title">Where it meets<br>the ground.</h2>
-      <p class="lede">A network without a place is a network without accountability. The first node is a building — a physical address in Boulder where the cooperative's work is visible, accessible, and verifiable.</p>
-
-      <p>The building is structured as a civic commons. Each floor serves a distinct function, and each function is open to the community it serves. The infrastructure lives in the building; so does the governance; so does the public benefit work.</p>
-
-      <div class="floor-stack">
-        <div class="floor-row">
-          <div class="floor-level">
-            <div class="fl-code">RF</div>
-            <div class="fl-name">Observatory</div>
-          </div>
-          <div class="floor-body">
-            <div class="fb-title">Outlook · Cultivation · Sky</div>
-            <div class="fb-desc">Rooftop gathering, sensor infrastructure, sky observation. Where the network touches the atmosphere — ecological sensing, weather, air quality. The building sees its watershed.</div>
-          </div>
-        </div>
-        <div class="floor-row">
-          <div class="floor-level">
-            <div class="fl-code">L3</div>
-            <div class="fl-name">Forum</div>
-          </div>
-          <div class="floor-body">
-            <div class="fb-title">Deliberation · Research · Stillness</div>
-            <div class="fb-desc">Member governance, study rooms, quiet work. Board meetings, member votes, working groups. Research that informs cooperative decisions.</div>
-          </div>
-        </div>
-        <div class="floor-row">
-          <div class="floor-level">
-            <div class="fl-code">L2</div>
-            <div class="fl-name">Workshop</div>
-          </div>
-          <div class="floor-body">
-            <div class="fb-title">Making · Learning · Repair</div>
-            <div class="fb-desc">Fabrication, tool library, teaching space. The cooperative's capacity to make things, fix things, and teach others. Skills circulate here. The Workshop runs on stamps.</div>
-          </div>
-        </div>
-        <div class="floor-row">
-          <div class="floor-level">
-            <div class="fl-code">L1</div>
-            <div class="fl-name">Commons</div>
-          </div>
-          <div class="floor-body">
-            <div class="fb-title">Service · Gathering · Gallery</div>
-            <div class="fb-desc">Street-level. Public access. Member services desk, community gathering space, rotating exhibition. The network's public face — where anyone can walk in and ask what this is.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3>Growth arc</h3>
-      <p>The network grows by federation, not acquisition. Each new city is a new cooperative — locally owned, locally governed, connected by the protocol. The building program scales with the nodes.</p>
-
-      <div class="growth-arc">
-        <div class="arc-phase">
-          <div class="arc-marker"><div class="arc-dot"></div><div class="arc-line"></div></div>
-          <div class="arc-content">
-            <div class="arc-period">Year 1</div>
-            <div class="arc-title">Boulder, Colorado</div>
-            <div class="arc-desc">First node operational. Founding members. Physical building. Protocol v1. The stamp is live. Governance is tested in the real.</div>
-          </div>
-        </div>
-        <div class="arc-phase">
-          <div class="arc-marker"><div class="arc-dot"></div><div class="arc-line"></div></div>
-          <div class="arc-content">
-            <div class="arc-period">Years 2–5</div>
-            <div class="arc-title">Front Range Corridor</div>
-            <div class="arc-desc">Denver, Fort Collins, Colorado Springs. Three to five cooperative nodes. The stamp works across the corridor. Shared infrastructure lowers per-node cost.</div>
-          </div>
-        </div>
-        <div class="arc-phase">
-          <div class="arc-marker"><div class="arc-dot"></div><div class="arc-line"></div></div>
-          <div class="arc-content">
-            <div class="arc-period">Years 5–10</div>
-            <div class="arc-title">Colorado Statewide</div>
-            <div class="arc-desc">Rural nodes, municipal partnerships. The cooperative model demonstrates viability for underserved communities. The Purpose Trust begins receiving its 0.5% assessment.</div>
-          </div>
-        </div>
-        <div class="arc-phase">
-          <div class="arc-marker"><div class="arc-dot"></div><div class="arc-line"></div></div>
-          <div class="arc-content">
-            <div class="arc-period">Years 10–20</div>
-            <div class="arc-title">Mountain West</div>
-            <div class="arc-desc">New Mexico, Utah, Wyoming, Montana. The protocol crosses state lines. Node cooperatives are independent legal entities, connected by protocol, held to the same constitutional principles.</div>
-          </div>
-        </div>
-        <div class="arc-phase">
-          <div class="arc-marker"><div class="arc-dot"></div><div class="arc-line"></div></div>
-          <div class="arc-content">
-            <div class="arc-period">Year 20+</div>
-            <div class="arc-title">Federated Network</div>
-            <div class="arc-desc">The Digital Post becomes what the Universal Postal Union was in 1874: a federated network of cooperatively governed nodes, interoperable by protocol, accountable to the communities they serve.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ══ 05 APPLICATIONS ════════════════════════════════════════════ -->
-    <section class="view" id="v05">
-      <div class="label">05 · Applications</div>
+      <div class="label">04 · Applications</div>
       <div class="rule"></div>
       <h2 class="view-title">What runs<br>on the network.</h2>
       <p class="lede">Verified service delivery opens civic applications that are impossible on commercial infrastructure. Six categories, drawn from the Ethereum Foundation's Verifiable Cities framework.</p>
@@ -1268,9 +1062,9 @@ blockquote cite {
     </section>
 
 
-    <!-- ══ 06 STATUS ══════════════════════════════════════════════════ -->
-    <section class="view" id="v06">
-      <div class="label">06 · Status</div>
+    <!-- ══ 05 STATUS ══════════════════════════════════════════════════ -->
+    <section class="view" id="v05">
+      <div class="label">05 · Status</div>
       <div class="rule"></div>
       <h2 class="view-title">What exists now.</h2>
       <p class="lede">Honest accounting. What is operational, what is in progress, and what is still a proposal.</p>
