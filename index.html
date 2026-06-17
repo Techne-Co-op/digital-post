@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>The Digital Post — A civic institution for reliable communication</title>
-<meta name="description" content="A cooperatively governed network for reliable digital communication and verified service delivery. The stamp is prepaid, stable, and yours. Founded by RegenHub, LCA in Boulder, Colorado.">
+<meta name="description" content="A conceptual framework for cooperatively governed digital communication and verified service delivery. Designed by Techne Studio / RegenHub, LCA in Boulder, Colorado. In development.">
 <meta name="keywords" content="cooperative, digital infrastructure, communication, postage stamp, verified service delivery, Boulder Colorado, RegenHub, cooperative technology, civic institution, peer production">
 <meta name="author" content="Techne Studio · RegenHub, LCA">
 <meta name="robots" content="index, follow">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Digital Post">
 <meta property="og:title" content="The Digital Post — A civic institution for reliable communication">
-<meta property="og:description" content="A cooperatively governed network for reliable digital communication and verified service delivery. The stamp is prepaid, stable, and yours. Founded by RegenHub, LCA in Boulder, Colorado.">
+<meta property="og:description" content="A conceptual framework for cooperatively governed digital communication and verified service delivery — a civic institution designed to be owned by the communities it serves. In development.">
 <meta property="og:url" content="https://techne-co-op.github.io/digital-post/">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://techne-co-op.github.io/digital-post/favicon.svg">
@@ -23,7 +23,7 @@
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Digital Post">
-<meta name="twitter:description" content="A cooperatively governed network for reliable digital communication and verified service delivery. Owned by the communities it serves.">
+<meta name="twitter:description" content="A conceptual framework for cooperatively governed digital infrastructure — designed to be owned by the communities it serves. By Techne Studio / RegenHub, LCA. In development.">
 <meta name="twitter:image" content="https://techne-co-op.github.io/digital-post/favicon.svg">
 
 <!-- Favicon -->
@@ -39,7 +39,7 @@
   "@type": "Organization",
   "name": "The Digital Post",
   "alternateName": "Digital Post",
-  "description": "A cooperatively governed network for reliable digital communication and verified service delivery — a civic institution owned by the communities it serves.",
+  "description": "A conceptual framework for cooperatively governed digital communication and verified service delivery — a civic institution designed to be owned by the communities it serves. Currently in development.",
   "url": "https://techne-co-op.github.io/digital-post/",
   "foundingDate": "2026",
   "foundingLocation": {
@@ -150,8 +150,8 @@ body{
   height:100vh;height:100dvh;
   display:grid;
   grid-template-columns:var(--rail-w) 1fr;
-  grid-template-rows:auto 1fr;
-  grid-template-areas:"mast mast" "rail main";
+  grid-template-rows:auto auto 1fr;
+  grid-template-areas:"mast mast" "note note" "rail main";
   overflow:hidden;
 }
 
@@ -557,9 +557,19 @@ h3.sub{
 .colophon p{font-size:.95rem;color:var(--ink-2);margin:0 0 .6rem}
 .colophon .lic{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0}
 
+/* ============ notice bar ============ */
+.notice-bar{
+  grid-area:note;
+  background:var(--ochre-wash);border-bottom:1px solid var(--ochre);
+  padding:.38rem clamp(1rem,3vw,2.2rem);
+  font-family:var(--f-mono);font-size:.59rem;letter-spacing:.07em;
+  color:var(--ochre-2);text-align:center;line-height:1.5;
+}
+.notice-bar b{color:var(--ink-2);font-weight:700}
+
 /* ============ responsive ============ */
 @media (max-width:920px){
-  .app{grid-template-columns:1fr;grid-template-rows:auto auto 1fr;grid-template-areas:"mast" "rail" "main";overflow:auto;height:auto;min-height:100dvh}
+  .app{grid-template-columns:1fr;grid-template-rows:auto auto auto 1fr;grid-template-areas:"mast" "note" "rail" "main";overflow:auto;height:auto;min-height:100dvh}
   .rail{border-right:none;border-bottom:1px solid var(--line);overflow:visible}
   .rail-head{display:none}
   .rail-list{display:flex;overflow-x:auto;gap:.4rem;padding:.7rem .8rem;scrollbar-width:thin}
@@ -661,6 +671,11 @@ h3.sub{
     </div>
   </header>
 
+  <!-- ===================== NOTICE BAR ===================== -->
+  <div class="notice-bar" role="note">
+    <b>Conceptual framework — in development.</b> The Digital Post is a design proposal by Techne Studio / RegenHub, LCA. Bylaws and member agreements are in development. Nothing here constitutes an offer of services, investment, or membership.
+  </div>
+
   <!-- ===================== RAIL ===================== -->
   <nav class="rail" aria-label="Sections">
     <div class="rail-head">Sections</div>
@@ -730,7 +745,7 @@ h3.sub{
       </div>
 
       <div class="prose">
-        <p>The first node exists in <strong>Boulder, Colorado</strong>. RegenHub, LCA — a Colorado Limited Cooperative Association — is the legal vessel. The network is designed to federate: each additional city becomes a cooperative node, governed locally, connected globally. The stamp you use here works anywhere the protocol runs.</p>
+        <p>The first node is planned for <strong>Boulder, Colorado</strong>. RegenHub, LCA — a Colorado Limited Cooperative Association — is the legal vessel. The network is designed to federate: each additional city becomes a cooperative node, governed locally, connected globally. The stamp works anywhere the protocol runs.</p>
       </div>
 
       <h3 class="sub">What the Digital Post is — and is not</h3>
@@ -755,7 +770,7 @@ h3.sub{
         </div>
       </div>
 
-      <div class="note"><b>The postal stamp is the right metaphor:</b> prepaid, stable in denomination, accepted wherever the network runs, redeemable for real delivered service. The stamp doesn't expire. The network doesn't sell your data. The surplus goes back to the members.</div>
+      <div class="note"><b>The postal stamp is the right metaphor:</b> prepaid, stable in denomination, accepted wherever the network runs, redeemable for real delivered service. By design: the stamp won't expire. The network won't sell your data. The surplus will return to the members. These are the design commitments — not yet facts.</div>
     </section>
 
     <!-- ---------- 01 LINEAGE ---------- -->
@@ -811,23 +826,25 @@ h3.sub{
       <h3 class="sub">The mapping</h3>
       <div class="map-legend" id="mapLegend"></div>
 
-      <h3 class="sub">How it works</h3>
+      <h3 class="sub">How it is designed to work</h3>
+      <p style="font-size:.88rem;color:var(--ink-3);font-style:italic;max-width:var(--maxread);margin:-.2rem 0 .9rem">These are design principles for the stamp system — not descriptions of a live service. The system is in development.</p>
       <div class="grid g4">
-        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-ticket"/></svg></div><div><div class="card-t">Fixed issuance price</div><div class="card-tag">what you pay</div></div></div><p>The price to acquire a stamp is set and published. You always know what you're paying. No surge pricing, no dynamic fees, no dark patterns.</p></div>
-        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-scale"/></svg></div><div><div class="card-t">Variable redemption rate</div><div class="card-tag">what it buys</div></div></div><p>What a stamp redeems for adjusts quarterly based on actual infrastructure costs. If compute gets cheaper, your stamp buys more. Rate changes are published in advance and voted on by members.</p></div>
-        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-archive"/></svg></div><div><div class="card-t">No expiration</div><div class="card-tag">the forever stamp</div></div></div><p>A stamp purchased today is valid in perpetuity. The USPS Forever Stamp has held purchasing power for decades. So will ours.</p></div>
-        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-lock"/></svg></div><div><div class="card-t">Closed-loop credit</div><div class="card-tag">a credit, not a coin</div></div></div><p>Stamps are redeemable for services on the network, not convertible to cash. A service credit, not a speculative instrument — the same structure as a transit pass or a library card.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-ticket"/></svg></div><div><div class="card-t">Fixed issuance price</div><div class="card-tag">design principle</div></div></div><p>The price to acquire a stamp would be set and published. You always know what you're paying. No surge pricing, no dynamic fees, no dark patterns.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-scale"/></svg></div><div><div class="card-t">Variable redemption rate</div><div class="card-tag">design principle</div></div></div><p>What a stamp redeems for would adjust quarterly based on actual infrastructure costs. If compute gets cheaper, your stamp buys more. Rate changes would be published in advance and voted on by members.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-archive"/></svg></div><div><div class="card-t">No expiration</div><div class="card-tag">design principle</div></div></div><p>A stamp purchased would be valid in perpetuity. The USPS Forever Stamp has held purchasing power for decades. That durability is the model.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-lock"/></svg></div><div><div class="card-t">Closed-loop credit</div><div class="card-tag">design principle</div></div></div><p>Stamps would be redeemable for services on the network, not convertible to cash — a service credit, not a speculative instrument. The same structure as a transit pass or a library card.</p></div>
       </div>
 
       <h3 class="sub">Financial services on the same rails</h3>
-      <div class="prose"><p>The postal tradition included money orders, savings accounts, and remittance — basic financial services for people without access to banks. The Digital Post revives this. The same cooperative infrastructure that delivers digital services can offer <strong>member savings, community lending, and low-cost transfers</strong> — all governed by the same board, held to the same cooperative principles.</p></div>
+      <div class="prose"><p>The postal tradition included money orders, savings accounts, and remittance — basic financial services for people without access to banks. The Digital Post proposes to revive this. The same cooperative infrastructure that delivers digital services could offer <strong>member savings, community lending, and low-cost transfers</strong> — all governed by the same board, held to the same cooperative principles. This layer requires additional licensing and is part of the long-term design.</p></div>
 
       <details class="disclosure">
-        <summary><svg class="ico" style="color:var(--ochre-2)"><use href="#i-award"/></svg> A use case: Maya renews her contractor license <svg class="ico chev"><use href="#i-chev"/></svg></summary>
+        <summary><svg class="ico" style="color:var(--ochre-2)"><use href="#i-award"/></svg> A hypothetical use case: Maya renews her contractor license <svg class="ico chev"><use href="#i-chev"/></svg></summary>
         <div class="disclosure-body">
+          <p><em>This is a design scenario — the Digital Post app and network do not yet exist. This describes what would be possible if the system were built as designed.</em></p>
           <p>Maya is a general contractor in Boulder renewing her trade license for the year. She opens the Digital Post app, presents her cooperative credential to the city permitting system, and the renewal issues automatically — verified against attested work history. No paper, no waiting room, no $150 expedite fee.</p>
           <p>The credential lives on the network. The attestation is permanent. The stamp paid for it. The city didn't need Maya's home address to verify that Maya is a licensed contractor in good standing. Minimum disclosure, implemented in protocol.</p>
-          <p style="color:var(--ink-3);font-style:italic;margin-bottom:0">This use case combines Verifiable Credentials, Privacy-Preserving IDs, and Cross-Agency Verification — all in panel 04.</p>
+          <p style="color:var(--ink-3);font-style:italic;margin-bottom:0">This scenario combines Verifiable Credentials, Privacy-Preserving IDs, and Cross-Agency Verification — application categories explored in panel 04.</p>
         </div>
       </details>
 
@@ -855,9 +872,9 @@ h3.sub{
       <p style="font-size:.95rem;color:var(--ink-2);max-width:var(--maxread);margin:0 0 1rem">The network is held by four interlocking entities. Together they provide cooperative ownership, long-term stewardship, financial-services capability, and member protection.</p>
       <div class="grid g4">
         <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-users"/></svg></div><div><div class="card-t">Operator</div><div class="card-tag">Colorado LCA</div></div></div><p>Limited Cooperative Association under C.R.S. 7-58-101. Patron members hold &#8805;51% of voting power. Public benefit purpose. The vessel that owns and operates the network.</p></div>
-        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-anchor"/></svg></div><div><div class="card-t">Steward</div><div class="card-tag">Purpose Trust</div></div></div><p>Colorado Statutory Trust under C.R.S. 38-44-201. Holds the protocol and operating principles in trust for the network's public benefit purpose. Funded by 0.5% of gross revenue.</p></div>
-        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-coins"/></svg></div><div><div class="card-t">Financial services</div><div class="card-tag">Licensed MSB</div></div></div><p>Money Services Business licensed under Colorado's Uniform Money Services Act. Enables member savings, transfers, and financial services on cooperative rails.</p></div>
-        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-shield"/></svg></div><div><div class="card-t">Protection</div><div class="card-tag">Guarantee Fund</div></div></div><p>Member protection reserve. If a node fails or service is not delivered, the Guarantee Fund makes members whole. Minimum reserve ratios set in the Operating Agreement.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-anchor"/></svg></div><div><div class="card-t">Steward</div><div class="card-tag">Purpose Trust (proposed)</div></div></div><p>Colorado Statutory Trust under C.R.S. 38-44-201. Would hold the protocol and operating principles in trust for the network's public benefit purpose. Proposed assessment: 0.5% of gross revenue.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-coins"/></svg></div><div><div class="card-t">Financial services</div><div class="card-tag">Licensed MSB (proposed)</div></div></div><p>A Money Services Business under Colorado's Uniform Money Services Act is proposed as part of the structure. Would enable member savings, transfers, and financial services on cooperative rails. Not yet established.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-shield"/></svg></div><div><div class="card-t">Protection</div><div class="card-tag">Guarantee Fund</div></div></div><p>Member protection reserve. If a node fails or service is not delivered, the Guarantee Fund makes members whole. Minimum reserve ratios to be defined in the cooperative's governing documents.</p></div>
       </div>
 
       <h3 class="sub">Colorado statutory grounding</h3>
@@ -903,7 +920,7 @@ h3.sub{
     <section class="panel" data-panel="5">
       <div class="eyebrow"><span class="mono">05 · First Node</span></div>
       <h1 class="title">The machine behind the stamp.</h1>
-      <p class="lede">The first node is concrete: a DGX Station GB300 in Boulder, Colorado. One air-cooled workstation on a standard 20A circuit, with 748GB of unified coherent memory — enough to run a frontier model locally, cooperatively owned.</p>
+      <p class="lede">The first node is designed around a DGX Station GB300 in Boulder, Colorado — one air-cooled workstation on a standard 20A circuit, with 748GB of unified coherent memory, enough to run a frontier model locally. Cooperatively owned, if the capital is raised.</p>
 
       <h3 class="sub">Hardware specifications</h3>
       <div class="spec-row">
@@ -984,23 +1001,24 @@ h3.sub{
         <div class="path-card">
           <div class="path-ico"><svg class="ico"><use href="#i-coins"/></svg></div>
           <div class="path-name">Founding investor-member</div>
-          <p style="font-size:.86rem;color:var(--ink-2);margin:0">Invest in the first node. Receive a patronage allocation, governance rights, and a stake in the operating cooperative. Limited to &#8804;10 Colorado buyers under C.R.S. 11-51-308(1)(j).</p>
+          <p style="font-size:.86rem;color:var(--ink-2);margin:0">Invest in the first node when the capital raise opens. Receive a patronage allocation, governance rights, and a stake in the cooperative. Limited to &#8804;10 Colorado buyers under C.R.S. 11-51-308(1)(j). The raise is not yet open.</p>
         </div>
         <div class="path-card">
           <div class="path-ico"><svg class="ico"><use href="#i-ticket"/></svg></div>
           <div class="path-name">Patron member</div>
-          <p style="font-size:.86rem;color:var(--ink-2);margin:0">Purchase stamps, use services, attend monthly co-ops, vote at the quarterly member assembly. The membership is open. The surplus returns to you.</p>
+          <p style="font-size:.86rem;color:var(--ink-2);margin:0">Purchase stamps, use services, attend monthly co-ops, vote at the quarterly member assembly. Patron membership will open as the cooperative forms and services become available.</p>
         </div>
         <div class="path-card">
           <div class="path-ico"><svg class="ico"><use href="#i-git-fork"/></svg></div>
           <div class="path-name">Contributor</div>
-          <p style="font-size:.86rem;color:var(--ink-2);margin:0">Code, design, writing, physical maintenance, documented service. Contributions are tracked in the patronage system and credited toward membership. The source is open.</p>
+          <p style="font-size:.86rem;color:var(--ink-2);margin:0">Code, design, writing, physical maintenance, documented service. Contributions will be tracked in the patronage system and credited toward membership. The source is open — contributions welcome now.</p>
         </div>
       </div>
 
       <div class="colophon">
         <h3 class="sub" style="margin-top:0">How to get involved</h3>
-        <p>The Digital Post is a Techne Studio production, developed within RegenHub, LCA. Contributions are welcome from individuals, cooperatives, and commons-oriented organizations. The source is published under the Peer Production License — free for noncommercial use and for worker-owned cooperatives. Find us in Boulder, Colorado.</p>
+        <p>The Digital Post is a Techne Studio production, developed within RegenHub, LCA — a Colorado Limited Cooperative Association. Contributions are welcome from individuals, cooperatives, and commons-oriented organizations. The source is published under the Peer Production License — free for noncommercial use and for worker-owned cooperatives. Find us in Boulder, Colorado.</p>
+        <p style="font-size:.88rem;color:var(--ink-3);border-top:1px solid var(--line-2);padding-top:.8rem;margin-top:.8rem"><strong style="color:var(--ink-2)">Disclaimer:</strong> This site presents a conceptual framework and design proposal. The Digital Post is not yet operational. RegenHub, LCA is a Colorado Limited Cooperative Association (filed February 6, 2026); bylaws and member agreements are in development and have not yet been ratified. Nothing on this site constitutes an offer of services, investment, or membership. All descriptions of services, systems, and operations are design intentions — not representations of current fact.</p>
         <p class="lic">Techne Studio · RegenHub, LCA · Boulder, Colorado · 2026 — Peer Production License (PPL) · Copyfarleft</p>
       </div>
     </section>
@@ -1175,13 +1193,13 @@ h3.sub{
 
   /* ---------- 06 status board + filter ---------- */
   var STATUS = [
-    {t:'RegenHub, LCA', state:'form', body:'Colorado Limited Cooperative Association filed February 6, 2026. Legal entity exists. Organizers named. Operating Agreement in ratification. Still forming — not yet delivering services.'},
+    {t:'RegenHub, LCA', state:'form', body:'Colorado Limited Cooperative Association filed February 6, 2026. Legal entity exists. Organizers named. Bylaws and member agreements in development. Still forming — not yet delivering services.'},
     {t:'Techne Studio', state:'form', body:'DBA of RegenHub, LCA. The studio brand for cooperative technology work. Active and producing. Still forming alongside the cooperative.'},
     {t:'Protocol Specification', state:'draft', body:'The five-layer architecture is defined. The four primitives are specified. The attestation mechanism is in design. No implementation yet \u2014 the spec is the deliverable at this stage.'},
     {t:'Stamp Credit System', state:'build', body:'The credit issuance and redemption system is under construction. Closed-loop structure specified. Supabase-backed, cooperative key management, member-facing interface in development.'},
-    {t:'Investor-Member Class', state:'draft', body:'The investor-member governance tier is specified in the Operating Agreement. Limited to \u226410 Colorado buyers under C.R.S. 11-51-308(1)(j). Capped at 49% voting power. Target raise: $250K\u2013$315K for the first node.'},
+    {t:'Investor-Member Class', state:'draft', body:'The investor-member governance tier is specified in the draft governance structure. Limited to \u226410 Colorado buyers under C.R.S. 11-51-308(1)(j). Capped at 49% voting power. Target raise: $250K\u2013$315K for the first node.'},
     {t:'First Node Infrastructure', state:'build', body:'DGX Station GB300 \u2014 748GB unified memory, 20 PFLOP, 1.6kW peak, air-cooled. Site selection in progress. Solar feasibility under review. Hardware order contingent on capital raise close.'},
-    {t:'Purpose Trust', state:'prop', body:'The Colorado Statutory Trust that holds the protocol in long-term stewardship is proposed but not yet filed. The 0.5% gross revenue assessment is specified in the Operating Agreement pending ratification.'},
+    {t:'Purpose Trust', state:'prop', body:'The Colorado Statutory Trust that holds the protocol in long-term stewardship is proposed but not yet filed. The 0.5% gross revenue assessment is proposed in the draft governance structure.'},
     {t:'Node Federation', state:'prop', body:'The federation protocol for additional nodes is specified but not implemented. The first node must demonstrate the model before federation terms are finalized.'}
   ];
   var STATE_META = {
