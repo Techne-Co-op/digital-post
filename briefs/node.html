@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGX Station as Digital Post Node — Working Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+:root {
+  --bg: #F4EFE4;
+  --bg-elev: #FBF8F1;
+  --bg-deep: #EDE6D5;
+  --ink: #1A2E22;
+  --ink-soft: #3B4F44;
+  --ink-mute: #6B7770;
+  --rule: #D4CBB6;
+  --rule-soft: #E2DAC6;
+  --accent: #8C4A1E;
+  --accent-soft: #B7733D;
+  --water: #3E5C76;
+  --water-soft: #6B8AA5;
+  --leaf: #3D5A3D;
+  --leaf-soft: #6B8060;
+  --warn: #9C5A2E;
+  --grad-1: linear-gradient(135deg, rgba(140,74,30,0.06), rgba(62,92,118,0.08));
+  --grad-2: linear-gradient(180deg, rgba(61,90,61,0.04), rgba(140,74,30,0.06));
+  --shadow: 0 1px 2px rgba(26,46,34,0.04), 0 4px 12px rgba(26,46,34,0.03);
+}
+[data-theme="dark"] {
+  --bg: #0E1612;
+  --bg-elev: #131F1A;
+  --bg-deep: #0A1108;
+  --ink: #E8DFC8;
+  --ink-soft: #C4BCA5;
+  --ink-mute: #8A8473;
+  --rule: #2A372F;
+  --rule-soft: #1F2A23;
+  --accent: #D4915C;
+  --accent-soft: #B7733D;
+  --water: #8AA5C2;
+  --water-soft: #6B8AA5;
+  --leaf: #9CB58A;
+  --leaf-soft: #7A9670;
+  --warn: #D4915C;
+  --grad-1: linear-gradient(135deg, rgba(212,145,92,0.08), rgba(138,165,194,0.10));
+  --grad-2: linear-gradient(180deg, rgba(156,181,138,0.05), rgba(212,145,92,0.07));
+  --shadow: 0 1px 2px rgba(0,0,0,0.20), 0 4px 12px rgba(0,0,0,0.15);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  font-feature-settings: "ss01", "cv11";
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+header.brief-header {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2.5rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+.brief-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.brief-eyebrow::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--ink-mute);
+}
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144;
+  margin-bottom: 1.25rem;
+}
+h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.brief-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--ink-mute);
+  line-height: 1.5;
+}
+.theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--bg-elev);
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent-soft); }
+.theme-toggle svg { width: 14px; height: 14px; }
+
+section { margin-bottom: 4rem; }
+.section-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--ink-mute);
+  margin-bottom: 0.6rem;
+}
+h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 1.65rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 1.75rem;
+  font-variation-settings: "opsz" 72;
+}
+h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 2rem 0 0.85rem;
+  font-variation-settings: "opsz" 36;
+}
+p {
+  margin-bottom: 1.1rem;
+  color: var(--ink-soft);
+}
+p strong { color: var(--ink); font-weight: 600; }
+p em { color: var(--leaf); font-style: italic; }
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+  transition: opacity 0.2s;
+}
+a:hover { opacity: 0.7; }
+
+.callout {
+  background: var(--grad-1);
+  border-left: 2px solid var(--accent);
+  padding: 1.25rem 1.5rem;
+  margin: 1.75rem 0;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.94rem;
+}
+.callout-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.callout-label svg { width: 12px; height: 12px; }
+.callout p:last-child { margin-bottom: 0; }
+
+.primitive-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.75rem 0;
+}
+.primitive {
+  background: var(--bg-elev);
+  border: 1px solid var(--rule);
+  padding: 1.1rem 1.25rem;
+  border-radius: 6px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+.primitive:hover { border-color: var(--accent-soft); }
+.primitive-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--ink-mute);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+}
+.primitive-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+  font-variation-settings: "opsz" 36;
+}
+.primitive-postal {
+  font-size: 0.82rem;
+  color: var(--ink-mute);
+  font-style: italic;
+  margin-bottom: 0.65rem;
+}
+.primitive-unit {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--water);
+}
+.primitive-dgx {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.55rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--rule-soft);
+  line-height: 1.45;
+}
+
+table.rate-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+.rate-table thead th {
+  text-align: left;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding: 0.6rem 0.75rem 0.6rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-weight: 500;
+}
+.rate-table tbody td {
+  padding: 0.65rem 0.75rem 0.65rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: top;
+  color: var(--ink-soft);
+}
+.rate-table tbody td:first-child {
+  color: var(--ink);
+  font-weight: 500;
+  width: 30%;
+}
+.rate-table tbody td.num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+.rate-table tbody tr.subtotal td {
+  border-top: 1px solid var(--ink-mute);
+  border-bottom: none;
+  padding-top: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cycle {
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  background: var(--bg-elev);
+}
+.cycle-cadence {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+.cycle-cadence-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--water);
+  padding: 0.18rem 0.5rem;
+  border: 1px solid var(--water-soft);
+  border-radius: 3px;
+}
+.cycle-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.cycle p { font-size: 0.92rem; margin-bottom: 0.5rem; }
+.cycle p:last-child { margin-bottom: 0; }
+.rea-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  flex-wrap: wrap;
+}
+.rea-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--leaf);
+  background: rgba(61,90,61,0.07);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+}
+[data-theme="dark"] .rea-tag { background: rgba(156,181,138,0.10); }
+
+.q-list { margin-top: 1rem; }
+.q-item {
+  border-top: 1px solid var(--rule-soft);
+  padding: 1rem 0;
+}
+.q-item:last-child { border-bottom: 1px solid var(--rule-soft); }
+.q-item p { font-size: 0.93rem; margin-bottom: 0; }
+.q-item strong { display: block; margin-bottom: 0.3rem; color: var(--ink); font-family: 'Fraunces', serif; font-weight: 500; font-size: 1rem; font-variation-settings: "opsz" 36; }
+
+.method-block {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.method-block:last-child { border-bottom: none; }
+.method-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+.method-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  font-variation-settings: "opsz" 36;
+}
+
+footer.brief-footer {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--ink-mute);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .container { padding: 3rem 1.25rem 4rem; }
+  .primitive-grid { grid-template-columns: 1fr; }
+  .theme-toggle { top: 1rem; right: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+<div style="position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--rule);padding:.65rem 1.4rem;display:flex;align-items:center;">
+  <a href="../" style="font-family:&#39;JetBrains Mono&#39;,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;">&#8592;&nbsp;The Digital Post</a>
+</div>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+  <span id="themeIcon"></span>
+  <span id="themeLabel">Dark</span>
+</button>
+
+<div class="container">
+
+<header class="brief-header">
+  <div class="brief-eyebrow">Working Brief · Techne · RegenHub, LCA</div>
+  <h1>The Stamp Becomes a <em>Runtime</em></h1>
+  <div class="brief-meta">
+    Sovereign infrastructure as Digital Post node<br>
+    Rate card capture, allocation, and reconciliation across the four primitives<br>
+    Prepared for Todd Youngblood · June 2026
+  </div>
+</header>
+
+<section>
+  <div class="section-num">01 / Frame</div>
+  <h2>What this hardware actually changes</h2>
+  <p>A DGX Station in cooperative hands does one thing the spec cannot: it makes the four primitives <em>measurable in the world</em>. Until there is hardware running, "verified service delivery" is a description of a future obligation. The moment compute, transfer, and memory are flowing through infrastructure the LCA owns, the attestation layer has something to attest <em>to</em>, and the stamp moves from credit-in-principle to credit-in-redemption.</p>
+  <p>Three concrete enablements follow from that shift. First, sovereign inference: members' conversations and computations stay within infrastructure governed by the people using it, which is the substantive content of the "post office of AI" framing rather than its rhetoric. Second, closed-loop cost discovery: capital expenditure becomes a fixed quantity of annual capacity, and rates can be set against actual operating cost rather than against the psychology of market comparison. Third, federation becomes demonstrable rather than promised: a second node anywhere proves the protocol works between cooperatives, which is what makes the architecture a network rather than a single installation.</p>
+  <div class="callout">
+    <div class="callout-label"><i data-lucide="alert-circle"></i> Honest about the numbers</div>
+    <p>The DGX Station is 748–784GB of unified coherent memory at ~$85–100K, depending on OEM. Kimi K2.7-Code at INT4 needs ~577GB peak VRAM including activations and KV cache (<a href="https://www.spheron.network/tools/gpu-recommender/moonshotai/Kimi-K2.7-Code/">Spheron</a>); it fits, but with limited headroom for context and concurrency. The 325GB figure in Aaron's note appears to be weights-only or a smaller variant. The fit is real; the margins are thin. K2.6 at Unsloth's Dynamic 2-bit lands at ~350GB and gives more breathing room (<a href="https://unsloth.ai/docs/models/kimi-k2.6">Unsloth</a>).</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-num">02 / Mapping</div>
+  <h2>The four primitives, as this machine produces them</h2>
+  <p>The Digital Post taxonomy translates onto the GB300 hardware cleanly, but each primitive carries its own measurement and accounting question. The cards below are the conceptual map; the rate work in the next section grounds each in observable units.</p>
+  <div class="primitive-grid">
+    <div class="primitive">
+      <div class="primitive-num">01</div>
+      <div class="primitive-name">Compute</div>
+      <div class="primitive-postal">postage stamp</div>
+      <div class="primitive-unit">unit: GPU-hour, output-token, FLOP-hour</div>
+      <div class="primitive-dgx">20 PFLOP (sparse FP4) Blackwell Ultra. The meter depends on workload shape: tokens for inference, FLOP-hours for training, GPU-hours for general compute.</div>
+    </div>
+    <div class="primitive">
+      <div class="primitive-num">02</div>
+      <div class="primitive-name">Transfer</div>
+      <div class="primitive-postal">delivery route</div>
+      <div class="primitive-unit">unit: GB ingress/egress</div>
+      <div class="primitive-dgx">ConnectX-8 at 800Gb/s vastly exceeds any single-cooperative draw. Real cost is the upstream commercial bandwidth, not the NIC.</div>
+    </div>
+    <div class="primitive">
+      <div class="primitive-num">03</div>
+      <div class="primitive-name">Short-term memory</div>
+      <div class="primitive-postal">P.O. Box</div>
+      <div class="primitive-unit">unit: GB-hour of held VRAM/RAM</div>
+      <div class="primitive-dgx">748GB unified memory is the headline number. Long-running sessions (agents holding context) consume this; one-shot inference releases it.</div>
+    </div>
+    <div class="primitive">
+      <div class="primitive-num">04</div>
+      <div class="primitive-name">Long-term memory</div>
+      <div class="primitive-postal">archive</div>
+      <div class="primitive-unit">unit: GB-month of persistent storage</div>
+      <div class="primitive-dgx">Local NVMe (config-dependent, ~10–30TB typical), plus model weight cache. Vector stores, member archives, attestation logs live here.</div>
+    </div>
+  </div>
+  <p>One observation worth surfacing before the math: the postal taxonomy was built around <em>moving messages</em>. AI-era infrastructure adds a fifth implicit primitive: <strong>model quality / lineage</strong>. The same GPU-hour delivered through Kimi K2.7 versus a smaller, faster model is not the same product, even though the resource accounting reads identically. The cooperative will need a posture on this — either treat model selection as a member choice with its own rate card, or bundle "house model" service and account for model substitution in the quarterly rate-setting. Worth naming so it doesn't sneak in as a hidden default.</p>
+</section>
+
+<section>
+  <div class="section-num">03 / Rate Card Capture</div>
+  <h2>Three methods that converge on a quarterly rate</h2>
+  <p>Aaron's question — how to benchmark the rate — has three honest answers, each with a different commitment underneath it. A well-governed cooperative uses all three and lets them constrain each other.</p>
+
+  <div class="method-block">
+    <div class="method-tag">Method A</div>
+    <div class="method-name">Cost-recovery floor (the postal method)</div>
+    <p>Total annual operating cost divided by total annual delivered capacity at assumed utilization. This is the rate below which the cooperative cannot sustainably operate, and it is what gets published in the Operating Agreement as the rate-setting basis.</p>
+    <table class="rate-table">
+      <thead><tr><th>Line item</th><th>Annual</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>Hardware amortization</td><td class="num">$25,000</td><td>$100K capex / 4-yr useful life</td></tr>
+        <tr><td>Energy (PUE-adjusted)</td><td class="num">$3,500</td><td>~2kW continuous × 1.5 PUE × $0.10/kWh</td></tr>
+        <tr><td>Upstream bandwidth</td><td class="num">$8,000</td><td>Commercial fiber, modest tier</td></tr>
+        <tr><td>Space, insurance, maintenance</td><td class="num">$8,000</td><td>Boulder commercial rates</td></tr>
+        <tr><td>Sysadmin and member support</td><td class="num">$40,000</td><td>Part-time; could be in-kind initially</td></tr>
+        <tr><td>Guarantee Fund contribution</td><td class="num">$6,000</td><td>~7% of revenue, smoothed</td></tr>
+        <tr><td>Steward fee (Purpose Trust)</td><td class="num">$400</td><td>0.5% of gross revenue</td></tr>
+        <tr class="subtotal"><td>Operating cost</td><td class="num">$90,900</td><td>Annual, midpoint estimate</td></tr>
+      </tbody>
+    </table>
+    <p>At ~60% utilization delivering ~1B output tokens/year (Kimi K2.7 INT4, conservative throughput), this is ~$0.09/M output tokens. At 20% utilization the floor rises to ~$0.27/M. <strong>Utilization is the dominant variable</strong>; the rate card is more about projected demand than hardware cost.</p>
+  </div>
+
+  <div class="method-block">
+    <div class="method-tag">Method B</div>
+    <div class="method-name">Market reference ceiling</div>
+    <p>The Kimi K2.7 API runs at $0.95/M input and $4/M output through Moonshot (<a href="https://flowtivity.ai/blog/kimi-k2-7-complete-review/">Flowtivity</a>). Claude Opus and GPT-5.2 sit higher. The market ceiling tells the cooperative what members would otherwise pay; it disciplines the cost-recovery floor by forcing the question: if our delivered cost climbs above market, what are we offering that justifies it?</p>
+    <p>For a cooperative, the right answer is usually data sovereignty, governance accountability, and patronage dividend — not raw price competition. But the comparison should be made and published, not avoided. Members should be able to see what they would pay outside the cooperative and what they pay inside it, with the difference labeled honestly as the cost of self-governance.</p>
+  </div>
+
+  <div class="method-block">
+    <div class="method-tag">Method C</div>
+    <div class="method-name">Member affordability and civic cross-subsidy</div>
+    <p>Some uses — civic applications, public works visibility, services for low-resource members — may need a rate below cost recovery. The cooperative can fund this through explicit cross-subsidy: heavier or commercial users carry a margin that subsidizes civic and access-equity use. This is the patronage tradition; it works only if it is <em>visible</em> in the rate card rather than buried in averaging.</p>
+    <p>The Operating Agreement can name this directly: a tiered rate card with civic, member, and commercial tiers, with the subsidy ratio voted on at the annual meeting. This preserves member agency over the moral economics of the cooperative.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-num">04 / Allocation</div>
+  <h2>How members touch the resource</h2>
+  <p>Allocation is distinct from rate setting: it answers <em>how the resource flows</em>, not what it costs. Four patterns are available, and most cooperatives end up running two or three of them in combination.</p>
+  <p><strong>Per-unit metering</strong> tracks every GPU-second, byte transferred, and memory-hour held. It is the most accurate and the most legible to accounting, and it is what runs underneath everything else. <strong>Bundled access</strong> — "a stamp redeems for one inference session of typical scope" — gives members predictability and keeps the user-facing surface simple, the way a Forever Stamp does for postal mail regardless of envelope weight within reason. <strong>Tiered membership</strong> includes a baseline stamp allotment with each membership class and meters overage against it, similar to a transit pass with surge fares. <strong>Priority class</strong> reserves a slice of capacity for civic applications and member-facing services that the cooperative has chosen to privilege, with the remainder queued.</p>
+  <p>The recommendation, given the postal frame the cooperative has chosen, is to run metering underneath as the source of truth and surface bundled stamps to members. The accounting is precise; the experience is simple. Civic priority can be a governance setting (what percentage of capacity is reserved for civic class), voted at the annual meeting and published quarterly.</p>
+</section>
+
+<section>
+  <div class="section-num">05 / Reconciliation</div>
+  <h2>Three cadences, in REA terms</h2>
+  <p>The Resources–Events–Agents pattern fits the cooperative's stated architecture without modification. Resources are the four primitives plus the stamp itself as value carrier. Agents are members, the Operator LCA, node operators (which may federate beyond Boulder), the Purpose Trust, and the Guarantee Fund. Events happen at three cadences:</p>
+
+  <div class="cycle">
+    <div class="cycle-cadence">
+      <span class="cycle-cadence-label">Real-time</span>
+      <span class="cycle-name">Attestation and credit settlement</span>
+    </div>
+    <p>Service request → resource consumed → attestation event logged → stamp balance decremented from the member's account, credited to the node's delivered-service ledger. This is the per-transaction primitive that all higher cycles depend on.</p>
+    <div class="rea-tags">
+      <span class="rea-tag">resource: 4 primitives</span>
+      <span class="rea-tag">event: consumption + attestation</span>
+      <span class="rea-tag">agents: member, node</span>
+    </div>
+  </div>
+
+  <div class="cycle">
+    <div class="cycle-cadence">
+      <span class="cycle-cadence-label">Quarterly</span>
+      <span class="cycle-name">Redemption rate adjustment</span>
+    </div>
+    <p>Actual delivered units and actual operating costs reconciled against the prior quarter's published rates. Variance reviewed by the cooperative's finance steward. New rates proposed for member ratification, published in advance per the Operating Agreement. This is where the Forever Stamp mechanic actually lives: stamps don't expire, but what they redeem for adjusts to reality.</p>
+    <div class="rea-tags">
+      <span class="rea-tag">event: rate true-up</span>
+      <span class="rea-tag">agents: finance steward, members</span>
+    </div>
+  </div>
+
+  <div class="cycle">
+    <div class="cycle-cadence">
+      <span class="cycle-cadence-label">Annual</span>
+      <span class="cycle-name">Patronage, reserves, and stewardship</span>
+    </div>
+    <p>Net margin allocated to patronage refund proportional to member usage. Guarantee Fund topped up to maintain minimum reserve ratio against future service-delivery obligations. Steward fee (0.5% gross revenue) distributed to the Purpose Trust. Operating Agreement compliance reviewed; rate-setting methodology re-examined; tier ratios and civic reservation re-voted.</p>
+    <div class="rea-tags">
+      <span class="rea-tag">event: patronage distribution</span>
+      <span class="rea-tag">event: reserve recapitalization</span>
+      <span class="rea-tag">agents: members, Trust, Guarantee Fund</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-num">06 / Open</div>
+  <h2>What I'm not certain about</h2>
+  <div class="q-list">
+    <div class="q-item">
+      <strong>The Forever Stamp horizon problem.</strong>
+      <p>Hardware ages out in roughly four years. The Forever Stamp promise asks the cooperative to honor redemption indefinitely. Either the rate card includes ongoing refresh capex (raising the floor), or the cooperative explicitly time-bounds the stamp ("valid through the operating life of issued hardware, with continuity through federation"). Neither is wrong; the choice should be deliberate, not deferred.</p>
+    </div>
+    <div class="q-item">
+      <strong>Whether utilization risk dominates everything else.</strong>
+      <p>At 60% utilization the rate card holds. At 20% it doesn't. The single most important governance question may not be rate setting but demand-building — what services run on the node that produce sustained, predictable utilization. The civic applications named in the architecture (programmable policy, outcomes-based contracts, verifiable credentials) are also the demand strategy.</p>
+    </div>
+    <div class="q-item">
+      <strong>Whether the four-primitive taxonomy is sufficient for AI-era service.</strong>
+      <p>Model quality, model lineage, and inference characteristics (latency, context length, agent orchestration) carry weight that the four primitives don't directly capture. The cooperative may need either a fifth primitive (model-service) or a clear posture that model choice is a member-side concern with separate accounting.</p>
+    </div>
+    <div class="q-item">
+      <strong>Single-node fragility versus federation timing.</strong>
+      <p>One DGX Station is one box that can fail. The Guarantee Fund is the member-protection answer in policy, but federation with a second node is the structural answer. The question is whether the first node should operate long enough to demonstrate the model, or whether a second node should be stood up in parallel even at lower spec.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="brief-footer">
+  Working brief, not specification. Numbers are midpoint estimates with stated assumptions; rate work should be re-run against the LCA's actual procurement, energy contract, and projected member demand before any rate is published. Sources cited inline; deeper figures on the GB300 specifications from <a href="https://www.world-today-journal.com/nvidia-dgx-station-with-gb300-release-date-specs-price/">World Today Journal</a> and <a href="https://www.techradar.com/pro/msi-re-launches-usd85-000-nvidia-dgx-station-workstation-with-the-nvidia-gb300-ultra-a-pair-of-400gbe-lan-ports-and-768gb-of-ram">TechRadar</a>. REA accounting per McCarthy (1982) tradition; tier and patronage frame from cooperative finance per Birchall and Hammond Ketilson. The frame operating here is cost-recovery accounting with cooperative governance — name it so it can be swapped.
+</footer>
+
+</div>
+
+<script>
+const root = document.documentElement;
+const toggle = document.getElementById('themeToggle');
+const icon = document.getElementById('themeIcon');
+const label = document.getElementById('themeLabel');
+
+function setTheme(theme) {
+  root.setAttribute('data-theme', theme);
+  if (theme === 'dark') {
+    icon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+    label.textContent = 'Light';
+  } else {
+    icon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+    label.textContent = 'Dark';
+  }
+  localStorage.setItem('dpn-theme', theme);
+}
+
+const stored = localStorage.getItem('dpn-theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+setTheme(stored || (prefersDark ? 'dark' : 'light'));
+
+toggle.addEventListener('click', () => {
+  const current = root.getAttribute('data-theme');
+  setTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+if (window.lucide) lucide.createIcons();
+</script>
+
+</body>
+</html>

@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>The Digital Post — A civic institution for reliable communication</title>
-<meta name="description" content="The Digital Post is a cooperatively governed network for reliable digital communication and verified service delivery — a civic institution owned by the communities it serves. Founded in Boulder, Colorado by RegenHub, LCA." />
-<meta name="keywords" content="cooperative, digital infrastructure, communication, postage stamp, verified service delivery, Boulder Colorado, RegenHub, cooperative technology, civic institution, peer production" />
-<meta name="author" content="Techne Studio · RegenHub, LCA" />
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://techne-co-op.github.io/digital-post/" />
+<meta name="description" content="A cooperatively governed network for reliable digital communication and verified service delivery. The stamp is prepaid, stable, and yours. Founded by RegenHub, LCA in Boulder, Colorado.">
+<meta name="keywords" content="cooperative, digital infrastructure, communication, postage stamp, verified service delivery, Boulder Colorado, RegenHub, cooperative technology, civic institution, peer production">
+<meta name="author" content="Techne Studio · RegenHub, LCA">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://techne-co-op.github.io/digital-post/">
 
 <!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="The Digital Post" />
-<meta property="og:title" content="The Digital Post — A civic institution for reliable communication" />
-<meta property="og:description" content="A cooperatively governed network for reliable digital communication and verified service delivery. The stamp is prepaid, stable, and yours. Founded by RegenHub, LCA in Boulder, Colorado." />
-<meta property="og:url" content="https://techne-co-op.github.io/digital-post/" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:image" content="https://techne-co-op.github.io/digital-post/favicon.svg" />
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Digital Post">
+<meta property="og:title" content="The Digital Post — A civic institution for reliable communication">
+<meta property="og:description" content="A cooperatively governed network for reliable digital communication and verified service delivery. The stamp is prepaid, stable, and yours. Founded by RegenHub, LCA in Boulder, Colorado.">
+<meta property="og:url" content="https://techne-co-op.github.io/digital-post/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://techne-co-op.github.io/digital-post/favicon.svg">
 
 <!-- Twitter / X Card -->
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="The Digital Post" />
-<meta name="twitter:description" content="A cooperatively governed network for reliable digital communication and verified service delivery. Owned by the communities it serves." />
-<meta name="twitter:image" content="https://techne-co-op.github.io/digital-post/favicon.svg" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Digital Post">
+<meta name="twitter:description" content="A cooperatively governed network for reliable digital communication and verified service delivery. Owned by the communities it serves.">
+<meta name="twitter:image" content="https://techne-co-op.github.io/digital-post/favicon.svg">
 
 <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="apple-touch-icon" href="favicon.svg" />
-<link rel="manifest" href="site.webmanifest" />
-<meta name="theme-color" content="#c4956a" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#B97E4B">
 
 <!-- JSON-LD structured data -->
 <script type="application/ld+json">
@@ -60,1116 +60,1165 @@
     }
   },
   "license": "https://techne-co-op.github.io/digital-post/LICENSE",
-  "sameAs": [
-    "https://github.com/Techne-Co-op/digital-post"
-  ]
+  "sameAs": ["https://github.com/Techne-Co-op/digital-post"]
 }
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-
-/* ─── THEME TOKENS ─────────────────────────────────────────────── */
-:root, [data-theme="dark"] {
-  --bg: #0f0f0f;
-  --surface: #1a1a1a;
-  --surface2: #202020;
-  --border: #333333;
-  --terra: #c4956a;
-  --terra-text: #c4956a;
-  --terra-dim: rgba(196,149,106,0.15);
-  --terra-glow: rgba(196,149,106,0.06);
-  --terra-border: rgba(196,149,106,0.22);
-  --white: #e8e0d8;
-  --text: #d4d4d4;
-  --muted: #999999;
-  --faint: #666666;
-  --diagram: #4a4a4a;
-  --hairline: rgba(51,51,51,0.55);
+/* ============================================================
+   THE DIGITAL POST — design tokens
+   Warmth grounded in philately: kraft paper, postmark ink,
+   typewritten machinery. Two natural secondaries (pine, slate)
+   keep it from collapsing into the generic cream+terracotta look.
+   ============================================================ */
+:root{
+  --f-display:'Fraunces', Georgia, 'Times New Roman', serif;
+  --f-body:'Spectral', Georgia, serif;
+  --f-mono:'Space Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --rail-w: 264px;
+  --maxread: 74ch;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+:root[data-theme="light"]{
+  --bg:#E9DFCC;
+  --bg-grad-a:#EFE6D4;
+  --bg-grad-b:#E1D5BD;
+  --rail:#E2D6BE;
+  --surface:#F6EFE0;
+  --surface-2:#FBF6EA;
+  --ink:#2B2620;
+  --ink-2:#695F50;
+  --ink-3:#938872;
+  --line:#D2C4A9;
+  --line-2:#DFD3BA;
+  --ochre:#B97E4B;
+  --ochre-2:#A06633;
+  --ochre-wash:#EBD9C2;
+  --oxblood:#9C3A2C;
+  --pine:#2F5D52;
+  --slate:#3A5A6B;
+  --on-accent:#FBF6EA;
+  --shadow:0 1px 2px rgba(70,52,28,.06), 0 8px 24px -12px rgba(70,52,28,.18);
+  --shadow-lift:0 2px 4px rgba(70,52,28,.10), 0 18px 40px -16px rgba(70,52,28,.30);
+  --perf:#E9DFCC;
+}
+:root[data-theme="dark"]{
+  --bg:#17130E;
+  --bg-grad-a:#1C1711;
+  --bg-grad-b:#120E0A;
+  --rail:#15110C;
+  --surface:#221C14;
+  --surface-2:#2A2318;
+  --ink:#ECE2D0;
+  --ink-2:#AEA28C;
+  --ink-3:#79705F;
+  --line:#39301F;
+  --line-2:#2C2417;
+  --ochre:#D6A878;
+  --ochre-2:#E4BC8C;
+  --ochre-wash:#2E2417;
+  --oxblood:#D26A58;
+  --pine:#6BA294;
+  --slate:#7CA3B5;
+  --on-accent:#17130E;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+  --shadow-lift:0 2px 6px rgba(0,0,0,.5), 0 22px 48px -18px rgba(0,0,0,.85);
+  --perf:#17130E;
 }
 
-[data-theme="light"] {
-  --bg: #f3eee4;
-  --surface: #faf6ee;
-  --surface2: #fffdf8;
-  --border: #ddd3c4;
-  --terra: #c4956a;
-  --terra-text: #96704a;
-  --terra-dim: rgba(196,149,106,0.18);
-  --terra-glow: rgba(196,149,106,0.09);
-  --terra-border: rgba(150,112,74,0.35);
-  --white: #221d17;
-  --text: #3a342c;
-  --muted: #6f665a;
-  --faint: #a89e90;
-  --diagram: #cabfae;
-  --hairline: rgba(221,211,196,0.8);
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--f-body);
+  color:var(--ink);
+  background:
+    radial-gradient(120% 90% at 85% -10%, var(--bg-grad-a) 0%, var(--bg) 55%, var(--bg-grad-b) 100%);
+  background-attachment:fixed;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  line-height:1.62;
+}
+.ico{width:1em;height:1em;display:inline-block;vertical-align:-.125em;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.mono{font-family:var(--f-mono)}
+
+/* ----- App frame ----- */
+.app{
+  height:100vh;height:100dvh;
+  display:grid;
+  grid-template-columns:var(--rail-w) 1fr;
+  grid-template-rows:auto 1fr;
+  grid-template-areas:"mast mast" "rail main";
+  overflow:hidden;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { height: 100%; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Libre Baskerville', serif;
-  font-size: 15px;
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
+/* ----- Masthead ----- */
+.mast{
+  grid-area:mast;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.85rem 1.4rem;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg, var(--surface-2), var(--surface));
+  z-index:5;
 }
-
-/* ─── PRIMITIVES ───────────────────────────────────────────────── */
-.label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--terra-text);
-  opacity: 0.85;
+.brand{display:flex;align-items:center;gap:.85rem;min-width:0}
+.postmark{
+  width:46px;height:46px;flex:0 0 auto;color:var(--oxblood);
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.04));
 }
-
-.rule {
-  width: 48px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--terra), transparent);
-  margin: 18px 0 26px;
+.brand-txt{min-width:0}
+.brand-name{
+  font-family:var(--f-display);font-optical-sizing:auto;
+  font-weight:600;font-size:1.18rem;letter-spacing:.01em;line-height:1.05;
+  color:var(--ink);
 }
-
-.italic { font-style: italic; }
-p { margin-bottom: 18px; }
-
-.lede {
-  font-size: clamp(16px, 2vw, 18px);
-  line-height: 1.7;
-  color: var(--muted);
+.brand-sub{
+  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-top:.18rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
+.mast-tools{display:flex;align-items:center;gap:.6rem}
+.kbd-hint{
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.1em;color:var(--ink-3);
+  text-transform:uppercase;display:flex;gap:.35rem;align-items:center;
+}
+.kbd{
+  border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;
+  padding:.05rem .32rem;background:var(--surface-2);color:var(--ink-2);
+}
+.theme-btn{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-family:var(--f-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-2);background:var(--surface-2);
+  border:1px solid var(--line);border-radius:999px;
+  padding:.42rem .7rem;cursor:pointer;transition:all .2s var(--ease);
+}
+.theme-btn .ico{font-size:.95rem;color:var(--ochre)}
+.theme-btn:hover{border-color:var(--ochre);color:var(--ink)}
+.theme-btn:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
 
-.chip {
-  display: inline-block;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 3px 9px;
-  border-radius: 100px;
-  border: 1px solid var(--border);
-  color: var(--faint);
-  line-height: 1.4;
-  vertical-align: middle;
+/* ----- Rail ----- */
+.rail{
+  grid-area:rail;
+  border-right:1px solid var(--line);
+  background:linear-gradient(180deg, var(--rail), color-mix(in srgb, var(--rail) 86%, #000 4%));
+  display:flex;flex-direction:column;
+  overflow-y:auto;
 }
-.chip.op   { color: var(--terra-text); border-color: var(--terra-border); }
-.chip.draft, .chip.proposed { color: var(--muted); }
-.chip.build { color: #7b9fb0; border-color: rgba(123,159,176,0.35); }
+.rail-head{
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-3);padding:1rem 1.3rem .55rem;
+}
+.rail-list{list-style:none;margin:0;padding:.15rem .65rem;flex:1 1 auto}
+.rail-item{margin:.12rem 0}
+.rail-btn{
+  width:100%;text-align:left;cursor:pointer;
+  display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:baseline;
+  background:transparent;border:1px solid transparent;border-radius:9px;
+  padding:.62rem .7rem;color:var(--ink-2);
+  transition:background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
+}
+.rail-btn:hover{background:var(--surface);color:var(--ink)}
+.rail-code{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-3);letter-spacing:.04em}
+.rail-name{font-family:var(--f-display);font-weight:500;font-size:1rem;line-height:1.12}
+.rail-desc{
+  grid-column:2;font-family:var(--f-body);font-size:.78rem;font-style:italic;
+  color:var(--ink-3);margin-top:.12rem;
+}
+.rail-btn[aria-current="true"]{
+  background:var(--surface);border-color:var(--line);
+  box-shadow:inset 3px 0 0 var(--oxblood);
+}
+.rail-btn[aria-current="true"] .rail-code{color:var(--oxblood)}
+.rail-btn[aria-current="true"] .rail-name{color:var(--ink)}
+.rail-btn:focus-visible{outline:2px solid var(--ochre);outline-offset:1px}
+.rail-foot{
+  padding:.9rem 1.3rem 1.1rem;border-top:1px solid var(--line-2);
+  font-family:var(--f-mono);font-size:.58rem;letter-spacing:.08em;line-height:1.7;
+  color:var(--ink-3);
+}
+.rail-foot strong{color:var(--ink-2);font-weight:700}
+.rail-foot a{color:var(--ink-2);text-decoration:none}
+.rail-foot a:hover{color:var(--ochre)}
 
-/* ─── HEADER ───────────────────────────────────────────────────── */
-header {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 28px;
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
-  transition: background-color 0.4s ease, border-color 0.4s ease;
-  gap: 12px;
+/* ----- Main panel ----- */
+.main{grid-area:main;overflow-y:auto;scroll-behavior:smooth;position:relative}
+.panel{
+  display:none;
+  padding:2.4rem clamp(1.4rem,4vw,3.4rem) 3.4rem;
+  max-width:1180px;margin:0 auto;
+  animation:rise .5s var(--ease) both;
 }
+.panel.is-active{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-.wordmark {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
+.eyebrow{
+  font-family:var(--f-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ochre-2);display:flex;align-items:center;gap:.6rem;margin-bottom:.7rem;
 }
-.wordmark .name {
-  font-family: 'Libre Baskerville', serif;
-  font-weight: 700;
-  font-size: 19px;
-  color: var(--white);
-  line-height: 1;
-  white-space: nowrap;
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--ochre);display:inline-block}
+.title{
+  font-family:var(--f-display);font-optical-sizing:auto;font-weight:600;
+  font-size:clamp(2rem,4.4vw,3.3rem);line-height:1.04;letter-spacing:-.012em;
+  margin:0 0 1rem;color:var(--ink);max-width:18ch;
 }
-.wordmark .tag {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--faint);
+.lede{font-size:clamp(1.04rem,1.4vw,1.18rem);color:var(--ink-2);max-width:var(--maxread);margin:0 0 1.6rem}
+.prose{max-width:var(--maxread)}
+.prose p{margin:0 0 1.05rem}
+.prose strong{color:var(--ink);font-weight:600}
+.prose em{color:var(--ink-2)}
+.prose a{color:var(--ochre-2);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+h3.sub{
+  font-family:var(--f-display);font-weight:600;font-size:1.32rem;letter-spacing:-.01em;
+  color:var(--ink);margin:2.2rem 0 .9rem;
 }
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  padding: 7px 13px;
-  cursor: pointer;
-  color: var(--muted);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition: border-color 0.3s ease, color 0.3s ease;
-  white-space: nowrap;
-}
-.theme-toggle:hover { border-color: var(--terra-border); color: var(--terra-text); }
-.theme-toggle svg { width: 14px; height: 14px; flex-shrink: 0; }
-
-.menu-toggle {
-  display: none;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 7px 10px;
-  cursor: pointer;
-  color: var(--muted);
-  transition: border-color 0.3s ease, color 0.3s ease;
-}
-.menu-toggle:hover { border-color: var(--terra-border); color: var(--terra-text); }
-.menu-toggle svg { width: 16px; height: 16px; display: block; }
-
-/* ─── HUD BODY ─────────────────────────────────────────────────── */
-.hud {
-  flex: 1 1 auto;
-  display: flex;
-  min-height: 0;
-  position: relative;
+.kicker{
+  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 .9rem;
 }
 
-nav.rail {
-  flex: 0 0 232px;
-  border-right: 1px solid var(--border);
-  background: var(--surface);
-  padding: 22px 14px;
-  overflow-y: auto;
-  transition: background-color 0.4s ease, border-color 0.4s ease;
+/* dividers & marginal notes */
+.note{
+  border-left:2px solid var(--ochre);background:var(--ochre-wash);
+  padding:.85rem 1.1rem;border-radius:0 8px 8px 0;margin:1.4rem 0;
+  font-size:.96rem;color:var(--ink-2);max-width:var(--maxread);
 }
-.rail-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--faint);
-  padding: 0 12px 14px;
+.note b{color:var(--ink);font-weight:600}
+
+/* pull quote */
+.quote{
+  margin:1.6rem 0;padding:1.3rem 1.5rem;max-width:var(--maxread);
+  border:1px solid var(--line);border-radius:12px;background:var(--surface);
+  position:relative;box-shadow:var(--shadow);
 }
-.nav-item {
-  display: flex;
-  align-items: baseline;
-  gap: 11px;
-  width: 100%;
-  text-align: left;
-  background: transparent;
-  border: none;
-  border-left: 2px solid transparent;
-  padding: 11px 12px;
-  cursor: pointer;
-  color: var(--muted);
-  border-radius: 0 8px 8px 0;
-  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-  font-family: 'Libre Baskerville', serif;
+.quote p{
+  font-family:var(--f-display);font-style:italic;font-weight:400;
+  font-size:1.12rem;line-height:1.5;color:var(--ink);margin:0 0 .7rem;
 }
-.nav-item:hover { background: var(--surface2); color: var(--text); }
-.nav-item.active {
-  background: var(--surface2);
-  border-left-color: var(--terra);
-  color: var(--white);
-}
-.nav-item .num {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: var(--terra-text);
-  opacity: 0.7;
-  min-width: 18px;
-}
-.nav-item .nm {
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.25;
-}
-.nav-item .sub {
-  display: block;
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 400;
-  font-size: 10px;
-  color: var(--faint);
-  letter-spacing: 0.04em;
-  margin-top: 2px;
+.quote cite{
+  font-family:var(--f-mono);font-style:normal;font-size:.64rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);
 }
 
-main.panel {
-  flex: 1 1 auto;
-  overflow-y: auto;
-  position: relative;
-  background: radial-gradient(1200px 500px at 80% -10%, var(--terra-glow), transparent 60%);
+/* generic card grid */
+.grid{display:grid;gap:1rem;margin:1.3rem 0}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(2,1fr)}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:1.1rem 1.15rem;box-shadow:var(--shadow);transition:transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s var(--ease);
 }
-.panel-inner {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 40px 48px 56px;
+.card-h{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem}
+.card-ico{
+  width:2rem;height:2rem;flex:0 0 auto;border-radius:8px;display:grid;place-items:center;
+  background:var(--ochre-wash);color:var(--ochre-2);
 }
+.card-ico .ico{font-size:1.1rem}
+.card-t{font-family:var(--f-display);font-weight:600;font-size:1.02rem;color:var(--ink);line-height:1.12}
+.card-tag{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:.12rem}
+.card p{font-size:.92rem;color:var(--ink-2);margin:.35rem 0 0}
 
-.view { display: none; animation: fade 0.4s ease; }
-.view.active { display: block; }
-@keyframes fade {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* ============ 00 OVERVIEW — gʰóstis exchange ============ */
+.ghosti{
+  margin:1.6rem auto;max-width:600px;background:var(--surface);
+  border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.2rem 1.1rem;
+  box-shadow:var(--shadow);
 }
+.ghosti svg{width:100%;height:auto;display:block}
+.ghosti-cap{
+  text-align:center;font-size:.92rem;color:var(--ink-2);margin:.9rem auto 0;max-width:46ch;
+}
+.ghosti-cap b{color:var(--ink);font-weight:600}
+.ghosti-root{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.1em;color:var(--ink-3);text-transform:uppercase;text-align:center;margin-top:.5rem}
+.token-stamp{fill:var(--ochre);stroke:var(--ochre-2)}
+.node-fill{fill:var(--surface-2);stroke:var(--ink-3)}
+.flow-line{stroke:var(--line);stroke-dasharray:3 5}
 
-h2.view-title {
-  font-size: clamp(26px, 4vw, 34px);
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--white);
-  margin-bottom: 8px;
+.isnot{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;margin:1.6rem 0;max-width:var(--maxread);
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface);
 }
+.isnot-col{padding:1rem 1.15rem}
+.isnot-col:first-child{border-right:1px solid var(--line);background:color-mix(in srgb,var(--oxblood) 7%, var(--surface))}
+.isnot-h{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem}
+.isnot-col:first-child .isnot-h{color:var(--oxblood)}
+.isnot-col:last-child .isnot-h{color:var(--pine)}
+.isnot ul{list-style:none;margin:0;padding:0;font-size:.92rem;color:var(--ink-2)}
+.isnot li{padding:.2rem 0 .2rem 1.1rem;position:relative}
+.isnot li::before{position:absolute;left:0;top:.15rem;font-family:var(--f-mono);font-size:.8rem}
+.isnot-col:first-child li::before{content:"\00d7";color:var(--oxblood)}
+.isnot-col:last-child li::before{content:"\2713";color:var(--pine)}
 
-h3 {
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--white);
-  margin: 32px 0 12px;
+/* ============ 01 LINEAGE — stepped timeline ============ */
+.tl{margin:1.6rem 0}
+.tl-track{
+  display:flex;gap:0;align-items:stretch;position:relative;
+  border-top:2px solid var(--line);margin:0 .2rem 1.3rem;
+  overflow-x:auto;scrollbar-width:thin;
 }
+.tl-step{
+  flex:1 1 0;min-width:56px;text-align:center;background:none;border:none;cursor:pointer;
+  padding:1rem .3rem .2rem;position:relative;color:var(--ink-3);
+  transition:color .2s var(--ease);
+}
+.tl-step::before{
+  content:"";position:absolute;top:-7px;left:50%;transform:translateX(-50%);
+  width:12px;height:12px;border-radius:50%;background:var(--surface-2);
+  border:2px solid var(--ink-3);transition:all .2s var(--ease);
+}
+.tl-step:hover{color:var(--ink-2)}
+.tl-step:hover::before{border-color:var(--ochre)}
+.tl-year{font-family:var(--f-mono);font-size:.72rem;font-weight:700;letter-spacing:.02em}
+.tl-step[aria-current="true"]{color:var(--ink)}
+.tl-step[aria-current="true"]::before{background:var(--oxblood);border-color:var(--oxblood);box-shadow:0 0 0 4px var(--ochre-wash)}
+.tl-step[aria-current="true"] .tl-year{color:var(--oxblood)}
+.tl-step:focus-visible{outline:2px solid var(--ochre);outline-offset:2px;border-radius:6px}
+.tl-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:1.4rem 1.5rem;box-shadow:var(--shadow);max-width:var(--maxread);
+  min-height:150px;animation:rise .35s var(--ease) both;
+}
+.tl-card .y{font-family:var(--f-mono);font-size:1.4rem;font-weight:700;color:var(--ochre-2);line-height:1}
+.tl-card .place{font-family:var(--f-display);font-weight:600;font-size:1.15rem;color:var(--ink);margin:.45rem 0 .55rem}
+.tl-card .body{font-size:.98rem;color:var(--ink-2);margin:0}
+.tl-controls{display:flex;gap:.5rem;margin-top:1rem}
+.step-btn{
+  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--surface-2);border:1px solid var(--line);border-radius:999px;
+  padding:.42rem .85rem;cursor:pointer;color:var(--ink-2);transition:all .18s var(--ease);
+  display:inline-flex;align-items:center;gap:.35rem;
+}
+.step-btn:hover:not(:disabled){border-color:var(--ochre);color:var(--ink)}
+.step-btn:disabled{opacity:.4;cursor:not-allowed}
+.step-btn:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
 
-/* ─── CARDS ────────────────────────────────────────────────────── */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 22px 24px;
-  transition: border-color 0.3s ease, background-color 0.4s ease;
+/* ============ 02 THE STAMP — the seen object + allocation ============ */
+.stamp-wrap{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:start;margin:1.4rem 0}
+.stamp{
+  --p:#fff;width:230px;flex:0 0 auto;justify-self:center;
+  background:
+    radial-gradient(circle at 4px 4px, var(--perf) 3px, transparent 3.5px) -7px -7px / 14px 14px;
+  padding:7px;border-radius:6px;filter:drop-shadow(var(--shadow-lift));
 }
-.card:hover { border-color: var(--terra-border); }
-.card .ct {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 9px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+.stamp-face{
+  background:linear-gradient(160deg, var(--surface-2), var(--ochre-wash));
+  border:1px solid var(--ochre);border-radius:2px;padding:.85rem .8rem .7rem;
+  position:relative;overflow:hidden;
 }
-.card .cb {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12.5px;
-  line-height: 1.65;
-  color: var(--muted);
+.stamp-country{font-family:var(--f-mono);font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre-2);text-align:center}
+.stamp-vig{margin:.5rem auto;width:120px;height:84px;display:block}
+.stamp-denom{
+  font-family:var(--f-display);font-weight:600;text-align:center;font-size:1rem;color:var(--ink);
+  border-top:1px solid var(--ochre);padding-top:.5rem;margin-top:.4rem;line-height:1.1;
 }
+.stamp-denom small{display:block;font-family:var(--f-mono);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:.25rem}
+.stamp-band{display:flex;height:7px;border-radius:3px;overflow:hidden;margin-top:.55rem;border:1px solid var(--ochre)}
+.stamp-band span{transition:flex-basis .5s var(--ease)}
 
-.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 14px; margin: 22px 0; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin: 22px 0; }
+.alloc h3.sub{margin-top:0}
+.alloc-profiles{display:flex;flex-wrap:wrap;gap:.45rem;margin:.3rem 0 1.1rem}
+.prof-btn{
+  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.06em;
+  background:var(--surface-2);border:1px solid var(--line);border-radius:8px;
+  padding:.45rem .7rem;cursor:pointer;color:var(--ink-2);transition:all .18s var(--ease);
+}
+.prof-btn:hover{border-color:var(--ochre);color:var(--ink)}
+.prof-btn[aria-pressed="true"]{background:var(--ochre);border-color:var(--ochre-2);color:var(--on-accent)}
+.prof-btn:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+.bars{display:flex;flex-direction:column;gap:.55rem;max-width:440px}
+.bar-row{display:grid;grid-template-columns:1.4rem 7rem 1fr 2.6rem;gap:.6rem;align-items:center}
+.bar-ico{color:var(--ochre-2);font-size:1rem}
+.bar-label{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.bar-track{height:9px;background:var(--line-2);border-radius:5px;overflow:hidden}
+.bar-fill{height:100%;border-radius:5px;transition:width .5s var(--ease)}
+.bar-pct{font-family:var(--f-mono);font-size:.72rem;color:var(--ink-2);text-align:right}
+.alloc-cap{font-size:.82rem;color:var(--ink-3);margin-top:.9rem;max-width:440px;font-style:italic}
 
-.feature {
-  background: linear-gradient(135deg, var(--surface), var(--terra-glow));
-  border: 1px solid var(--terra-border);
-  border-radius: 16px;
-  padding: 28px 30px;
-  margin: 28px 0;
-}
-.feature .ft {
-  font-size: clamp(20px,3vw,24px);
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.2;
-  margin-bottom: 12px;
-}
-.feature .fb {
-  color: var(--muted);
-  line-height: 1.75;
-}
+/* mapping legend (postal -> digital) */
+.map-legend{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin:1.5rem 0}
+.ml{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.85rem .9rem;box-shadow:var(--shadow)}
+.ml .ico{font-size:1.15rem;color:var(--ochre-2)}
+.ml-from{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:.5rem 0 .15rem}
+.ml-to{font-family:var(--f-display);font-weight:600;font-size:.98rem;color:var(--ink)}
+.ml-unit{font-family:var(--f-mono);font-size:.6rem;color:var(--oxblood);margin-top:.25rem}
 
-blockquote {
-  border-left: 2px solid var(--terra);
-  padding: 14px 0 14px 22px;
-  margin: 22px 0;
+/* expandable detail */
+.disclosure{border:1px solid var(--line);border-radius:12px;margin:1.4rem 0;overflow:hidden;max-width:var(--maxread);background:var(--surface)}
+.disclosure summary{
+  cursor:pointer;list-style:none;padding:.95rem 1.15rem;display:flex;align-items:center;gap:.7rem;
+  font-family:var(--f-display);font-weight:600;font-size:1.04rem;color:var(--ink);
 }
-blockquote p {
-  font-style: italic;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-blockquote cite {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--faint);
-}
+.disclosure summary::-webkit-details-marker{display:none}
+.disclosure summary .chev{margin-left:auto;color:var(--ochre-2);transition:transform .22s var(--ease)}
+.disclosure[open] summary .chev{transform:rotate(90deg)}
+.disclosure summary .badge-no{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.08em;color:var(--pine);border:1px solid var(--pine);border-radius:999px;padding:.1rem .5rem;text-transform:uppercase}
+.disclosure-body{padding:0 1.15rem 1.1rem;font-size:.95rem;color:var(--ink-2)}
+.disclosure-body p{margin:.2rem 0 .8rem}
 
-/* ─── GʰÓSTIS DIAGRAM ──────────────────────────────────────────── */
-.diagram-wrap {
-  margin: 28px 0;
-  display: flex;
-  justify-content: center;
+/* ============ 03 ARCHITECTURE — the stack ============ */
+.stack{display:flex;flex-direction:column;gap:.4rem;margin:1.4rem 0;max-width:560px}
+.layer{
+  display:grid;grid-template-columns:auto 1fr auto;gap:.9rem;align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:.85rem 1rem;cursor:pointer;text-align:left;width:100%;
+  transition:all .2s var(--ease);box-shadow:var(--shadow);
 }
-.diagram-wrap svg { max-width: 100%; height: auto; }
+.layer:hover{border-color:var(--ochre);transform:translateX(3px)}
+.layer:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+.layer-code{font-family:var(--f-mono);font-weight:700;font-size:.8rem;color:var(--oxblood);width:1.6rem}
+.layer-ico{color:var(--ochre-2);font-size:1.15rem}
+.layer-main{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+.layer-name{font-family:var(--f-display);font-weight:600;font-size:1.04rem;color:var(--ink)}
+.layer-gloss{font-size:.86rem;color:var(--ink-3)}
+.layer-detail{
+  grid-column:1/-1;font-size:.92rem;color:var(--ink-2);
+  max-height:0;overflow:hidden;transition:max-height .3s var(--ease), margin .3s var(--ease);
+}
+.layer[aria-expanded="true"]{border-color:var(--ochre)}
+.layer[aria-expanded="true"] .layer-detail{max-height:200px;margin-top:.7rem}
+.stack-note{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:.2rem 0 0;display:flex;justify-content:space-between;max-width:560px}
 
-/* ─── TIMELINE ─────────────────────────────────────────────────── */
-.timeline {
-  position: relative;
-  margin: 28px 0;
-  padding-left: 28px;
-}
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 6px; top: 0; bottom: 0;
-  width: 1px;
-  background: linear-gradient(180deg, var(--terra) 0%, var(--border) 100%);
-}
-.tl-item {
-  position: relative;
-  margin-bottom: 26px;
-}
-.tl-item::before {
-  content: '';
-  position: absolute;
-  left: -25px; top: 7px;
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--terra);
-  border: 1px solid var(--bg);
-}
-.tl-year {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  color: var(--terra-text);
-  margin-bottom: 3px;
-}
-.tl-body {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-.tl-body strong { color: var(--text); font-weight: 700; }
+/* statutes */
+.statutes{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin:1.3rem 0;max-width:var(--maxread)}
+.stat{display:grid;grid-template-columns:auto 1fr;gap:.7rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.75rem .85rem}
+.stat-code{font-family:var(--f-mono);font-size:.66rem;font-weight:700;color:var(--ochre-2);letter-spacing:.02em;white-space:nowrap}
+.stat-txt{font-size:.84rem;color:var(--ink-2)}
 
-/* ─── MAPPING TABLE ────────────────────────────────────────────── */
-.mapping {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 22px 0;
-  font-size: 13.5px;
-}
-.mapping thead th {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--faint);
-  text-align: left;
-  padding: 0 16px 10px 0;
-  border-bottom: 1px solid var(--border);
-}
-.mapping tbody tr { border-bottom: 1px solid var(--hairline); }
-.mapping tbody tr:last-child { border-bottom: none; }
-.mapping td {
-  padding: 12px 16px 12px 0;
-  color: var(--text);
-  vertical-align: top;
-  line-height: 1.5;
-}
-.mapping td:first-child { color: var(--muted); }
-.mapping td:last-child {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--faint);
-}
+/* howey */
+.howey{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin:1.2rem 0;max-width:var(--maxread)}
+.prong{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--pine);border-radius:8px;padding:.8rem .9rem}
+.prong-h{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.3rem}
+.prong-name{font-family:var(--f-display);font-weight:600;font-size:.98rem;color:var(--ink)}
+.prong-verdict{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pine);display:inline-flex;align-items:center;gap:.25rem}
+.prong p{font-size:.85rem;color:var(--ink-2);margin:0}
+.howey-out{background:var(--ochre-wash);border:1px solid var(--ochre);border-radius:10px;padding:.9rem 1.1rem;margin-top:.3rem;max-width:var(--maxread);font-size:.95rem;color:var(--ink)}
+.howey-out b{font-weight:600}
 
-/* ─── STACK ────────────────────────────────────────────────────── */
-.stack {
-  margin: 22px 0;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-}
-.stack-layer {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 16px 22px;
-  border-bottom: 1px solid var(--hairline);
-  transition: background-color 0.2s ease;
-}
-.stack-layer:last-child { border-bottom: none; }
-.stack-layer:hover { background: var(--surface2); }
-.sl-num {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  color: var(--terra-text);
-  opacity: 0.6;
-  min-width: 20px;
-}
-.sl-name {
-  font-weight: 700;
-  color: var(--white);
-  font-size: 14px;
-  min-width: 130px;
-}
-.sl-desc {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.5;
-}
+/* ============ 05 FIRST NODE — hardware + capital ============ */
+.spec-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:1.4rem 0}
+.spec-cell{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.15rem;box-shadow:var(--shadow)}
+.spec-label{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.4rem}
+.spec-value{font-family:var(--f-display);font-optical-sizing:auto;font-weight:600;font-size:1.55rem;color:var(--ink);line-height:1.05}
+.spec-note{font-family:var(--f-mono);font-size:.62rem;color:var(--ink-3);margin-top:.3rem;line-height:1.4}
 
-/* ─── ENTITY GRID ──────────────────────────────────────────────── */
-.entity-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 12px;
-  margin: 22px 0;
-}
-.entity-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px 22px;
-  transition: border-color 0.3s ease;
-}
-.entity-card:hover { border-color: var(--terra-border); }
-.ec-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--terra-text);
-  margin-bottom: 6px;
-}
-.ec-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 8px;
-  line-height: 1.25;
-}
-.ec-body {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.6;
-}
+.cap-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:1.4rem 0}
+.cap-opt{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1.05rem;box-shadow:var(--shadow)}
+.cap-head{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
+.cap-tag{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:999px;border:1px solid var(--line);color:var(--ink-3)}
+.cap-name{font-family:var(--f-display);font-optical-sizing:auto;font-weight:600;font-size:.98rem;color:var(--ink);margin-bottom:.3rem}
 
-/* ─── LEGAL NOTES ──────────────────────────────────────────────── */
-.legal-note {
-  display: flex;
-  gap: 14px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--hairline);
-}
-.legal-note:last-child { border-bottom: none; }
-.ln-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10.5px;
-  color: var(--terra-text);
-  min-width: 130px;
-  flex-shrink: 0;
-  padding-top: 2px;
-}
-.ln-text {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.6;
-}
+.brief-links{display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;margin:1.6rem 0}
+.brief-link{display:flex;align-items:flex-start;gap:.8rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:border-color .18s var(--ease),box-shadow .18s var(--ease)}
+.brief-link:hover{border-color:var(--ochre);box-shadow:var(--shadow-lift)}
+.brief-link-ico{width:2.2rem;height:2.2rem;flex:0 0 auto;border-radius:8px;background:var(--ochre-wash);color:var(--ochre-2);display:grid;place-items:center}
+.brief-link-t{font-family:var(--f-display);font-optical-sizing:auto;font-weight:600;font-size:.98rem;color:var(--ink);display:block;margin-bottom:.2rem}
+.brief-link-sub{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
 
-/* ─── HOWEY ────────────────────────────────────────────────────── */
-.howey-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--hairline);
+/* ============ 06 STATUS — path grid ============ */
+.filters{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.1rem 0 1.3rem}
+.fchip{
+  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;
+  background:var(--surface-2);border:1px solid var(--line);border-radius:999px;
+  padding:.42rem .8rem;cursor:pointer;color:var(--ink-2);transition:all .18s var(--ease);
 }
-.howey-row:last-child { border-bottom: none; }
-.hr-test {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: var(--faint);
-  min-width: 160px;
-  flex-shrink: 0;
-  padding-top: 3px;
+.fchip:hover{border-color:var(--ochre);color:var(--ink)}
+.fchip[aria-pressed="true"]{background:var(--ink);color:var(--surface-2);border-color:var(--ink)}
+.fchip:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:1rem 0}
+.scard{
+  background:var(--surface);border:1px solid var(--line);border-radius:11px;
+  padding:1rem 1.05rem;box-shadow:var(--shadow);transition:opacity .25s var(--ease), transform .25s var(--ease);
 }
-.hr-pass {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  color: #7b9fb0;
-  background: rgba(123,159,176,0.12);
-  border: 1px solid rgba(123,159,176,0.25);
-  border-radius: 100px;
-  padding: 2px 9px;
-  margin-right: 4px;
-  flex-shrink: 0;
-  align-self: flex-start;
-  margin-top: 2px;
-  white-space: nowrap;
-}
-.hr-body {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.6;
-}
+.scard-h{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.45rem}
+.scard-t{font-family:var(--f-display);font-weight:600;font-size:1.02rem;color:var(--ink)}
+.state{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .5rem;border-radius:999px;display:inline-flex;align-items:center;gap:.3rem;white-space:nowrap}
+.state .ico{font-size:.8rem}
+.state.op{color:var(--pine);background:color-mix(in srgb,var(--pine) 12%,transparent);border:1px solid color-mix(in srgb,var(--pine) 35%,transparent)}
+.state.build{color:var(--ochre-2);background:var(--ochre-wash);border:1px solid var(--ochre)}
+.state.draft{color:var(--slate);background:color-mix(in srgb,var(--slate) 12%,transparent);border:1px solid color-mix(in srgb,var(--slate) 35%,transparent)}
+.state.prop{color:var(--ink-3);background:transparent;border:1px dashed var(--line)}
+.scard p{font-size:.86rem;color:var(--ink-2);margin:0}
+.scard.dim{opacity:.22;transform:scale(.985)}
 
-/* ─── STATUS ────────────────────────────────────────────────────── */
-.status-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--hairline);
-}
-.status-item:last-child { border-bottom: none; }
-.si-left { min-width: 180px; flex-shrink: 0; }
-.si-name {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 6px;
-}
-.si-body {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.65;
-  flex: 1;
-}
+.path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:1.6rem 0;max-width:860px}
+.path-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.15rem;box-shadow:var(--shadow)}
+.path-ico{width:2.2rem;height:2.2rem;border-radius:8px;background:var(--ochre-wash);color:var(--ochre-2);display:grid;place-items:center;margin-bottom:.65rem}
+.path-ico .ico{font-size:1.1rem}
+.path-name{font-family:var(--f-display);font-weight:600;font-size:1rem;color:var(--ink);margin-bottom:.4rem}
 
-/* ─── MOBILE ────────────────────────────────────────────────────── */
-@media (max-width: 680px) {
-  .panel-inner { padding: 28px 22px 48px; }
-  header { padding: 12px 16px; }
-  .wordmark .tag { display: none; }
-  .theme-toggle span { display: none; }
-  .theme-toggle { padding: 7px 10px; }
-  .menu-toggle { display: flex; align-items: center; }
-
-  nav.rail {
-    position: absolute;
-    top: 0; left: 0; bottom: 0;
-    z-index: 10;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    width: 232px;
-  }
-  nav.rail.open {
-    transform: translateX(0);
-    box-shadow: 4px 0 24px rgba(0,0,0,0.4);
-  }
-
-  .mapping thead th:last-child,
-  .mapping td:last-child { display: none; }
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
-  .howey-row { flex-direction: column; gap: 6px; }
-  .hr-test { min-width: auto; }
-  .legal-note { flex-direction: column; gap: 4px; }
-  .ln-label { min-width: auto; }
-  .stack-layer { flex-wrap: wrap; }
-  .sl-name { min-width: auto; }
-  .floor-row { grid-template-columns: 70px 1fr; }
-  .status-item { flex-direction: column; gap: 8px; }
-  .si-left { min-width: auto; }
+.colophon{
+  margin:2.4rem 0 0;padding:1.4rem 1.5rem;border:1px solid var(--line);border-radius:12px;
+  background:var(--surface);max-width:var(--maxread);box-shadow:var(--shadow);
 }
+.colophon p{font-size:.95rem;color:var(--ink-2);margin:0 0 .6rem}
+.colophon .lic{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0}
 
+/* ============ responsive ============ */
+@media (max-width:920px){
+  .app{grid-template-columns:1fr;grid-template-rows:auto auto 1fr;grid-template-areas:"mast" "rail" "main";overflow:auto;height:auto;min-height:100dvh}
+  .rail{border-right:none;border-bottom:1px solid var(--line);overflow:visible}
+  .rail-head{display:none}
+  .rail-list{display:flex;overflow-x:auto;gap:.4rem;padding:.7rem .8rem;scrollbar-width:thin}
+  .rail-item{margin:0}
+  .rail-btn{grid-template-columns:auto;white-space:nowrap;min-width:128px}
+  .rail-desc{display:none}
+  .rail-btn[aria-current="true"]{box-shadow:inset 0 -3px 0 var(--oxblood)}
+  .rail-foot{display:none}
+  .main{overflow:visible}
+  .kbd-hint{display:none}
+  .g2,.g3,.g4,.statutes,.howey{grid-template-columns:1fr}
+  .map-legend{grid-template-columns:repeat(2,1fr)}
+  .board{grid-template-columns:1fr}
+  .stamp-wrap{grid-template-columns:1fr}
+  .isnot{grid-template-columns:1fr}
+  .isnot-col:first-child{border-right:none;border-bottom:1px solid var(--line)}
+  .tl-track{display:none}
+  .tl-controls{margin-top:.4rem}
+  .panel{padding-top:1.6rem}
+  .spec-row,.cap-row,.path-grid,.brief-links{grid-template-columns:1fr}
+}
+@media (min-width:1280px){
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .map-legend{grid-template-columns:repeat(4,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+}
 </style>
 </head>
-
 <body>
 
-<header>
-  <div class="wordmark">
-    <span class="name">The Digital Post</span>
-    <span class="tag">Techne Studio · RegenHub, LCA · Boulder, CO</span>
-  </div>
-  <div class="header-right">
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-      <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="4"/>
-        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-      </svg>
-      <span>Light</span>
-    </button>
-    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-    </button>
-  </div>
-</header>
+<!-- inline icon system (self-contained, no CDN) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"/><rect x="9.5" y="9.5" width="5" height="5" rx="0.5"/><path d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2"/></symbol>
+  <symbol id="i-transfer" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></symbol>
+  <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></symbol>
+  <symbol id="i-archive" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="5" rx="1"/><path d="M4 9v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9"/><path d="M10 13h4"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></symbol>
+  <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 22h18"/><path d="M6 18v-7M10 18v-7M14 18v-7M18 18v-7"/><path d="M4 10 12 4l8 6"/><path d="M4 10h16"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></symbol>
+  <symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5L15.5 9"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M2.5 12h19"/><path d="M12 3a13 13 0 0 1 0 18 13 13 0 0 1 0-18z"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M13 5v2M13 17v2M13 11v2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M3 21v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><path d="M16 3.5a4 4 0 0 1 0 7"/><path d="M22 21v-1a5 5 0 0 0-4-4.9"/></symbol>
+  <symbol id="i-anchor" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M12 22V8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.1 10.4A6 6 0 1 1 10.3 18"/><path d="M7 6h1v4"/><path d="m16.7 13.9.7.7-2.8 2.8"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-2 1.3-4 1.3-6 0"/><path d="m2 16 3-8 3 8c-2 1.3-4 1.3-6 0"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></symbol>
+  <symbol id="i-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1"/><path d="M16 3h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-1"/></symbol>
+  <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2"/><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14 4 4-4 4"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-git-fork" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 9v3a3 3 0 0 0 3 3h6"/><path d="M18 9v5"/></symbol>
+</svg>
 
-<div class="hud">
+<div class="app">
 
-  <nav class="rail" id="nav-rail">
-    <div class="rail-label">Sections</div>
-    <button class="nav-item active" onclick="show('v00',this)">
-      <span class="num">00</span>
-      <div><div class="nm">Overview</div><span class="sub">A post office the public owns</span></div>
-    </button>
-    <button class="nav-item" onclick="show('v01',this)">
-      <span class="num">01</span>
-      <div><div class="nm">Lineage</div><span class="sub">Not a new idea</span></div>
-    </button>
-    <button class="nav-item" onclick="show('v02',this)">
-      <span class="num">02</span>
-      <div><div class="nm">The Stamp</div><span class="sub">Prepaid. Stable. Yours.</span></div>
-    </button>
-    <button class="nav-item" onclick="show('v03',this)">
-      <span class="num">03</span>
-      <div><div class="nm">Architecture</div><span class="sub">Function without form</span></div>
-    </button>
-    <button class="nav-item" onclick="show('v04',this)">
-      <span class="num">04</span>
-      <div><div class="nm">Applications</div><span class="sub">What runs on the network</span></div>
-    </button>
-    <button class="nav-item" onclick="show('v05',this)">
-      <span class="num">05</span>
-      <div><div class="nm">Status</div><span class="sub">What exists now</span></div>
-    </button>
+  <!-- ===================== MASTHEAD ===================== -->
+  <header class="mast">
+    <div class="brand">
+      <svg class="postmark" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path id="arc-top" d="M 22 50 A 28 28 0 0 1 78 50" fill="none"/>
+        <path id="arc-bot" d="M 78 50 A 28 28 0 0 1 22 50" fill="none"/>
+        <text font-family="'Space Mono',monospace" font-size="8.5" letter-spacing="1.5" fill="currentColor">
+          <textPath href="#arc-top" startOffset="50%" text-anchor="middle">THE DIGITAL POST</textPath>
+        </text>
+        <text font-family="'Space Mono',monospace" font-size="7" letter-spacing="2" fill="currentColor">
+          <textPath href="#arc-bot" startOffset="50%" text-anchor="middle">BOULDER · COLO</textPath>
+        </text>
+        <g stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.85">
+          <path d="M30 44h40M30 50h40M30 56h40"/>
+        </g>
+      </svg>
+      <div class="brand-txt">
+        <div class="brand-name">The Digital Post</div>
+        <div class="brand-sub">Techne Studio · RegenHub, LCA · Boulder, CO</div>
+      </div>
+    </div>
+    <div class="mast-tools">
+      <div class="kbd-hint" aria-hidden="true"><span class="kbd">0</span>–<span class="kbd">6</span> or <span class="kbd">↑↓</span></div>
+      <button class="theme-btn" id="themeBtn" aria-pressed="false" title="Toggle light / dark">
+        <svg class="ico" id="themeIco"><use href="#i-moon"/></svg>
+        <span id="themeLbl">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== RAIL ===================== -->
+  <nav class="rail" aria-label="Sections">
+    <div class="rail-head">Sections</div>
+    <ul class="rail-list" id="railList">
+      <li class="rail-item"><button class="rail-btn" data-go="0" aria-current="true"><span class="rail-code">00</span><span class="rail-name">Overview</span><span class="rail-desc">A post office the public owns</span></button></li>
+      <li class="rail-item"><button class="rail-btn" data-go="1"><span class="rail-code">01</span><span class="rail-name">Lineage</span><span class="rail-desc">Not a new idea</span></button></li>
+      <li class="rail-item"><button class="rail-btn" data-go="2"><span class="rail-code">02</span><span class="rail-name">The Stamp</span><span class="rail-desc">Prepaid. Stable. Yours.</span></button></li>
+      <li class="rail-item"><button class="rail-btn" data-go="3"><span class="rail-code">03</span><span class="rail-name">Architecture</span><span class="rail-desc">Function without form</span></button></li>
+      <li class="rail-item"><button class="rail-btn" data-go="4"><span class="rail-code">04</span><span class="rail-name">Applications</span><span class="rail-desc">What runs on the network</span></button></li>
+      <li class="rail-item"><button class="rail-btn" data-go="5"><span class="rail-code">05</span><span class="rail-name">First Node</span><span class="rail-desc">The machine behind the stamp</span></button></li>
+      <li class="rail-item"><button class="rail-btn" data-go="6"><span class="rail-code">06</span><span class="rail-name">Status</span><span class="rail-desc">What exists now</span></button></li>
+    </ul>
+    <div class="rail-foot">
+      <strong>Working Briefs</strong><br>
+      <a href="briefs/node.html">&#8594; DGX Node</a><br>
+      <a href="briefs/capital.html">&#8594; Capital Formation</a><br><br>
+      <strong>Peer Production License</strong><br>Copyfarleft · 2026<br>Boulder, Colorado
+    </div>
   </nav>
 
-  <main class="panel" id="main-panel" onclick="closeMenuOnPanelClick(event)">
-  <div class="panel-inner">
+  <!-- ===================== MAIN ===================== -->
+  <main class="main" id="main">
 
-
-    <!-- ══ 00 OVERVIEW ═══════════════════════════════════════════════ -->
-    <section class="view active" id="v00">
-      <div class="label">00 · Overview</div>
-      <div class="rule"></div>
-      <h2 class="view-title">A post office<br>the public owns.</h2>
+    <!-- ---------- 00 OVERVIEW ---------- -->
+    <section class="panel is-active" data-panel="0">
+      <div class="eyebrow"><span class="mono">00 · Overview</span></div>
+      <h1 class="title">A post office the public owns.</h1>
       <p class="lede">The Digital Post is a cooperatively governed network for reliable digital communication and verified service delivery — a civic institution designed from the ground up to be owned and operated by the communities it serves.</p>
 
-      <blockquote>
-        <p>"Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers."</p>
+      <div class="quote">
+        <p>Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers.</p>
         <cite>Universal Declaration of Human Rights · Article 19 · 1948</cite>
-      </blockquote>
+      </div>
 
-      <p>The right to communicate is foundational. Every modern institution that honors it — the postal service, the telephone network, the public library — was built as a commons, not a product. The internet collapsed that tradition. We propose restoring it.</p>
+      <div class="prose">
+        <p>The right to communicate is foundational. Every modern institution that honors it — the postal service, the telephone network, the public library — was built as a <strong>commons</strong>, not a product. The internet collapsed that tradition. We propose restoring it.</p>
+      </div>
 
-      <div class="diagram-wrap">
-        <svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="gʰóstis network diagram: host and guest name a single obligation">
-          <defs>
-            <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-              <polygon points="0 0, 8 3, 0 6" fill="#c4956a" opacity="0.5"/>
-            </marker>
-          </defs>
-          <circle cx="120" cy="100" r="48" fill="none" stroke="#4a4a4a" stroke-width="1"/>
-          <text x="120" y="94" text-anchor="middle" font-family="Libre Baskerville, serif" font-size="14" fill="#e8e0d8" font-weight="700">Node</text>
-          <text x="120" y="112" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#999999">gives · receives</text>
-          <circle cx="440" cy="100" r="48" fill="none" stroke="#4a4a4a" stroke-width="1"/>
-          <text x="440" y="94" text-anchor="middle" font-family="Libre Baskerville, serif" font-size="14" fill="#e8e0d8" font-weight="700">Node</text>
-          <text x="440" y="112" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#999999">gives · receives</text>
-          <line x1="172" y1="88" x2="388" y2="88" stroke="#c4956a" stroke-width="1" stroke-opacity="0.4" marker-end="url(#arr)"/>
-          <line x1="388" y1="112" x2="172" y2="112" stroke="#c4956a" stroke-width="1" stroke-opacity="0.4" marker-end="url(#arr)"/>
-          <text x="280" y="76" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#c4956a" letter-spacing="0.1em">SERVICE</text>
-          <text x="280" y="132" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#c4956a" letter-spacing="0.1em">CREDIT</text>
-          <text x="280" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#666666">gʰóstis — guest and host were once the same word</text>
+      <!-- signature: the gʰóstis exchange -->
+      <div class="ghosti">
+        <svg viewBox="0 0 560 180" role="img" aria-label="Two nodes exchanging a service credit; each is both giver and receiver">
+          <path class="flow-line" d="M150 90 C 230 30, 330 30, 410 90" fill="none" stroke-width="1.5"/>
+          <path class="flow-line" d="M410 90 C 330 150, 230 150, 150 90" fill="none" stroke-width="1.5"/>
+          <g>
+            <rect class="node-fill" x="70" y="62" width="80" height="56" rx="10" stroke-width="1.5"/>
+            <use href="#i-users" x="98" y="72" width="24" height="24" style="color:var(--ochre-2)"/>
+            <text x="110" y="135" text-anchor="middle" font-family="'Space Mono',monospace" font-size="9" letter-spacing="1" fill="var(--ink-2)">NODE</text>
+          </g>
+          <g>
+            <rect class="node-fill" x="410" y="62" width="80" height="56" rx="10" stroke-width="1.5"/>
+            <use href="#i-users" x="438" y="72" width="24" height="24" style="color:var(--ochre-2)"/>
+            <text x="450" y="135" text-anchor="middle" font-family="'Space Mono',monospace" font-size="9" letter-spacing="1" fill="var(--ink-2)">NODE</text>
+          </g>
+          <text x="280" y="34" text-anchor="middle" font-family="'Space Mono',monospace" font-size="8.5" letter-spacing="1.5" fill="var(--ink-3)">GIVES</text>
+          <text x="280" y="162" text-anchor="middle" font-family="'Space Mono',monospace" font-size="8.5" letter-spacing="1.5" fill="var(--ink-3)">RECEIVES</text>
+          <g id="token">
+            <rect class="token-stamp" x="-11" y="-9" width="22" height="18" rx="2" stroke-width="1"/>
+            <text x="0" y="3.5" text-anchor="middle" font-family="'Space Mono',monospace" font-size="6.5" fill="var(--on-accent)">CR</text>
+            <animateMotion dur="6s" repeatCount="indefinite" rotate="0" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear">
+              <mpath href="#mpath1"/>
+            </animateMotion>
+          </g>
+          <path id="mpath1" d="M150 90 C 230 30, 330 30, 410 90" fill="none" stroke="none"/>
         </svg>
+        <p class="ghosti-cap">From the Proto-Indo-European root <b>*gʰóstis</b> — the common ancestor of <b>guest</b>, <b>host</b>, and <b>hospitality</b>. To give and to receive were one relationship before they were two.</p>
+        <p class="ghosti-root">Reciprocity is the protocol</p>
       </div>
 
-      <div class="feature">
-        <div class="ft">The first node exists in Boulder, Colorado.</div>
-        <div class="fb">RegenHub, LCA — a Colorado Limited Cooperative Association — is the legal vessel. The network is designed to federate: each additional city becomes a cooperative node, governed locally, connected globally. The stamp you use here works anywhere the protocol runs.</div>
+      <div class="prose">
+        <p>The first node exists in <strong>Boulder, Colorado</strong>. RegenHub, LCA — a Colorado Limited Cooperative Association — is the legal vessel. The network is designed to federate: each additional city becomes a cooperative node, governed locally, connected globally. The stamp you use here works anywhere the protocol runs.</p>
       </div>
 
-      <h3>What the Digital Post is not</h3>
-      <p>It is not a messaging app. It is not a blockchain project. It is not a startup looking for an exit. It is the substrate that messaging apps, public record systems, and community services run on — owned by the people who depend on it, operated as a public utility, accountable to the communities it serves.</p>
+      <h3 class="sub">What the Digital Post is — and is not</h3>
+      <div class="isnot">
+        <div class="isnot-col">
+          <div class="isnot-h">Not this</div>
+          <ul>
+            <li>A messaging app</li>
+            <li>A blockchain project</li>
+            <li>A startup looking for an exit</li>
+            <li>A service that sells your data</li>
+          </ul>
+        </div>
+        <div class="isnot-col">
+          <div class="isnot-h">But this</div>
+          <ul>
+            <li>The substrate apps and services run on</li>
+            <li>Owned by the people who depend on it</li>
+            <li>Operated as a public utility</li>
+            <li>Surplus returned to members</li>
+          </ul>
+        </div>
+      </div>
 
-      <p>The postal stamp is the right metaphor: prepaid, stable in denomination, accepted wherever the network runs, redeemable for real delivered service. The stamp doesn't expire. The network doesn't sell your data. The surplus goes back to the members.</p>
+      <div class="note"><b>The postal stamp is the right metaphor:</b> prepaid, stable in denomination, accepted wherever the network runs, redeemable for real delivered service. The stamp doesn't expire. The network doesn't sell your data. The surplus goes back to the members.</div>
     </section>
 
+    <!-- ---------- 01 LINEAGE ---------- -->
+    <section class="panel" data-panel="1">
+      <div class="eyebrow"><span class="mono">01 · Lineage</span></div>
+      <h1 class="title">Not a new idea. An old one, carried forward.</h1>
+      <p class="lede">Every reliable communication and credit network in history was built as a commons. We are recovering a tradition, not inventing one. Step through it.</p>
 
-    <!-- ══ 01 LINEAGE ════════════════════════════════════════════════ -->
-    <section class="view" id="v01">
-      <div class="label">01 · Lineage</div>
-      <div class="rule"></div>
-      <h2 class="view-title">Not a new idea.<br>An old one, carried forward.</h2>
-      <p class="lede">Every reliable communication network in history was built as a commons. We are recovering a tradition, not inventing one.</p>
-
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-year">1840</div>
-          <div class="tl-body"><strong>Penny Post, United Kingdom.</strong> Rowland Hill's reform unified postal rates across Britain at one penny per half-ounce, regardless of distance. The prepaid stamp was born — a credit instrument backed by guaranteed service delivery. Universal access to correspondence became law.</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-year">1874</div>
-          <div class="tl-body"><strong>Universal Postal Union, Berne.</strong> Twenty-two nations agreed to treat each other's letters as domestic mail. A federated protocol, not a single monopoly. The stamp in your pocket worked across borders because the nodes had agreed on interoperability.</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-year">1936</div>
-          <div class="tl-body"><strong>Rural Electrification Act, United States.</strong> Electricity was not reaching farms and small towns — the market deemed it unprofitable. The federal government created cooperatives to extend the grid. Within two decades, 90% of rural homes had power. Public infrastructure works when it is structured as a public good.</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-year">1948</div>
-          <div class="tl-body"><strong>UDHR Article 19.</strong> In the aftermath of fascism, the international community declared the right to communicate — to seek, receive, and impart information — as a fundamental human right. Every communication infrastructure built since exists against this standard.</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-year">1969</div>
-          <div class="tl-body"><strong>ARPANET.</strong> The internet was invented as a resilient, decentralized communication network funded by the public. It was designed to route around damage — including the damage of centralized control. The original architecture was a commons. What happened next was not.</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-year">2026</div>
-          <div class="tl-body"><strong>The Digital Post, Boulder, Colorado.</strong> A cooperatively owned network for reliable digital communication and verified service delivery. The stamp still works. The obligation still holds. The question is who owns the infrastructure underneath it.</div>
+      <div class="tl">
+        <div class="tl-track" id="tlTrack" role="tablist" aria-label="Timeline"></div>
+        <div class="tl-card" id="tlCard" aria-live="polite"></div>
+        <div class="tl-controls">
+          <button class="step-btn" id="tlPrev"><svg class="ico"><use href="#i-arrow-l"/></svg> Earlier</button>
+          <button class="step-btn" id="tlNext">Later <svg class="ico"><use href="#i-arrow-r"/></svg></button>
         </div>
       </div>
 
-      <div class="feature">
-        <div class="ft">The stamp predates email by 140 years.</div>
-        <div class="fb">It survived every technology transition because it encodes something deeper than a delivery mechanism: the public expectation that communication infrastructure is reliable, affordable, and available to all. We are not proposing something new. We are proposing something durable.</div>
-      </div>
+      <div class="note"><b>The stamp predates email by 140 years.</b> But the underlying pattern — a group of people pooling access to shared infrastructure — is older than writing. We are not proposing something new. We are proposing something durable.</div>
     </section>
 
-
-    <!-- ══ 02 THE STAMP ═══════════════════════════════════════════════ -->
-    <section class="view" id="v02">
-      <div class="label">02 · The Stamp</div>
-      <div class="rule"></div>
-      <h2 class="view-title">Prepaid. Stable. Yours.</h2>
+    <!-- ---------- 02 THE STAMP ---------- -->
+    <section class="panel" data-panel="2">
+      <div class="eyebrow"><span class="mono">02 · The Stamp</span></div>
+      <h1 class="title">Prepaid. Stable. Yours.</h1>
       <p class="lede">The stamp is a prepaid credit for real delivered service. It maps directly from the postal tradition to the four primitives of modern digital infrastructure.</p>
 
-      <table class="mapping">
-        <thead>
-          <tr>
-            <th>Postal concept</th>
-            <th>Digital primitive</th>
-            <th>Unit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Postage stamp</td>
-            <td>Compute credit</td>
-            <td>compute-hour</td>
-          </tr>
-          <tr>
-            <td>Delivery route</td>
-            <td>Data transfer</td>
-            <td>GB transferred</td>
-          </tr>
-          <tr>
-            <td>P.O. Box</td>
-            <td>Short-term memory</td>
-            <td>GB-hour</td>
-          </tr>
-          <tr>
-            <td>Archive</td>
-            <td>Long-term memory</td>
-            <td>GB-month</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="stamp-wrap">
+        <div class="stamp" aria-hidden="true">
+          <div class="stamp-face">
+            <div class="stamp-country">The Digital Post · Service Credit</div>
+            <svg class="stamp-vig" viewBox="0 0 120 84">
+              <path class="flow-line" d="M30 42 C 50 18, 70 18, 90 42" fill="none" stroke="var(--ochre-2)" stroke-width="1" stroke-dasharray="2 3"/>
+              <circle cx="30" cy="42" r="13" fill="none" stroke="var(--ochre-2)" stroke-width="1.5"/>
+              <circle cx="90" cy="42" r="13" fill="none" stroke="var(--ochre-2)" stroke-width="1.5"/>
+              <use href="#i-users" x="22" y="34" width="16" height="16" style="color:var(--ochre-2)"/>
+              <use href="#i-users" x="82" y="34" width="16" height="16" style="color:var(--ochre-2)"/>
+              <text x="60" y="74" text-anchor="middle" font-family="'Space Mono',monospace" font-size="7" letter-spacing="1" fill="var(--ink-2)">g&#x2B0;&#xF3;stis</text>
+            </svg>
+            <div class="stamp-denom">One Stamp<small id="stampProfile">illustrative mix</small></div>
+            <div class="stamp-band" id="stampBand"></div>
+          </div>
+        </div>
 
-      <p>One stamp. Four primitives. Every digital service reduces to some combination of these four things — computing, moving, holding briefly, holding long. The stamp is a credit that can be redeemed for any of them, in any proportion, at any node on the network.</p>
-
-      <h3>How it works</h3>
-      <div class="grid-2">
-        <div class="card">
-          <div class="ct">Fixed issuance price</div>
-          <div class="cb">The price to acquire a stamp is set and published. You always know what you're paying. No surge pricing, no dynamic fees, no dark patterns.</div>
-        </div>
-        <div class="card">
-          <div class="ct">Variable redemption rate</div>
-          <div class="cb">What a stamp redeems for adjusts quarterly based on actual infrastructure costs. If compute gets cheaper, your stamp buys more. Rate changes are published in advance and voted on by members.</div>
-        </div>
-        <div class="card">
-          <div class="ct">No expiration</div>
-          <div class="cb">The Forever Stamp mechanic: a stamp purchased today is valid in perpetuity. The USPS Forever Stamp has held purchasing power for decades. So will ours.</div>
-        </div>
-        <div class="card">
-          <div class="ct">Closed-loop credit</div>
-          <div class="cb">Stamps are redeemable for services on the network, not convertible to cash. A service credit, not a financial instrument — the same structure as a transit pass or a library card.</div>
+        <div class="alloc">
+          <h3 class="sub">One stamp. Four primitives.</h3>
+          <p style="font-size:.95rem;color:var(--ink-2);margin:0 0 .3rem;max-width:440px">Every digital service reduces to some combination of four things — computing, moving, holding briefly, holding long. A stamp redeems for any of them, in any proportion, at any node. Choose a shape:</p>
+          <div class="alloc-profiles" id="profiles" role="group" aria-label="Illustrative service shapes"></div>
+          <div class="bars" id="bars"></div>
+          <p class="alloc-cap">Illustrative shapes, not prices. The Digital Post publishes no rates here — this only shows that one stamp can be spent across the four primitives in any proportion.</p>
         </div>
       </div>
 
-      <h3>Financial services on the same rails</h3>
-      <p>The postal tradition included money orders, savings accounts, and remittance — basic financial services for people without access to banks. The Digital Post revives this. The same cooperative infrastructure that delivers digital services can offer member savings, community lending, and low-cost transfers — all governed by the same board, held to the same cooperative principles.</p>
+      <h3 class="sub">The mapping</h3>
+      <div class="map-legend" id="mapLegend"></div>
 
-      <div class="feature">
-        <div class="ft">Is the stamp a security?</div>
-        <div class="fb">No. The stamp is designed to fall outside the Howey test on all four prongs — there is no investment of money into a common enterprise with an expectation of profit from the efforts of others. It is a prepaid service credit, not a speculative instrument. The full legal analysis is in the Architecture section.</div>
+      <h3 class="sub">How it works</h3>
+      <div class="grid g4">
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-ticket"/></svg></div><div><div class="card-t">Fixed issuance price</div><div class="card-tag">what you pay</div></div></div><p>The price to acquire a stamp is set and published. You always know what you're paying. No surge pricing, no dynamic fees, no dark patterns.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-scale"/></svg></div><div><div class="card-t">Variable redemption rate</div><div class="card-tag">what it buys</div></div></div><p>What a stamp redeems for adjusts quarterly based on actual infrastructure costs. If compute gets cheaper, your stamp buys more. Rate changes are published in advance and voted on by members.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-archive"/></svg></div><div><div class="card-t">No expiration</div><div class="card-tag">the forever stamp</div></div></div><p>A stamp purchased today is valid in perpetuity. The USPS Forever Stamp has held purchasing power for decades. So will ours.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-lock"/></svg></div><div><div class="card-t">Closed-loop credit</div><div class="card-tag">a credit, not a coin</div></div></div><p>Stamps are redeemable for services on the network, not convertible to cash. A service credit, not a speculative instrument — the same structure as a transit pass or a library card.</p></div>
       </div>
+
+      <h3 class="sub">Financial services on the same rails</h3>
+      <div class="prose"><p>The postal tradition included money orders, savings accounts, and remittance — basic financial services for people without access to banks. The Digital Post revives this. The same cooperative infrastructure that delivers digital services can offer <strong>member savings, community lending, and low-cost transfers</strong> — all governed by the same board, held to the same cooperative principles.</p></div>
+
+      <details class="disclosure">
+        <summary><svg class="ico" style="color:var(--ochre-2)"><use href="#i-award"/></svg> A use case: Maya renews her contractor license <svg class="ico chev"><use href="#i-chev"/></svg></summary>
+        <div class="disclosure-body">
+          <p>Maya is a general contractor in Boulder renewing her trade license for the year. She opens the Digital Post app, presents her cooperative credential to the city permitting system, and the renewal issues automatically — verified against attested work history. No paper, no waiting room, no $150 expedite fee.</p>
+          <p>The credential lives on the network. The attestation is permanent. The stamp paid for it. The city didn't need Maya's home address to verify that Maya is a licensed contractor in good standing. Minimum disclosure, implemented in protocol.</p>
+          <p style="color:var(--ink-3);font-style:italic;margin-bottom:0">This use case combines Verifiable Credentials, Privacy-Preserving IDs, and Cross-Agency Verification — all in panel 04.</p>
+        </div>
+      </details>
+
+      <details class="disclosure">
+        <summary><svg class="ico" style="color:var(--ochre-2)"><use href="#i-scale"/></svg> Is the stamp a security? <span class="badge-no">No</span> <svg class="ico chev"><use href="#i-chev"/></svg></summary>
+        <div class="disclosure-body">
+          <p>The stamp is designed to fall outside the Howey test on all four prongs — there is no investment of money into a common enterprise with an expectation of profit from the efforts of others. It is a prepaid service credit, not a speculative instrument.</p>
+          <p style="color:var(--ink-3);font-style:italic;margin-bottom:0">The full four-prong analysis is in <strong>03 · Architecture</strong>.</p>
+        </div>
+      </details>
     </section>
 
-
-    <!-- ══ 03 ARCHITECTURE ════════════════════════════════════════════ -->
-    <section class="view" id="v03">
-      <div class="label">03 · Architecture</div>
-      <div class="rule"></div>
-      <h2 class="view-title">The function<br>without the form.</h2>
+    <!-- ---------- 03 ARCHITECTURE ---------- -->
+    <section class="panel" data-panel="3">
+      <div class="eyebrow"><span class="mono">03 · Architecture</span></div>
+      <h1 class="title">The function without the form.</h1>
       <p class="lede">The Digital Post is a protocol, not a product. The legal and technical architecture is designed to be adopted by any cooperative, in any jurisdiction, while remaining locally governed.</p>
 
-      <h3>Five-layer stack</h3>
-      <div class="stack">
-        <div class="stack-layer">
-          <span class="sl-num">L1</span>
-          <span class="sl-name">Constitution</span>
-          <span class="sl-desc">Operating principles and governance rules. Ratified by member vote. Sets the bounds within which all other layers operate.</span>
-        </div>
-        <div class="stack-layer">
-          <span class="sl-num">L2</span>
-          <span class="sl-name">Protocol</span>
-          <span class="sl-desc">The technical standard for how nodes exchange services and credit. Open source. Auditable. Not owned by any single entity.</span>
-        </div>
-        <div class="stack-layer">
-          <span class="sl-num">L3</span>
-          <span class="sl-name">Attestation</span>
-          <span class="sl-desc">Verified service delivery. Nodes attest that services were actually rendered before credit is transferred. No delivery, no payment.</span>
-        </div>
-        <div class="stack-layer">
-          <span class="sl-num">L4</span>
-          <span class="sl-name">Nodes</span>
-          <span class="sl-desc">Cooperative operators who run infrastructure and serve members. Each node is locally governed, globally connected via the protocol.</span>
-        </div>
-        <div class="stack-layer">
-          <span class="sl-num">L5</span>
-          <span class="sl-name">Credit</span>
-          <span class="sl-desc">The stamp. Issued at fixed price, redeemed for services at nodes, never speculative, never expiring. The visible surface of the network.</span>
-        </div>
+      <h3 class="sub">Five-layer stack</h3>
+      <p class="kicker">Base to surface — select a layer</p>
+      <div class="stack" id="stack" role="list"></div>
+      <div class="stack-note"><span>&#8593; Constitution — the bounds</span><span>Credit — the visible surface &#8595;</span></div>
+
+      <h3 class="sub">Four-entity legal structure</h3>
+      <p style="font-size:.95rem;color:var(--ink-2);max-width:var(--maxread);margin:0 0 1rem">The network is held by four interlocking entities. Together they provide cooperative ownership, long-term stewardship, financial-services capability, and member protection.</p>
+      <div class="grid g4">
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-users"/></svg></div><div><div class="card-t">Operator</div><div class="card-tag">Colorado LCA</div></div></div><p>Limited Cooperative Association under C.R.S. 7-58-101. Patron members hold &#8805;51% of voting power. Public benefit purpose. The vessel that owns and operates the network.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-anchor"/></svg></div><div><div class="card-t">Steward</div><div class="card-tag">Purpose Trust</div></div></div><p>Colorado Statutory Trust under C.R.S. 38-44-201. Holds the protocol and operating principles in trust for the network's public benefit purpose. Funded by 0.5% of gross revenue.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-coins"/></svg></div><div><div class="card-t">Financial services</div><div class="card-tag">Licensed MSB</div></div></div><p>Money Services Business licensed under Colorado's Uniform Money Services Act. Enables member savings, transfers, and financial services on cooperative rails.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-shield"/></svg></div><div><div class="card-t">Protection</div><div class="card-tag">Guarantee Fund</div></div></div><p>Member protection reserve. If a node fails or service is not delivered, the Guarantee Fund makes members whole. Minimum reserve ratios set in the Operating Agreement.</p></div>
       </div>
 
-      <h3>Four-entity legal structure</h3>
-      <p>The network is held by four interlocking legal entities, each serving a distinct function. Together they provide cooperative ownership, long-term stewardship, financial services capability, and member protection.</p>
-
-      <div class="entity-grid">
-        <div class="entity-card">
-          <div class="ec-label">Operator</div>
-          <div class="ec-name">Colorado LCA</div>
-          <div class="ec-body">Limited Cooperative Association under C.R.S. 7-58-101. Patron members hold ≥51% of voting power. Public benefit purpose. This is the vessel that owns and operates the network.</div>
-        </div>
-        <div class="entity-card">
-          <div class="ec-label">Steward</div>
-          <div class="ec-name">Purpose Trust</div>
-          <div class="ec-body">Colorado Statutory Trust under C.R.S. 38-44-201. Holds the protocol and operating principles in trust for the network's public benefit purpose. Funded by 0.5% of gross revenue.</div>
-        </div>
-        <div class="entity-card">
-          <div class="ec-label">Financial Services</div>
-          <div class="ec-name">Licensed MSB</div>
-          <div class="ec-body">Money Services Business licensed under Colorado's Uniform Money Services Act. Enables member savings, transfers, and financial services on cooperative rails.</div>
-        </div>
-        <div class="entity-card">
-          <div class="ec-label">Protection</div>
-          <div class="ec-name">Guarantee Fund</div>
-          <div class="ec-body">Member protection reserve. If a node fails or service is not delivered, the Guarantee Fund makes members whole. Minimum reserve ratios set in the Operating Agreement.</div>
-        </div>
+      <h3 class="sub">Colorado statutory grounding</h3>
+      <div class="statutes">
+        <div class="stat"><span class="stat-code">C.R.S.<br>7-58-101</span><span class="stat-txt">Colorado Limited Cooperative Association Act. Authorizes the LCA form — cooperative with flexible patron/investor member governance.</span></div>
+        <div class="stat"><span class="stat-code">C.R.S.<br>7-58-701</span><span class="stat-txt">Patron members must hold &#8805;51% of voting power. Ensures cooperative control cannot be diluted by investment capital.</span></div>
+        <div class="stat"><span class="stat-code">C.R.S.<br>7-101-503</span><span class="stat-txt">Public benefit purpose registration. "Cultivating scenius" is the stated public benefit — the collective intelligence of a community in a place.</span></div>
+        <div class="stat"><span class="stat-code">C.R.S.<br>11-51-308.5</span><span class="stat-txt">Colorado Digital Token Act. Exempts tokens that function solely as access or service credits, not marketed as investments, from securities registration.</span></div>
+        <div class="stat"><span class="stat-code">C.R.S.<br>11-110-101</span><span class="stat-txt">Money Transmitters Act. Closed-loop service credits redeemable only within the network are exempt from money transmitter licensing.</span></div>
+        <div class="stat"><span class="stat-code">C.R.S.<br>38-44-201</span><span class="stat-txt">Colorado Uniform Statutory Trust Entity Act. Enables the Purpose Trust that holds the protocol in long-term stewardship.</span></div>
       </div>
 
-      <h3>Colorado statutory grounding</h3>
-      <div style="margin: 14px 0;">
-        <div class="legal-note">
-          <span class="ln-label">C.R.S. 7-58-101</span>
-          <span class="ln-text">Colorado Limited Cooperative Association Act. Authorizes the LCA form — cooperative with flexible patron/investor member governance.</span>
-        </div>
-        <div class="legal-note">
-          <span class="ln-label">C.R.S. 7-58-701</span>
-          <span class="ln-text">Patron members must hold ≥51% of voting power. Ensures cooperative control cannot be diluted by investment capital.</span>
-        </div>
-        <div class="legal-note">
-          <span class="ln-label">C.R.S. 7-101-503</span>
-          <span class="ln-text">Public benefit purpose registration. "Cultivating scenius" is the stated public benefit — the collective intelligence of a community in a place.</span>
-        </div>
-        <div class="legal-note">
-          <span class="ln-label">C.R.S. 11-51-308.5</span>
-          <span class="ln-text">Colorado Digital Token Act. Exempts tokens that are not marketed as investments and function solely as access or service credits from securities registration.</span>
-        </div>
-        <div class="legal-note">
-          <span class="ln-label">C.R.S. 11-110-101</span>
-          <span class="ln-text">Money Transmitters Act. Closed-loop service credits redeemable only within the network are exempt from money transmitter licensing requirements.</span>
-        </div>
-        <div class="legal-note">
-          <span class="ln-label">C.R.S. 38-44-201</span>
-          <span class="ln-text">Colorado Uniform Statutory Trust Entity Act. Enables the Purpose Trust that holds the protocol in long-term stewardship.</span>
-        </div>
+      <h3 class="sub">Howey analysis</h3>
+      <p style="font-size:.95rem;color:var(--ink-2);max-width:var(--maxread);margin:0 0 1rem">The Howey test determines whether an instrument is a security under U.S. federal law. The stamp is designed to fail all four prongs.</p>
+      <div class="howey">
+        <div class="prong"><div class="prong-h"><span class="prong-name">Investment of money</span><span class="prong-verdict"><svg class="ico"><use href="#i-check"/></svg>Not met</span></div><p>Members purchase a prepaid service credit, not an investment. The intent is consumption of services, not capital appreciation.</p></div>
+        <div class="prong"><div class="prong-h"><span class="prong-name">Common enterprise</span><span class="prong-verdict"><svg class="ico"><use href="#i-check"/></svg>Not met</span></div><p>Stamp value is not tied to the fortunes of the cooperative. The redemption rate adjusts by cost, not by profit.</p></div>
+        <div class="prong"><div class="prong-h"><span class="prong-name">Expectation of profit</span><span class="prong-verdict"><svg class="ico"><use href="#i-check"/></svg>Not met</span></div><p>Stamps are designed for service consumption. They do not appreciate, pay dividends, or convert to cash.</p></div>
+        <div class="prong"><div class="prong-h"><span class="prong-name">Efforts of others</span><span class="prong-verdict"><svg class="ico"><use href="#i-check"/></svg>Not met</span></div><p>Value is delivered through service, not managerial skill. The stamp buys compute, not a stake in the operator's business.</p></div>
       </div>
-
-      <h3>Howey analysis</h3>
-      <p>The Howey test determines whether an instrument is a security under U.S. federal law. The stamp is designed to fail all four prongs.</p>
-      <div style="margin: 14px 0;">
-        <div class="howey-row">
-          <span class="hr-test">Investment of money</span>
-          <span class="hr-pass">Not met</span>
-          <span class="hr-body">Members purchase a prepaid service credit, not an investment. The intent is consumption of services, not capital appreciation.</span>
-        </div>
-        <div class="howey-row">
-          <span class="hr-test">Common enterprise</span>
-          <span class="hr-pass">Not met</span>
-          <span class="hr-body">Stamp value is not tied to the fortunes of the cooperative. The redemption rate adjusts by cost, not by profit.</span>
-        </div>
-        <div class="howey-row">
-          <span class="hr-test">Expectation of profit</span>
-          <span class="hr-pass">Not met</span>
-          <span class="hr-body">Stamps are marketed and designed for service consumption. They do not appreciate, do not pay dividends, and are not convertible to cash.</span>
-        </div>
-        <div class="howey-row">
-          <span class="hr-test">Efforts of others</span>
-          <span class="hr-pass">Not met</span>
-          <span class="hr-body">Value is delivered through service, not through managerial skill or third-party efforts. The stamp buys compute, not a stake in the operator's business.</span>
-        </div>
-      </div>
+      <div class="howey-out"><b>Conclusion:</b> a prepaid service credit — like a transit pass or a library card — not a security.</div>
     </section>
 
-
-    <!-- ══ 04 APPLICATIONS ════════════════════════════════════════════ -->
-    <section class="view" id="v04">
-      <div class="label">04 · Applications</div>
-      <div class="rule"></div>
-      <h2 class="view-title">What runs<br>on the network.</h2>
+    <!-- ---------- 04 APPLICATIONS ---------- -->
+    <section class="panel" data-panel="4">
+      <div class="eyebrow"><span class="mono">04 · Applications</span></div>
+      <h1 class="title">What runs on the network.</h1>
       <p class="lede">Verified service delivery opens civic applications that are impossible on commercial infrastructure. Six categories, drawn from the Ethereum Foundation's Verifiable Cities framework.</p>
 
-      <div class="grid-2">
-        <div class="card">
-          <div class="ct">Programmable Policy <span class="chip">compute</span></div>
-          <div class="cb">Rules that execute when conditions are met. Permits that issue automatically when inspections pass. Benefits that disburse when eligibility is verified. Policy as code, enforced without discretion.</div>
+      <div class="grid g3">
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-braces"/></svg></div><div><div class="card-t">Programmable policy</div><div class="card-tag">compute</div></div></div><p>Rules that execute when conditions are met. Permits that issue automatically when inspections pass. Benefits that disburse when eligibility is verified. Policy as code, enforced without discretion.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-seal"/></svg></div><div><div class="card-t">Outcomes-based contracts</div><div class="card-tag">attestation</div></div></div><p>Providers are paid when outcomes are verified, not when invoices are submitted. The attestation layer makes payment contingent on delivery — at the protocol level.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-lock"/></svg></div><div><div class="card-t">Privacy-preserving IDs</div><div class="card-tag">memory</div></div></div><p>Prove what you need to prove without revealing what you don't. Age without date of birth. Residency without address. Minimum disclosure, implemented in protocol.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-shuffle"/></svg></div><div><div class="card-t">Cross-agency verification</div><div class="card-tag">transfer</div></div></div><p>Credentials that move between agencies without centralized databases. A school district can verify enrollment for transit benefits without sharing student records.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-award"/></svg></div><div><div class="card-t">Verifiable credentials</div><div class="card-tag">attestation</div></div></div><p>Licenses and qualifications that people own and control. A contractor's license that lives in the contractor's hands, not in a database that can be revoked without notice.</p></div>
+        <div class="card"><div class="card-h"><div class="card-ico"><svg class="ico"><use href="#i-eye"/></svg></div><div><div class="card-t">Public works visibility</div><div class="card-tag">compute · transfer</div></div></div><p>Infrastructure spending verifiable in real time. Road repair, utility work, park maintenance — visible to any member with a stamp, provable against attested delivery.</p></div>
+      </div>
+
+      <div class="note"><b>The network is the credential.</b> Every service delivered through The Digital Post is attested, and the attestation record is the proof of delivery. This makes the network inherently a public-works visibility system — not as a separate application, but as a property of the infrastructure itself. You don't need a special reporting module. You need the protocol running honestly.</div>
+    </section>
+
+    <!-- ---------- 05 FIRST NODE ---------- -->
+    <section class="panel" data-panel="5">
+      <div class="eyebrow"><span class="mono">05 · First Node</span></div>
+      <h1 class="title">The machine behind the stamp.</h1>
+      <p class="lede">The first node is concrete: a DGX Station GB300 in Boulder, Colorado. One air-cooled workstation on a standard 20A circuit, with 748GB of unified coherent memory — enough to run a frontier model locally, cooperatively owned.</p>
+
+      <h3 class="sub">Hardware specifications</h3>
+      <div class="spec-row">
+        <div class="spec-cell">
+          <div class="spec-label">Compute</div>
+          <div class="spec-value">20 PFLOP</div>
+          <div class="spec-note">Sparse FP4 · 5 PFLOP dense FP8<br>NVIDIA GB300 architecture</div>
         </div>
-        <div class="card">
-          <div class="ct">Outcomes-Based Contracts <span class="chip">attestation</span></div>
-          <div class="cb">Service providers are paid when outcomes are verified, not when invoices are submitted. The attestation layer makes payment contingent on delivery — at the protocol level.</div>
+        <div class="spec-cell">
+          <div class="spec-label">Memory</div>
+          <div class="spec-value">748 GB</div>
+          <div class="spec-note">Unified coherent · 8 TB/s bandwidth<br>Fits Kimi K2.7-Code at INT4</div>
         </div>
-        <div class="card">
-          <div class="ct">Privacy-Preserving IDs <span class="chip">memory</span></div>
-          <div class="cb">Prove what you need to prove without revealing what you don't. Age verification without date of birth. Residency without address. The minimum disclosure principle, implemented in protocol.</div>
-        </div>
-        <div class="card">
-          <div class="ct">Cross-Agency Verification <span class="chip">transfer</span></div>
-          <div class="cb">Credentials that move between agencies without centralized databases. A school district can verify enrollment for transit benefits without sharing student records with the transit authority.</div>
-        </div>
-        <div class="card">
-          <div class="ct">Verifiable Credentials <span class="chip">attestation</span></div>
-          <div class="cb">Licenses, certifications, and qualifications that people own and control. A contractor's license that lives in the contractor's hands, not in a government database that can be revoked without notice.</div>
-        </div>
-        <div class="card">
-          <div class="ct">Public Works Visibility <span class="chip">compute · transfer</span></div>
-          <div class="cb">Infrastructure spending that is verifiable in real time. Road repair timelines, utility work, park maintenance — visible to any member with a stamp, provable against attested service delivery.</div>
+        <div class="spec-cell">
+          <div class="spec-label">Power</div>
+          <div class="spec-value">~1.6 kW</div>
+          <div class="spec-note">Standard 20A circuit · Air-cooled<br>No data center required</div>
         </div>
       </div>
 
-      <div class="feature">
-        <div class="ft">The network is the credential.</div>
-        <div class="fb">Every service delivered through The Digital Post is attested. The attestation record is the proof of delivery. This makes the network inherently a public works visibility system — not as a separate application, but as a property of the infrastructure itself. You don't need a special reporting module. You need the protocol running honestly.</div>
+      <h3 class="sub">Energy posture</h3>
+      <div class="prose">
+        <p>At full utilization, the first node draws roughly 14 MWh per year — comparable to a small office. A 3–5 kW solar array with battery storage can offset peak daytime loads. The cooperative is evaluating a 10 kW array (~$38–56K after the 30% federal ITC) as part of the capital structure for the first node.</p>
+        <p>The energy posture is part of the cooperative's public benefit commitment: digital infrastructure should carry its own weight in the watershed it occupies. The machine should know where it lives.</p>
+      </div>
+
+      <h3 class="sub">Capital structure</h3>
+      <p style="font-size:.95rem;color:var(--ink-2);max-width:var(--maxread);margin:0 0 1rem">Three formation paths, recommended as a hybrid of A + C. Target range: $250K–$315K depending on solar.</p>
+      <div class="cap-row">
+        <div class="cap-opt">
+          <div class="cap-head"><span class="cap-tag">Option A</span></div>
+          <div class="cap-name">Investor-member equity</div>
+          <p style="font-size:.88rem;color:var(--ink-2);margin:.2rem 0 0">LCA investor-member class. &#8804;10 Colorado buyers under C.R.S. 11-51-308(1)(j). Capped at 49% voting power. Equity stake with patronage allocation and governance rights.</p>
+        </div>
+        <div class="cap-opt">
+          <div class="cap-head"><span class="cap-tag">Option B</span></div>
+          <div class="cap-name">Member loan pool</div>
+          <p style="font-size:.88rem;color:var(--ink-2);margin:.2rem 0 0">Promissory notes from founding members. Same 10-buyer cap as investor equity. Fixed interest, 3–5 year term. Converts to equity at member option. No board seat by default.</p>
+        </div>
+        <div class="cap-opt">
+          <div class="cap-head"><span class="cap-tag">Option C</span></div>
+          <div class="cap-name">Service credit pre-purchase</div>
+          <p style="font-size:.88rem;color:var(--ink-2);margin:.2rem 0 0">CSA-pattern pre-purchase of stamps at a founding rate. May qualify under Colorado Digital Token Act. Outside the 10-investor cap. Broadens the founding base without diluting governance.</p>
+        </div>
+      </div>
+
+      <h3 class="sub">Working briefs</h3>
+      <p style="font-size:.95rem;color:var(--ink-2);max-width:var(--maxread);margin:0 0 .8rem">The technical and financial detail lives in two working documents.</p>
+      <div class="brief-links">
+        <a class="brief-link" href="briefs/node.html">
+          <div class="brief-link-ico"><svg class="ico"><use href="#i-cpu"/></svg></div>
+          <div>
+            <span class="brief-link-t">DGX Station as Digital Post Node</span>
+            <span class="brief-link-sub">Rate card · allocation · REA reconciliation</span>
+          </div>
+        </a>
+        <a class="brief-link" href="briefs/capital.html">
+          <div class="brief-link-ico"><svg class="ico"><use href="#i-zap"/></svg></div>
+          <div>
+            <span class="brief-link-t">Capital Formation for the First Node</span>
+            <span class="brief-link-sub">Power · solar · capital structure · sprint</span>
+          </div>
+        </a>
       </div>
     </section>
 
+    <!-- ---------- 06 STATUS ---------- -->
+    <section class="panel" data-panel="6">
+      <div class="eyebrow"><span class="mono">06 · Status</span></div>
+      <h1 class="title">What exists now.</h1>
+      <p class="lede">Honest accounting. What is operational, what is in progress, and what is still a proposal. Filter to see only what is real today.</p>
 
-    <!-- ══ 05 STATUS ══════════════════════════════════════════════════ -->
-    <section class="view" id="v05">
-      <div class="label">05 · Status</div>
-      <div class="rule"></div>
-      <h2 class="view-title">What exists now.</h2>
-      <p class="lede">Honest accounting. What is operational, what is in progress, and what is still a proposal.</p>
+      <div class="filters" id="filters" role="group" aria-label="Filter by state"></div>
+      <div class="board" id="board"></div>
 
-      <div style="margin-top: 22px;">
-        <div class="status-item">
-          <div class="si-left">
-            <div class="si-name">RegenHub, LCA</div>
-            <span class="chip op">Operational</span>
-          </div>
-          <div class="si-body">Colorado Limited Cooperative Association filed February 6, 2026. Legal entity exists. Organizers named. Operating Agreement ratified. The cooperative is the first node.</div>
+      <h3 class="sub">Three doors in</h3>
+      <div class="path-grid">
+        <div class="path-card">
+          <div class="path-ico"><svg class="ico"><use href="#i-coins"/></svg></div>
+          <div class="path-name">Founding investor-member</div>
+          <p style="font-size:.86rem;color:var(--ink-2);margin:0">Invest in the first node. Receive a patronage allocation, governance rights, and a stake in the operating cooperative. Limited to &#8804;10 Colorado buyers under C.R.S. 11-51-308(1)(j).</p>
         </div>
-        <div class="status-item">
-          <div class="si-left">
-            <div class="si-name">Techne Studio</div>
-            <span class="chip op">Operational</span>
-          </div>
-          <div class="si-body">DBA of RegenHub, LCA. The studio brand for cooperative technology work. Producing the Digital Post and associated tooling. Boulder, Colorado.</div>
+        <div class="path-card">
+          <div class="path-ico"><svg class="ico"><use href="#i-ticket"/></svg></div>
+          <div class="path-name">Patron member</div>
+          <p style="font-size:.86rem;color:var(--ink-2);margin:0">Purchase stamps, use services, attend monthly co-ops, vote at the quarterly member assembly. The membership is open. The surplus returns to you.</p>
         </div>
-        <div class="status-item">
-          <div class="si-left">
-            <div class="si-name">Protocol Specification</div>
-            <span class="chip draft">Draft</span>
-          </div>
-          <div class="si-body">The five-layer architecture is defined. The four primitives are specified. The attestation mechanism is in design. No implementation yet — the spec is the deliverable at this stage.</div>
-        </div>
-        <div class="status-item">
-          <div class="si-left">
-            <div class="si-name">Stamp Credit System</div>
-            <span class="chip build">In Build</span>
-          </div>
-          <div class="si-body">The credit issuance and redemption system is under construction. Closed-loop structure specified. Supabase-backed, cooperative key management, member-facing interface in development.</div>
-        </div>
-        <div class="status-item">
-          <div class="si-left">
-            <div class="si-name">Purpose Trust</div>
-            <span class="chip proposed">Proposed</span>
-          </div>
-          <div class="si-body">The Colorado Statutory Trust that holds the protocol in long-term stewardship is proposed but not yet filed. The 0.5% gross revenue assessment is specified in the Operating Agreement pending ratification.</div>
-        </div>
-        <div class="status-item">
-          <div class="si-left">
-            <div class="si-name">The Building</div>
-            <span class="chip proposed">Proposed</span>
-          </div>
-          <div class="si-body">Site not yet secured. The four-floor program (Commons, Workshop, Forum, Observatory) is designed. Location target: Boulder, Colorado. Capital requirements under development.</div>
-        </div>
-        <div class="status-item">
-          <div class="si-left">
-            <div class="si-name">Node Federation</div>
-            <span class="chip proposed">Proposed</span>
-          </div>
-          <div class="si-body">The federation protocol for additional nodes is specified but not implemented. The first node must demonstrate the model before federation terms are finalized.</div>
+        <div class="path-card">
+          <div class="path-ico"><svg class="ico"><use href="#i-git-fork"/></svg></div>
+          <div class="path-name">Contributor</div>
+          <p style="font-size:.86rem;color:var(--ink-2);margin:0">Code, design, writing, physical maintenance, documented service. Contributions are tracked in the patronage system and credited toward membership. The source is open.</p>
         </div>
       </div>
 
-      <div class="feature" style="margin-top: 36px;">
-        <div class="ft">How to get involved.</div>
-        <div class="fb">The Digital Post is a Techne Studio production, developed within RegenHub, LCA. Contributions are welcome from individuals, cooperatives, and commons-oriented organizations. The source is published under the Peer Production License — free for noncommercial use and for worker-owned cooperatives. Find us in Boulder, Colorado.</div>
+      <div class="colophon">
+        <h3 class="sub" style="margin-top:0">How to get involved</h3>
+        <p>The Digital Post is a Techne Studio production, developed within RegenHub, LCA. Contributions are welcome from individuals, cooperatives, and commons-oriented organizations. The source is published under the Peer Production License — free for noncommercial use and for worker-owned cooperatives. Find us in Boulder, Colorado.</p>
+        <p class="lic">Techne Studio · RegenHub, LCA · Boulder, Colorado · 2026 — Peer Production License (PPL) · Copyfarleft</p>
       </div>
-
-      <p style="margin-top: 22px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--faint);">
-        Techne Studio · RegenHub, LCA · Boulder, Colorado · 2026<br>
-        Licensed under the Peer Production License (PPL) · Copyfarleft
-      </p>
     </section>
 
-
-  </div>
   </main>
 </div>
 
 <script>
-  function show(id, btn) {
-    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    btn.classList.add('active');
-    document.getElementById('main-panel').scrollTop = 0;
-    document.getElementById('nav-rail').classList.remove('open');
-  }
+(function(){
+  "use strict";
+  var root = document.documentElement;
 
-  const icons = {
-    sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',
-    moon: '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
+  /* ---------- theme: follow system until user sets ---------- */
+  var userSet = false;
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
+  function applyTheme(t){
+    root.setAttribute('data-theme', t);
+    var dark = t === 'dark';
+    document.getElementById('themeIco').firstElementChild.setAttribute('href', dark ? '#i-sun' : '#i-moon');
+    document.getElementById('themeLbl').textContent = dark ? 'Light' : 'Dark';
+    document.getElementById('themeBtn').setAttribute('aria-pressed', String(dark));
+  }
+  applyTheme(mq.matches ? 'dark' : 'light');
+  mq.addEventListener && mq.addEventListener('change', function(e){ if(!userSet) applyTheme(e.matches ? 'dark':'light'); });
+  document.getElementById('themeBtn').addEventListener('click', function(){
+    userSet = true;
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  /* ---------- section navigation ---------- */
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+  var railBtns = Array.prototype.slice.call(document.querySelectorAll('.rail-btn'));
+  var main = document.getElementById('main');
+  var current = 0;
+  function go(i){
+    i = Math.max(0, Math.min(panels.length-1, i));
+    current = i;
+    panels.forEach(function(p,n){ p.classList.toggle('is-active', n===i); });
+    railBtns.forEach(function(b,n){ b.setAttribute('aria-current', n===i ? 'true':'false'); });
+    main.scrollTop = 0;
+  }
+  railBtns.forEach(function(b){ b.addEventListener('click', function(){ go(parseInt(b.dataset.go,10)); }); });
+  document.addEventListener('keydown', function(e){
+    var tag = (e.target.tagName||'').toLowerCase();
+    if(tag==='input'||tag==='textarea'||tag==='summary'||e.metaKey||e.ctrlKey||e.altKey) return;
+    if(e.key>='0' && e.key<='6'){ go(parseInt(e.key,10)); e.preventDefault(); return; }
+    if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='j'){ go(current+1); e.preventDefault(); }
+    else if(e.key==='ArrowUp'||e.key==='ArrowLeft'||e.key==='k'){ go(current-1); e.preventDefault(); }
+  });
+
+  /* ---------- 01 lineage timeline ---------- */
+  var TL = [
+    {y:'c. 1200', place:'Mujin · Tanomoshi-k\u014d, Japan', body:'Rotating savings and credit associations in medieval Japan. A circle of households each contributes equally; one member receives the full pot each cycle. No bank required, no external creditor \u2014 the group is the institution. The Mujin tradition persists today in informal lending clubs and formalized credit cooperatives across East Asia.'},
+    {y:'Pre-colonial', place:'Susu \u00b7 Esusu, West Africa', body:'Indigenous rotating credit associations across West Africa \u2014 known as Susu in Ghana, Esusu in Nigeria. Traveled with the African diaspora through the Middle Passage to become the Sou-Sou of the Caribbean and a direct ancestor of the Credit Union model in North America. A mutual obligation that survived displacement and became infrastructure.'},
+    {y:'Colonial era', place:'Tandas \u00b7 Cundinas, Mexico', body:'Rotating credit circles in Mexico, called Tandas in the north and Cundinas in the south. Each participant contributes a fixed amount weekly or monthly; each round, one member receives the whole pot. No interest, no collateral \u2014 trust is the underwriting. Active in Mexican-American communities across the United States today.'},
+    {y:'1840', place:'Penny Post, United Kingdom', body:"Rowland Hill\u2019s reform unified postal rates across Britain at one penny per half-ounce, regardless of distance. The prepaid stamp was born \u2014 a credit instrument backed by guaranteed service delivery. Universal access to correspondence became law."},
+    {y:'1874', place:'Universal Postal Union, Berne', body:"Twenty-two nations agreed to treat each other\u2019s letters as domestic mail. A federated protocol, not a single monopoly. The stamp in your pocket worked across borders because the nodes had agreed on interoperability."},
+    {y:'1936', place:'Rural Electrification Act, United States', body:"Electricity was not reaching farms and small towns \u2014 the market deemed it unprofitable. The federal government created cooperatives to extend the grid. Within two decades, 90% of rural homes had power. Public infrastructure works when it is structured as a public good."},
+    {y:'1948', place:'UDHR Article 19', body:"In the aftermath of fascism, the international community declared the right to communicate \u2014 to seek, receive, and impart information \u2014 as a fundamental human right. Every communication infrastructure built since exists against this standard."},
+    {y:'1969', place:'ARPANET', body:"The internet was invented as a resilient, decentralized communication network funded by the public. It was designed to route around damage \u2014 including the damage of centralized control. The original architecture was a commons. What happened next was not."},
+    {y:'2026', place:'The Digital Post, Boulder, Colorado', body:"A cooperatively owned network for reliable digital communication and verified service delivery. The stamp still works. The obligation still holds. The question is who owns the infrastructure underneath it."}
+  ];
+  var tlTrack = document.getElementById('tlTrack');
+  var tlCard = document.getElementById('tlCard');
+  var tli = 3; // start at 1840
+  TL.forEach(function(t,n){
+    var b = document.createElement('button');
+    b.className='tl-step'; b.setAttribute('role','tab');
+    b.innerHTML = '<span class="tl-year">'+t.y+'</span>';
+    b.addEventListener('click', function(){ tlSet(n); });
+    tlTrack.appendChild(b);
+  });
+  function tlSet(n){
+    tli = n;
+    var t = TL[n];
+    tlCard.innerHTML = '<div class="y">'+t.y+'</div><div class="place">'+t.place+'</div><p class="body">'+t.body+'</p>';
+    Array.prototype.forEach.call(tlTrack.children, function(c,i){ c.setAttribute('aria-current', i===n?'true':'false'); });
+    document.getElementById('tlPrev').disabled = n===0;
+    document.getElementById('tlNext').disabled = n===TL.length-1;
+  }
+  document.getElementById('tlPrev').addEventListener('click', function(){ if(tli>0) tlSet(tli-1); });
+  document.getElementById('tlNext').addEventListener('click', function(){ if(tli<TL.length-1) tlSet(tli+1); });
+  tlSet(tli);
+
+  /* ---------- 02 the stamp: mapping + allocation ---------- */
+  var MAP = [
+    {ico:'i-cpu', from:'Postage stamp', to:'Compute credit', unit:'compute-hour'},
+    {ico:'i-transfer', from:'Delivery route', to:'Data transfer', unit:'GB transferred'},
+    {ico:'i-inbox', from:'P.O. Box', to:'Short-term memory', unit:'GB-hour'},
+    {ico:'i-archive', from:'Archive', to:'Long-term memory', unit:'GB-month'}
+  ];
+  var ml = document.getElementById('mapLegend');
+  MAP.forEach(function(m){
+    var d=document.createElement('div'); d.className='ml';
+    d.innerHTML='<svg class="ico"><use href="#'+m.ico+'"/></svg><div class="ml-from">'+m.from+'</div><div class="ml-to">'+m.to+'</div><div class="ml-unit">'+m.unit+'</div>';
+    ml.appendChild(d);
+  });
+
+  var PRIM = [
+    {key:'compute', ico:'i-cpu', label:'Compute', color:'var(--ochre)'},
+    {key:'transfer', ico:'i-transfer', label:'Transfer', color:'var(--pine)'},
+    {key:'short', ico:'i-inbox', label:'Short memory', color:'var(--slate)'},
+    {key:'long', ico:'i-archive', label:'Long memory', color:'var(--oxblood)'}
+  ];
+  var PROFILES = [
+    {name:'Even split', mix:{compute:25,transfer:25,short:25,long:25}},
+    {name:'Live service', mix:{compute:35,transfer:30,short:25,long:10}},
+    {name:'Records archive', mix:{compute:15,transfer:10,short:15,long:60}},
+    {name:'Identity check', mix:{compute:45,transfer:15,short:30,long:10}},
+    {name:'Sensor feed', mix:{compute:25,transfer:40,short:10,long:25}}
+  ];
+  var profilesEl = document.getElementById('profiles');
+  var barsEl = document.getElementById('bars');
+  var bandEl = document.getElementById('stampBand');
+  var stampProfileEl = document.getElementById('stampProfile');
+
+  PRIM.forEach(function(p){
+    var row=document.createElement('div'); row.className='bar-row';
+    row.innerHTML='<svg class="ico bar-ico"><use href="#'+p.ico+'"/></svg>'+
+      '<span class="bar-label">'+p.label+'</span>'+
+      '<div class="bar-track"><div class="bar-fill" id="fill-'+p.key+'" style="background:'+p.color+'"></div></div>'+
+      '<span class="bar-pct" id="pct-'+p.key+'"></span>';
+    barsEl.appendChild(row);
+    var seg=document.createElement('span'); seg.id='seg-'+p.key; seg.style.background=p.color;
+    bandEl.appendChild(seg);
+  });
+  function setMix(mix, name){
+    PRIM.forEach(function(p){
+      var v = mix[p.key]||0;
+      document.getElementById('fill-'+p.key).style.width = v+'%';
+      document.getElementById('pct-'+p.key).textContent = v+'%';
+      document.getElementById('seg-'+p.key).style.flexBasis = v+'%';
+    });
+    stampProfileEl.textContent = name.toLowerCase();
+  }
+  PROFILES.forEach(function(pr,n){
+    var b=document.createElement('button'); b.className='prof-btn'; b.type='button';
+    b.textContent=pr.name; b.setAttribute('aria-pressed', n===0?'true':'false');
+    b.addEventListener('click', function(){
+      Array.prototype.forEach.call(profilesEl.children, function(c){ c.setAttribute('aria-pressed','false'); });
+      b.setAttribute('aria-pressed','true');
+      setMix(pr.mix, pr.name);
+    });
+    profilesEl.appendChild(b);
+  });
+  setMix(PROFILES[0].mix, PROFILES[0].name);
+
+  /* ---------- 03 architecture: five-layer stack ---------- */
+  var LAYERS = [
+    {code:'L1', ico:'i-landmark', name:'Constitution', gloss:'operating principles & governance', detail:'Operating principles and governance rules, ratified by member vote. Sets the bounds within which all other layers operate.'},
+    {code:'L2', ico:'i-share', name:'Protocol', gloss:'the open technical standard', detail:'The technical standard for how nodes exchange services and credit. Open source. Auditable. Not owned by any single entity.'},
+    {code:'L3', ico:'i-seal', name:'Attestation', gloss:'verified service delivery', detail:'Nodes attest that services were actually rendered before credit is transferred. No delivery, no payment.'},
+    {code:'L4', ico:'i-globe', name:'Nodes', gloss:'cooperative operators', detail:'Cooperative operators who run infrastructure and serve members. Each node is locally governed, globally connected via the protocol.'},
+    {code:'L5', ico:'i-ticket', name:'Credit', gloss:'the stamp \u2014 visible surface', detail:'Issued at fixed price, redeemed for services at nodes, never speculative, never expiring. The visible surface of the network.'}
+  ];
+  var stackEl = document.getElementById('stack');
+  LAYERS.forEach(function(L){
+    var b=document.createElement('button'); b.className='layer'; b.type='button';
+    b.setAttribute('aria-expanded','false'); b.setAttribute('role','listitem');
+    b.innerHTML='<span class="layer-code">'+L.code+'</span>'+
+      '<span class="layer-main"><svg class="ico layer-ico"><use href="#'+L.ico+'"/></svg>'+
+      '<span class="layer-name">'+L.name+'</span><span class="layer-gloss">'+L.gloss+'</span></span>'+
+      '<svg class="ico" style="color:var(--ochre-2)"><use href="#i-chev"/></svg>'+
+      '<span class="layer-detail">'+L.detail+'</span>';
+    b.addEventListener('click', function(){
+      var open = b.getAttribute('aria-expanded')==='true';
+      Array.prototype.forEach.call(stackEl.children, function(c){ c.setAttribute('aria-expanded','false'); });
+      b.setAttribute('aria-expanded', open?'false':'true');
+    });
+    stackEl.appendChild(b);
+  });
+
+  /* ---------- 06 status board + filter ---------- */
+  var STATUS = [
+    {t:'RegenHub, LCA', state:'op', body:'Colorado Limited Cooperative Association filed February 6, 2026. Legal entity exists. Organizers named. Operating Agreement ratified. The cooperative is the first node.'},
+    {t:'Techne Studio', state:'op', body:'DBA of RegenHub, LCA. The studio brand for cooperative technology work. Producing the Digital Post and associated tooling. Boulder, Colorado.'},
+    {t:'Protocol Specification', state:'draft', body:'The five-layer architecture is defined. The four primitives are specified. The attestation mechanism is in design. No implementation yet \u2014 the spec is the deliverable at this stage.'},
+    {t:'Stamp Credit System', state:'build', body:'The credit issuance and redemption system is under construction. Closed-loop structure specified. Supabase-backed, cooperative key management, member-facing interface in development.'},
+    {t:'Investor-Member Class', state:'draft', body:'The investor-member governance tier is specified in the Operating Agreement. Limited to \u226410 Colorado buyers under C.R.S. 11-51-308(1)(j). Capped at 49% voting power. Target raise: $250K\u2013$315K for the first node.'},
+    {t:'First Node Infrastructure', state:'build', body:'DGX Station GB300 \u2014 748GB unified memory, 20 PFLOP, 1.6kW peak, air-cooled. Site selection in progress. Solar feasibility under review. Hardware order contingent on capital raise close.'},
+    {t:'Purpose Trust', state:'prop', body:'The Colorado Statutory Trust that holds the protocol in long-term stewardship is proposed but not yet filed. The 0.5% gross revenue assessment is specified in the Operating Agreement pending ratification.'},
+    {t:'Node Federation', state:'prop', body:'The federation protocol for additional nodes is specified but not implemented. The first node must demonstrate the model before federation terms are finalized.'}
+  ];
+  var STATE_META = {
+    op:{label:'Operational', ico:'i-check'},
+    build:{label:'In build', ico:'i-dot'},
+    draft:{label:'Draft', ico:'i-file'},
+    prop:{label:'Proposed', ico:'i-chev'}
   };
-
-  function toggleTheme() {
-    const html = document.documentElement;
-    const isDark = html.getAttribute('data-theme') === 'dark';
-    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    document.getElementById('theme-icon').innerHTML = isDark ? icons.moon : icons.sun;
-    document.querySelector('.theme-toggle span').textContent = isDark ? 'Dark' : 'Light';
-  }
-
-  function toggleMenu() {
-    document.getElementById('nav-rail').classList.toggle('open');
-  }
-
-  function closeMenuOnPanelClick(e) {
-    const rail = document.getElementById('nav-rail');
-    if (rail.classList.contains('open')) {
-      rail.classList.remove('open');
-    }
-  }
+  var board = document.getElementById('board');
+  STATUS.forEach(function(s){
+    var m = STATE_META[s.state];
+    var d=document.createElement('div'); d.className='scard'; d.dataset.state=s.state;
+    d.innerHTML='<div class="scard-h"><span class="scard-t">'+s.t+'</span>'+
+      '<span class="state '+s.state+'"><svg class="ico"><use href="#'+m.ico+'"/></svg>'+m.label+'</span></div>'+
+      '<p>'+s.body+'</p>';
+    board.appendChild(d);
+  });
+  var FILTERS = [
+    {key:'all', label:'All'},
+    {key:'op', label:'Operational'},
+    {key:'build', label:'In build'},
+    {key:'draft', label:'Draft'},
+    {key:'prop', label:'Proposed'}
+  ];
+  var filtersEl = document.getElementById('filters');
+  FILTERS.forEach(function(f,n){
+    var b=document.createElement('button'); b.className='fchip'; b.type='button';
+    b.textContent=f.label; b.setAttribute('aria-pressed', n===0?'true':'false');
+    b.addEventListener('click', function(){
+      Array.prototype.forEach.call(filtersEl.children, function(c){ c.setAttribute('aria-pressed','false'); });
+      b.setAttribute('aria-pressed','true');
+      Array.prototype.forEach.call(board.children, function(c){
+        c.classList.toggle('dim', f.key!=='all' && c.dataset.state!==f.key);
+      });
+    });
+    filtersEl.appendChild(b);
+  });
+})();
 </script>
 </body>
 </html>

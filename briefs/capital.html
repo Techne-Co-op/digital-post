@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital Formation Brief — The First Node</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+:root {
+  --bg: #F4EFE4;
+  --bg-elev: #FBF8F1;
+  --bg-deep: #EDE6D5;
+  --ink: #1A2E22;
+  --ink-soft: #3B4F44;
+  --ink-mute: #6B7770;
+  --rule: #D4CBB6;
+  --rule-soft: #E2DAC6;
+  --accent: #8C4A1E;
+  --accent-soft: #B7733D;
+  --water: #3E5C76;
+  --water-soft: #6B8AA5;
+  --leaf: #3D5A3D;
+  --leaf-soft: #6B8060;
+  --warn: #9C5A2E;
+  --sun: #C97B3A;
+  --grad-1: linear-gradient(135deg, rgba(140,74,30,0.06), rgba(62,92,118,0.08));
+  --grad-2: linear-gradient(180deg, rgba(61,90,61,0.04), rgba(140,74,30,0.06));
+  --grad-sun: linear-gradient(135deg, rgba(201,123,58,0.08), rgba(184,140,75,0.05));
+  --shadow: 0 1px 2px rgba(26,46,34,0.04), 0 4px 12px rgba(26,46,34,0.03);
+}
+[data-theme="dark"] {
+  --bg: #0E1612;
+  --bg-elev: #131F1A;
+  --bg-deep: #0A1108;
+  --ink: #E8DFC8;
+  --ink-soft: #C4BCA5;
+  --ink-mute: #8A8473;
+  --rule: #2A372F;
+  --rule-soft: #1F2A23;
+  --accent: #D4915C;
+  --accent-soft: #B7733D;
+  --water: #8AA5C2;
+  --water-soft: #6B8AA5;
+  --leaf: #9CB58A;
+  --leaf-soft: #7A9670;
+  --warn: #D4915C;
+  --sun: #E0A06A;
+  --grad-1: linear-gradient(135deg, rgba(212,145,92,0.08), rgba(138,165,194,0.10));
+  --grad-2: linear-gradient(180deg, rgba(156,181,138,0.05), rgba(212,145,92,0.07));
+  --grad-sun: linear-gradient(135deg, rgba(224,160,106,0.10), rgba(212,145,92,0.06));
+  --shadow: 0 1px 2px rgba(0,0,0,0.20), 0 4px 12px rgba(0,0,0,0.15);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  font-feature-settings: "ss01", "cv11";
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+header.brief-header { border-bottom: 1px solid var(--rule); padding-bottom: 2.5rem; margin-bottom: 3.5rem; }
+.brief-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--ink-mute); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.brief-eyebrow::before { content: ""; display: block; width: 24px; height: 1px; background: var(--ink-mute); }
+h1 {
+  font-family: 'Fraunces', serif; font-weight: 400;
+  font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.15;
+  letter-spacing: -0.02em; color: var(--ink);
+  font-variation-settings: "opsz" 144; margin-bottom: 1.25rem;
+}
+h1 em { font-style: italic; color: var(--accent); }
+.brief-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); line-height: 1.5; }
+
+.theme-toggle {
+  position: fixed; top: 1.5rem; right: 1.5rem;
+  background: var(--bg-elev); border: 1px solid var(--rule); color: var(--ink-soft);
+  padding: 0.5rem 0.75rem; border-radius: 6px; cursor: pointer;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em;
+  display: flex; align-items: center; gap: 0.4rem;
+  transition: all 0.2s; z-index: 100; box-shadow: var(--shadow);
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent-soft); }
+.theme-toggle svg { width: 14px; height: 14px; }
+
+section { margin-bottom: 4rem; }
+.section-num { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; color: var(--ink-mute); margin-bottom: 0.6rem; }
+h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.65rem; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 1.75rem; font-variation-settings: "opsz" 72; }
+h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.15rem; line-height: 1.3; color: var(--ink); margin: 2rem 0 0.85rem; font-variation-settings: "opsz" 36; }
+p { margin-bottom: 1.1rem; color: var(--ink-soft); }
+p strong { color: var(--ink); font-weight: 600; }
+p em { color: var(--leaf); font-style: italic; }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); transition: opacity 0.2s; }
+a:hover { opacity: 0.7; }
+
+.callout {
+  background: var(--grad-1); border-left: 2px solid var(--accent);
+  padding: 1.25rem 1.5rem; margin: 1.75rem 0;
+  border-radius: 0 4px 4px 0; font-size: 0.94rem;
+}
+.callout.legal { background: var(--grad-1); border-left-color: var(--water); }
+.callout.legal .callout-label { color: var(--water); }
+.callout.sun { background: var(--grad-sun); border-left-color: var(--sun); }
+.callout.sun .callout-label { color: var(--sun); }
+.callout-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.5rem;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.callout-label svg { width: 12px; height: 12px; }
+.callout p:last-child { margin-bottom: 0; }
+
+table.fig-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+.fig-table thead th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); padding: 0.6rem 0.75rem 0.6rem 0; border-bottom: 1px solid var(--rule); font-weight: 500; }
+.fig-table tbody td { padding: 0.65rem 0.75rem 0.65rem 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--ink-soft); }
+.fig-table tbody td:first-child { color: var(--ink); font-weight: 500; width: 35%; }
+.fig-table tbody td.num { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--ink); }
+.fig-table tbody tr.subtotal td { border-top: 1px solid var(--ink-mute); border-bottom: none; padding-top: 0.85rem; font-weight: 600; color: var(--ink); }
+
+.option-block {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1.4rem 1.5rem; margin-bottom: 1rem; background: var(--bg-elev);
+}
+.option-head { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+.option-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); padding: 0.18rem 0.5rem; border: 1px solid var(--accent-soft); border-radius: 3px; }
+.option-name { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 500; color: var(--ink); font-variation-settings: "opsz" 36; }
+.option-block p { font-size: 0.93rem; margin-bottom: 0.7rem; }
+.option-block p:last-child { margin-bottom: 0; }
+.option-row { display: grid; grid-template-columns: 100px 1fr; gap: 0.75rem; padding: 0.55rem 0; border-top: 1px solid var(--rule-soft); font-size: 0.88rem; }
+.option-row-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); padding-top: 0.15rem; }
+.option-row-content { color: var(--ink-soft); }
+
+.timeline { margin-top: 1rem; }
+.timeline-stage { border-left: 2px solid var(--rule); padding: 0.5rem 0 1.5rem 1.5rem; position: relative; }
+.timeline-stage::before { content: ""; position: absolute; left: -6px; top: 0.8rem; width: 10px; height: 10px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+.timeline-stage.active::before { background: var(--accent); }
+.timeline-stage:last-child { padding-bottom: 0.5rem; }
+.timeline-when { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--water); margin-bottom: 0.3rem; }
+.timeline-stage h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.05rem; color: var(--ink); margin-bottom: 0.55rem; font-variation-settings: "opsz" 36; }
+.timeline-stage p { font-size: 0.92rem; margin-bottom: 0.5rem; }
+.timeline-stage p:last-child { margin-bottom: 0; }
+.timeline-detail { font-size: 0.86rem; color: var(--ink-mute); }
+
+.sprint { display: grid; grid-template-columns: 80px 1fr; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid var(--rule-soft); }
+.sprint:last-child { border-bottom: none; }
+.sprint-week { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent); font-weight: 500; padding-top: 0.2rem; }
+.sprint-content h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.02rem; color: var(--ink); margin-bottom: 0.4rem; font-variation-settings: "opsz" 36; }
+.sprint-content p { font-size: 0.9rem; margin-bottom: 0; color: var(--ink-soft); }
+
+.scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+.scenario { background: var(--bg-elev); border: 1px solid var(--rule); padding: 1.15rem 1.3rem; border-radius: 6px; }
+.scenario-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 0.5rem; }
+.scenario-name { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.02rem; color: var(--ink); margin-bottom: 0.7rem; font-variation-settings: "opsz" 36; }
+.scenario p { font-size: 0.88rem; margin-bottom: 0.4rem; }
+.scenario p:last-child { margin-bottom: 0; }
+
+footer.brief-footer { margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--ink-mute); line-height: 1.6; }
+
+@media (max-width: 640px) {
+  .container { padding: 3rem 1.25rem 4rem; }
+  .scenario-grid { grid-template-columns: 1fr; }
+  .theme-toggle { top: 1rem; right: 1rem; }
+  .sprint { grid-template-columns: 1fr; gap: 0.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+<div style="position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--rule);padding:.65rem 1.4rem;display:flex;align-items:center;">
+  <a href="../" style="font-family:&#39;JetBrains Mono&#39;,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;">&#8592;&nbsp;The Digital Post</a>
+</div>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+  <span id="themeIcon"></span>
+  <span id="themeLabel">Dark</span>
+</button>
+
+<div class="container">
+
+<header class="brief-header">
+  <div class="brief-eyebrow">Working Brief · Techne · RegenHub, LCA</div>
+  <h1>Capital Formation for the <em>First Node</em></h1>
+  <div class="brief-meta">
+    Power and solar feasibility · Capital structure options · Transaction lifecycle · Fundraising sprint<br>
+    Prepared for Todd Youngblood · For discussion with Jeff Pote and the LCA<br>
+    Not legal advice · June 2026
+  </div>
+</header>
+
+<div class="callout legal">
+  <div class="callout-label"><i data-lucide="scale"></i> Frame for this brief</div>
+  <p>Everything below is structural framing intended to make Jeff Pote conversations more productive, not a substitute for them. The Colorado statutes cited (CRS 11-51-308(1)(j) limited offering, 11-51-308.5 crowdfunding, 11-51-308.7 digital token act, 7-58-101 LCA Act) are the load-bearing provisions; the choice among them is a legal one and depends on facts I don't have. Where I describe a structure as "cleaner" or "more defensible," those are organizing judgments, not legal opinions.</p>
+</div>
+
+<section>
+  <div class="section-num">01 / Power</div>
+  <h2>What this machine actually needs</h2>
+  <p>The DGX Station GB300 draws roughly <strong>1.6 kW peak at the wall</strong>, runs on a standard 20A/120V circuit, and is air-cooled — no special electrical infrastructure required (<a href="https://petronellatech.com/hardware/dgx-station-gb300-power-efficiency/">Petronella</a>). This is the headline that makes a non-data-center deployment plausible. The question is what continuous load looks like in operation.</p>
+  <table class="fig-table">
+    <thead><tr><th>Scenario</th><th>Avg load</th><th>Annual kWh</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>Low utilization (20%)</td><td class="num">~0.6 kW</td><td class="num">5,200</td><td>Mostly idle, occasional inference</td></tr>
+      <tr><td>Moderate (60%)</td><td class="num">~1.2 kW</td><td class="num">10,500</td><td>Steady member service load</td></tr>
+      <tr><td>Heavy (90%)</td><td class="num">~1.5 kW</td><td class="num">13,100</td><td>Near-continuous workload</td></tr>
+      <tr class="subtotal"><td>+ Cooling overhead (PUE 1.3)</td><td class="num">—</td><td class="num">+30%</td><td>Indoor air conditioning load</td></tr>
+    </tbody>
+  </table>
+  <p>For planning, <strong>~14,000–18,000 kWh/year</strong> is a reasonable midpoint at moderate utilization with realistic cooling overhead. At Boulder commercial rates (~$0.10–0.12/kWh) that's $1,400–$2,200 in raw energy cost. The carbon footprint and the political weight of energy use both matter more than the dollar cost in a cooperative framing — running on grid power means inheriting Xcel's fuel mix, which is decarbonizing but not yet clean.</p>
+</section>
+
+<section>
+  <div class="section-num">02 / Solar</div>
+  <h2>Whether the sun pays this bill</h2>
+  <p>Boulder is a strong solar resource — roughly 1,500–1,700 kWh of annual production per kW of installed PV, depending on roof orientation and shading. To offset 16,000 kWh/year fully, the system needs to be sized at <strong>~10 kW DC</strong>. That's a substantial but not exotic install — about 24 modern 400W panels, fitting on a 500 sq ft roof.</p>
+  <table class="fig-table">
+    <thead><tr><th>Component</th><th>Estimate</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>10 kW PV array</td><td class="num">$25,000–35,000</td><td>Commercial-scale install in Boulder area</td></tr>
+      <tr><td>Battery storage (30 kWh)</td><td class="num">$20,000–30,000</td><td>For overnight + brief outage resilience</td></tr>
+      <tr><td>Inverter, controls, install labor</td><td class="num">$10,000–15,000</td><td>Already included in many turnkey quotes</td></tr>
+      <tr class="subtotal"><td>Total solar + storage</td><td class="num">$55,000–80,000</td><td>Before federal ITC (currently 30%)</td></tr>
+      <tr><td>After 30% federal ITC</td><td class="num">$38,000–56,000</td><td>If LCA qualifies; cooperatives have specific paths</td></tr>
+    </tbody>
+  </table>
+  <div class="callout sun">
+    <div class="callout-label"><i data-lucide="sun"></i> Honest read</div>
+    <p>Full solar offset is technically feasible and roughly half the cost of the DGX Station itself. The payback against grid energy alone is ~25 years, which doesn't pencil purely on economics. The case for solar here is symbolic, political, and aligned with the cooperative's framing — running infrastructure that doesn't extract more carbon than it processes. That's a values argument the cooperative may or may not want to lead with. A defensible middle path is grid-tied with a smaller battery (10–15 kWh) for outage resilience and partial solar offset (~3–5 kW), which materially reduces fuel-mix exposure without dominating the capital stack.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-num">03 / Structure</div>
+  <h2>Three ways the LCA can take capital</h2>
+  <p>The phrase "peer-to-peer lending pool" describes one of several structures, each with different legal contours and different governance implications. The choice isn't only about how money moves in — it's about what relationship the capital creates between the contributor and the cooperative.</p>
+
+  <div class="option-block">
+    <div class="option-head">
+      <span class="option-tag">Option A</span>
+      <span class="option-name">Investor-Member Equity (LCA investor class)</span>
+    </div>
+    <p>Capital contribution buys an investor-member interest in the LCA. Voting rights, capped at 49% total per CRS 7-58-701 so patron members retain cooperative control. Returns come through patronage allocation plus, potentially, a fixed-rate return on invested capital per Operating Agreement terms.</p>
+    <div class="option-row"><div class="option-row-label">Instrument</div><div class="option-row-content">Membership interest — a security under Colorado law</div></div>
+    <div class="option-row"><div class="option-row-label">Exemption</div><div class="option-row-content">CRS 11-51-308(1)(j): ≤20 offerees, ≤10 buyers in Colorado per rolling 12 months; no general solicitation</div></div>
+    <div class="option-row"><div class="option-row-label">Best for</div><div class="option-row-content">Foundational, long-horizon capital from members who want governance voice</div></div>
+    <div class="option-row"><div class="option-row-label">Tradeoff</div><div class="option-row-content">Investor-members get votes (within the 49% cap); cooperative control by patrons must be designed and protected in the Operating Agreement</div></div>
+  </div>
+
+  <div class="option-block">
+    <div class="option-head">
+      <span class="option-tag">Option B</span>
+      <span class="option-name">Member Loan Pool (promissory notes)</span>
+    </div>
+    <p>Members loan capital to the cooperative at a stated rate, with maturity, security interest, and repayment schedule defined per note. The loan pool is what Todd's "peer-to-peer lending" framing most directly maps onto: capital without governance entanglement.</p>
+    <div class="option-row"><div class="option-row-label">Instrument</div><div class="option-row-content">Promissory note — a security under Colorado and federal law (notes ≥9 months and not transferable to commercial paper markets are typically securities)</div></div>
+    <div class="option-row"><div class="option-row-label">Exemption</div><div class="option-row-content">Same 308(1)(j) cap applies; notes count toward the 10-buyer limit</div></div>
+    <div class="option-row"><div class="option-row-label">Best for</div><div class="option-row-content">Capital from members who want a defined return without voting rights</div></div>
+    <div class="option-row"><div class="option-row-label">Tradeoff</div><div class="option-row-content">Cooperative carries hard repayment obligation; missed payments create default events; less alignment between lender and operation than equity</div></div>
+  </div>
+
+  <div class="option-block">
+    <div class="option-head">
+      <span class="option-tag">Option C</span>
+      <span class="option-name">Service Credit Pre-Purchase (CSA pattern)</span>
+    </div>
+    <p>Members pre-purchase service credits in bulk at a discounted rate, redeemable as services come online. Modeled on Community Supported Agriculture and Kickstarter — you fund the harvest, you get the harvest. The "discount" is the only return; the credit itself is consumption, not investment.</p>
+    <div class="option-row"><div class="option-row-label">Instrument</div><div class="option-row-content">Service credit — designed to fall outside Howey; potentially exempt under CRS 11-51-308.7 (Digital Token Act) if structured as access/utility</div></div>
+    <div class="option-row"><div class="option-row-label">Exemption</div><div class="option-row-content">Likely outside securities if (1) intent is consumption, (2) credit not marketed as investment, (3) no resale market created, (4) credits expire if infrastructure ceases — no perpetual obligation absent service</div></div>
+    <div class="option-row"><div class="option-row-label">Best for</div><div class="option-row-content">Smaller contributions, demand validation, faster-to-close capital that doesn't count against the 10-investor cap</div></div>
+    <div class="option-row"><div class="option-row-label">Tradeoff</div><div class="option-row-content">Members are pre-paying customers, not investors — the cooperative carries delivery obligation, not financial obligation; rate adjustment risk falls on the member if redemption rate moves</div></div>
+  </div>
+
+  <div class="callout legal">
+    <div class="callout-label"><i data-lucide="layers"></i> The hybrid that probably fits</div>
+    <p>The Rural Electric Cooperative precedent stacked these: foundational capital from members (sometimes paid over time as patronage capital), supplemented by REA loans, with patronage refunds reinvested for ongoing growth. The LCA's analog is <strong>investor-member equity for foundational capital</strong> (Option A, up to 10 Colorado buyers) <strong>plus service credit pre-purchase for working capital and demand</strong> (Option C, not counted against the 10-buyer cap if structured cleanly). Loan structure (Option B) sits in reserve for later, when the cooperative has operational track record and can take on debt without governance trade.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-num">04 / Lifecycle</div>
+  <h2>How a token-unit investment lives across its lifetime</h2>
+  <p>The "token-unit investments resulting in perpetual timeshare credits" framing collapses two distinct things — the investment instrument (membership interest or note) and the benefit stream (service credits) — into a single concept. They should stay legally distinct, especially for the perpetual claim. Below is what the lifecycle looks like with that distinction preserved.</p>
+
+  <div class="timeline">
+    <div class="timeline-stage">
+      <div class="timeline-when">T-minus 6 weeks</div>
+      <h4>Structuring (now, with Jeff Pote)</h4>
+      <p>Operating Agreement amended to create investor-member class. Subscription documents drafted. Disclosure document (PPM-equivalent for limited offering) prepared. Service credit terms specified separately. Exemption strategy confirmed: 308(1)(j) for equity, Digital Token Act framing for credits.</p>
+    </div>
+    <div class="timeline-stage">
+      <div class="timeline-when">T-minus 2 weeks</div>
+      <h4>Offering</h4>
+      <p>Up to 20 prospective investor-members in Colorado approached. Disclosure documents shared. Suitability and investment-intent questions answered. Up to 10 subscriptions executed. Capital wired to the cooperative's operating account.</p>
+      <p class="timeline-detail">Service credit pre-purchase, if pursued in parallel, runs as a separate workstream with its own simpler agreement — not gated on the equity close.</p>
+    </div>
+    <div class="timeline-stage active">
+      <div class="timeline-when">T-0 to T+8 weeks</div>
+      <h4>Deployment</h4>
+      <p>DGX Station ordered and received. Hosting space prepared. Solar/storage commissioned if pursued. System brought online. Initial services configured. Attestation logging begins. First service credits issued to members.</p>
+    </div>
+    <div class="timeline-stage">
+      <div class="timeline-when">Ongoing</div>
+      <h4>Operations and the two streams of return</h4>
+      <p><strong>Stream one (investor-members):</strong> Patronage allocation proportional to investment; optional fixed return on capital per Operating Agreement terms; voting rights at member meetings within the 49% cap.</p>
+      <p><strong>Stream two (all members):</strong> Service credits issued per the membership class. Investor-members receive their credit allocation by virtue of membership, not as return on investment — this is the legal seam that keeps "investment" and "service credit" separate.</p>
+      <p class="timeline-detail">Quarterly: redemption rate adjusted to actual operating cost. Annual: patronage refund, Guarantee Fund top-up, Purpose Trust steward fee, audit/review.</p>
+    </div>
+    <div class="timeline-stage">
+      <div class="timeline-when">Year 4+</div>
+      <h4>Hardware refresh and the "perpetual" question</h4>
+      <p>The DGX Station's useful life is roughly four years. The phrase "perpetual timeshare credits as long as infrastructure is operational" then turns on what "infrastructure" means — this specific machine, or the cooperative's commitment to operate equivalent infrastructure as it federates.</p>
+      <p>The cleaner framing is <em>"for the operating life of issued infrastructure, with continuity through federation."</em> Members are protected by the Guarantee Fund if the cooperative ceases operations; the Purpose Trust holds the protocol so federation can continue beyond any single operator. This is what makes the credit durable without claiming literal perpetuity.</p>
+    </div>
+    <div class="timeline-stage">
+      <div class="timeline-when">Exit</div>
+      <h4>Investor-member redemption</h4>
+      <p>Operating Agreement defines how investor-members exit: redemption at original capital contribution (no appreciation), transfer to another qualified investor-member (subject to cooperative approval), or wind-down distribution per LCA dissolution procedures. Cooperative equity is intentionally not a vehicle for appreciation — that's part of what keeps the structure outside the speculative trap.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-num">05 / Sprint</div>
+  <h2>Fundraising in 6–8 weeks</h2>
+  <p>The constraint is not legal — the limited offering exemption is well-trodden ground. The constraint is whether the LCA has ten people who genuinely want to be founding investor-members and is prepared to treat that conversation with the care it deserves. The sprint below assumes that work is starting in parallel with documentation.</p>
+
+  <div class="sprint">
+    <div class="sprint-week">Week 1</div>
+    <div class="sprint-content">
+      <h4>Confirm structure with Jeff Pote</h4>
+      <p>Lock the exemption (308(1)(j) most likely), confirm investor-member class structure in the Operating Agreement, set the per-unit subscription amount and total raise target. Decide whether to pursue equity-only, equity-plus-pre-purchase, or all three.</p>
+    </div>
+  </div>
+  <div class="sprint">
+    <div class="sprint-week">Week 1–2</div>
+    <div class="sprint-content">
+      <h4>Draft the disclosure narrative</h4>
+      <p>Concept memo, term sheet, and risk disclosure prepared together. The disclosure should be honest about what's still proposed (per the Digital Post Status section): hardware deployment is the use of funds, services are the deliverable, redemption rate is variable per cost recovery. The narrative is the postal commons frame — members are funding civic infrastructure they will use, not betting on a startup.</p>
+    </div>
+  </div>
+  <div class="sprint">
+    <div class="sprint-week">Week 2–3</div>
+    <div class="sprint-content">
+      <h4>Investor identification and qualification</h4>
+      <p>Build the candidate list (likely already partly known — RegenHub network, Parnassus House participants, Boulder cooperative community, aligned Front Range members). Each candidate has at least one substantive conversation about the cooperative's purpose and their role in it, before any subscription document is shared.</p>
+    </div>
+  </div>
+  <div class="sprint">
+    <div class="sprint-week">Week 3–5</div>
+    <div class="sprint-content">
+      <h4>Subscription executions</h4>
+      <p>Subscription agreements signed, investment-intent acknowledgments collected, capital wired. Service credit pre-purchase, if running in parallel, captures additional capital from members outside the 10-investor count.</p>
+    </div>
+  </div>
+  <div class="sprint">
+    <div class="sprint-week">Week 5–6</div>
+    <div class="sprint-content">
+      <h4>Procurement</h4>
+      <p>DGX Station ordered. Solar/storage RFQ if pursued. Hosting space confirmed. Initial sysadmin engagement.</p>
+    </div>
+  </div>
+  <div class="sprint">
+    <div class="sprint-week">Week 6–8</div>
+    <div class="sprint-content">
+      <h4>First service delivery</h4>
+      <p>System online. Service credits issued. Attestation logging live. First member meeting under the new investor-member structure. Quarterly rate-setting begins.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-num">06 / Budget</div>
+  <h2>What the raise needs to fund</h2>
+  <p>Two plausible target sizes, depending on solar choice:</p>
+  <div class="scenario-grid">
+    <div class="scenario">
+      <div class="scenario-label">Scenario one</div>
+      <div class="scenario-name">Grid-tied, focused</div>
+      <p><strong>DGX Station:</strong> $100,000</p>
+      <p><strong>Hosting, build-out, networking:</strong> $15,000</p>
+      <p><strong>Initial operating reserve (12 months):</strong> $90,000</p>
+      <p><strong>Legal, governance, software setup:</strong> $25,000</p>
+      <p><strong>Guarantee Fund seed:</strong> $20,000</p>
+      <p style="margin-top: 0.7rem;"><strong>Total raise target: ~$250,000</strong></p>
+      <p>10 investors × $25,000 average</p>
+    </div>
+    <div class="scenario">
+      <div class="scenario-label">Scenario two</div>
+      <div class="scenario-name">Solar-integrated</div>
+      <p><strong>DGX Station:</strong> $100,000</p>
+      <p><strong>Solar + storage (10 kW + 30 kWh):</strong> $60,000</p>
+      <p><strong>Hosting, build-out, networking:</strong> $15,000</p>
+      <p><strong>Initial operating reserve (12 months):</strong> $90,000</p>
+      <p><strong>Legal, governance, software setup:</strong> $25,000</p>
+      <p><strong>Guarantee Fund seed:</strong> $25,000</p>
+      <p style="margin-top: 0.7rem;"><strong>Total raise target: ~$315,000</strong></p>
+      <p>10 investors × $31,500 average, or stratified mix</p>
+    </div>
+  </div>
+  <p>A stratified mix may serve better than uniform contributions — two or three anchor investor-members at $50–75K, five to seven at $20–30K. The anchors signal commitment to the rest and provide the durability the Guarantee Fund seed represents. Service credit pre-purchases supplement the equity raise without counting against the 10-investor cap, providing additional working capital and demand validation in the same window.</p>
+</section>
+
+<section>
+  <div class="section-num">07 / Open</div>
+  <h2>Questions that need Jeff Pote's eye</h2>
+  <p><strong>Whether service credit pre-purchases stay outside the 10-investor cap under the LCA's facts.</strong> The Digital Token Act exemption (CRS 11-51-308.7) is conceptually right, but the structure matters. If the credits are marketed alongside the equity offering and to the same audience, they may be aggregated for exemption purposes. Jeff Pote's read on integration risk is essential.</p>
+  <p><strong>Whether "perpetual" can survive scrutiny.</strong> The honest reformulation — for the operating life of issued infrastructure, with continuity through federation — is structurally sound and arguably stronger. The cooperative should be prepared to defend the framing it chooses.</p>
+  <p><strong>Whether investor-members get a fixed return on capital.</strong> LCA statute allows this; the question is whether the cooperative wants to. A fixed return makes the instrument more investment-like and may strain the patronage-orientation. The traditional cooperative answer is modest fixed return plus patronage; some cooperatives skip the fixed return entirely.</p>
+  <p><strong>Whether the cooperative wants accredited-only investors.</strong> Not required under 308(1)(j), but limiting to accredited investors reduces disclosure burden and mitigates risk. Mixing accredited and non-accredited under 308(1)(j) is allowed but requires more care in disclosure.</p>
+</section>
+
+<footer class="brief-footer">
+  Working brief for LCA discussion with Jeff Pote · Not legal or financial advice · Cooperative finance framing per Birchall and Hammond Ketilson · Rural Electric Cooperative precedent per Cooper, "Rural Electrification and the Transformation of Rural Life" · Colorado statutes cited as of the dates linked: <a href="https://law.justia.com/codes/colorado/2022/title-11/article-51/part-3/section-11-51-308/">CRS 11-51-308</a>, <a href="https://law.justia.com/codes/colorado/title-11/securities/securities/article-51/part-3/section-11-51-308-5/">CRS 11-51-308.5</a> · DGX Station power figures via <a href="https://petronellatech.com/hardware/dgx-station-gb300-power-efficiency/">Petronella</a> · Numbers are midpoint estimates with stated assumptions; re-run against actual procurement quotes before any subscription document is finalized.
+</footer>
+
+</div>
+
+<script>
+const root = document.documentElement;
+const toggle = document.getElementById('themeToggle');
+const icon = document.getElementById('themeIcon');
+const label = document.getElementById('themeLabel');
+
+function setTheme(theme) {
+  root.setAttribute('data-theme', theme);
+  if (theme === 'dark') {
+    icon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+    label.textContent = 'Light';
+  } else {
+    icon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+    label.textContent = 'Dark';
+  }
+  localStorage.setItem('cfb-theme', theme);
+}
+
+const stored = localStorage.getItem('cfb-theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+setTheme(stored || (prefersDark ? 'dark' : 'light'));
+
+toggle.addEventListener('click', () => {
+  const current = root.getAttribute('data-theme');
+  setTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+if (window.lucide) lucide.createIcons();
+</script>
+
+</body>
+</html>
