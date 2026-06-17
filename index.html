@@ -537,6 +537,7 @@ h3.sub{
 .state{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .5rem;border-radius:999px;display:inline-flex;align-items:center;gap:.3rem;white-space:nowrap}
 .state .ico{font-size:.8rem}
 .state.op{color:var(--pine);background:color-mix(in srgb,var(--pine) 12%,transparent);border:1px solid color-mix(in srgb,var(--pine) 35%,transparent)}
+.state.form{color:var(--ochre-2);background:var(--ochre-wash);border:1px solid var(--ochre)}
 .state.build{color:var(--ochre-2);background:var(--ochre-wash);border:1px solid var(--ochre)}
 .state.draft{color:var(--slate);background:color-mix(in srgb,var(--slate) 12%,transparent);border:1px solid color-mix(in srgb,var(--slate) 35%,transparent)}
 .state.prop{color:var(--ink-3);background:transparent;border:1px dashed var(--line)}
@@ -1174,8 +1175,8 @@ h3.sub{
 
   /* ---------- 06 status board + filter ---------- */
   var STATUS = [
-    {t:'RegenHub, LCA', state:'op', body:'Colorado Limited Cooperative Association filed February 6, 2026. Legal entity exists. Organizers named. Operating Agreement ratified. The cooperative is the first node.'},
-    {t:'Techne Studio', state:'op', body:'DBA of RegenHub, LCA. The studio brand for cooperative technology work. Producing the Digital Post and associated tooling. Boulder, Colorado.'},
+    {t:'RegenHub, LCA', state:'form', body:'Colorado Limited Cooperative Association filed February 6, 2026. Legal entity exists. Organizers named. Operating Agreement in ratification. Still forming — not yet delivering services.'},
+    {t:'Techne Studio', state:'form', body:'DBA of RegenHub, LCA. The studio brand for cooperative technology work. Active and producing. Still forming alongside the cooperative.'},
     {t:'Protocol Specification', state:'draft', body:'The five-layer architecture is defined. The four primitives are specified. The attestation mechanism is in design. No implementation yet \u2014 the spec is the deliverable at this stage.'},
     {t:'Stamp Credit System', state:'build', body:'The credit issuance and redemption system is under construction. Closed-loop structure specified. Supabase-backed, cooperative key management, member-facing interface in development.'},
     {t:'Investor-Member Class', state:'draft', body:'The investor-member governance tier is specified in the Operating Agreement. Limited to \u226410 Colorado buyers under C.R.S. 11-51-308(1)(j). Capped at 49% voting power. Target raise: $250K\u2013$315K for the first node.'},
@@ -1185,6 +1186,7 @@ h3.sub{
   ];
   var STATE_META = {
     op:{label:'Operational', ico:'i-check'},
+    form:{label:'Forming', ico:'i-dot'},
     build:{label:'In build', ico:'i-dot'},
     draft:{label:'Draft', ico:'i-file'},
     prop:{label:'Proposed', ico:'i-chev'}
@@ -1200,7 +1202,7 @@ h3.sub{
   });
   var FILTERS = [
     {key:'all', label:'All'},
-    {key:'op', label:'Operational'},
+    {key:'form', label:'Forming'},
     {key:'build', label:'In build'},
     {key:'draft', label:'Draft'},
     {key:'prop', label:'Proposed'}
